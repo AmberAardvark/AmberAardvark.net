@@ -49,7 +49,6 @@ specificationsRight:
     subTitle: "Keep a full history of validation results for compliance and auditing."
   - title: "Support"
     subTitle: "Includes documentation and sample code to get you started quickly."
-    subTitle: "Ideal for use in a wide range of industrial machinery, equipment, and assemblies that demand precise and secure fastening."
 blueprints:
   first: "@/images/blueprint-1.avif"
   second: "@/images/blueprint-2.avif"   
