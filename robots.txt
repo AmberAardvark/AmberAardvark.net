@@ -16,4 +16,4 @@ Crawl-delay: 2
 User-agent: *
 Disallow: /
 
-Sitemap: https://amberaardvark.net/sitemap-index.xml
+Sitemap: https://amberaardvark.github.io/sitemap-index.xml
