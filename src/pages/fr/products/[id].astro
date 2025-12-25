@@ -32,7 +32,7 @@ const { product } = Astro.props;
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 const metaDescription = product.data.description;
-const ogTitle = `${product.data.title} | Outils Matériels | ScrewFast`;
+const ogTitle = `${product.data.title} | Outils Matériels | Amber Aardvark`;
 ---
 
 <MainLayout
@@ -43,12 +43,12 @@ const ogTitle = `${product.data.title} | Outils Matériels | ScrewFast`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": `https://screwfast.uk/fr/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
+    "@id": `https://amberaardvark.net/fr/products/${product.data.title.toLowerCase().replace(/\s+/g, "-")}`,
     name: product.data.title,
     description: product.data.description,
     brand: {
       "@type": "Brand",
-      name: "ScrewFast",
+      name: "Amber Aardvark",
     },
     inLanguage: "fr",
   }}

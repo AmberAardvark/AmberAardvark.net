@@ -40,7 +40,7 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 // For the meta description, use the first paragraph of content if available
 const metaDescription =
-  post.data.contents[0] || `Lisez ${post.data.title} sur le blog de ScrewFast`;
+  post.data.contents[0] || `Lisez ${post.data.title} sur le blog de Amber Aardvark`;
 const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
 ---
 
@@ -64,12 +64,12 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       name: SITE.title,
       logo: {
         "@type": "ImageObject",
-        url: "https://screwfast.uk/favicon.ico",
+        url: "https://amberaardvark.net/favicon.ico",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://screwfast.uk/fr/blog/${post.id.replace(/^fr\//, "")}`,
+      "@id": `https://amberaardvark.net/fr/blog/${post.id.replace(/^fr\//, "")}`,
     },
     inLanguage: "fr",
   }}
