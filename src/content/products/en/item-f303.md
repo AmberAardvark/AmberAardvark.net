@@ -49,8 +49,7 @@ specificationsRight:
     subTitle: "Rapid deployment with no impact on your running services."
   - title: "Support"
     subTitle: "Ongoing support from our certified FinOps practitioners."
-    subTitle: "Ideal for use in construction, machinery, automotive, and other heavy-duty applications that demand strong and reliable fastening."
 blueprints:
   first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprint-2.avif"  
+  second: "@/images/blueprint-2.avif"
 ---

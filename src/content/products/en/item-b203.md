@@ -49,8 +49,7 @@ specificationsRight:
     subTitle: "Supports GDPR and internal audit requirements with detailed activity tracking."
   - title: "Customization"
     subTitle: "Fully customizable Power BI report to meet your specific governance needs."
-    subTitle: "Ideal for a wide array of uses, from construction environments to mechanical assemblies that demand strong and secure joints."
 blueprints:
   first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprint-2.avif"  
+  second: "@/images/blueprint-2.avif"
 ---
