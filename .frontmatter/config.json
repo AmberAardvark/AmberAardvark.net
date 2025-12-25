@@ -1,0 +1,85 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Blog",
+      "path": "[[workspace]]/src/content/blog",
+      "contentTypes": [
+        "blog-post"
+      ]
+    },
+    {
+      "title": "Products",
+      "path": "[[workspace]]/src/content/products",
+      "contentTypes": [
+        "product"
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "blog-post",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Author",
+          "name": "author",
+          "type": "string"
+        },
+        {
+          "title": "Publish Date",
+          "name": "pubDate",
+          "type": "datetime"
+        },
+        {
+          "title": "Contents",
+          "name": "contents",
+          "type": "list",
+          "description": "Paragraphs of the blog post"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Card Image",
+          "name": "cardImage",
+          "type": "image"
+        },
+        {
+          "title": "Author Image",
+          "name": "authorImage",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "name": "product",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
