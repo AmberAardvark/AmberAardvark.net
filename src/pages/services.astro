@@ -7,15 +7,16 @@ import RightSection from "@components/ui/blocks/RightSection.astro";
 import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 
 // Import necessary images
-import blueprints from "@images/blueprints-image.avif";
+import blueprints from "@images/dashboard-image.avif";
 import personWorking from "@images/person-working.avif";
-import beforeAfter from "@images/before-after.avif";
-import constructionWorkers from "@images/construction-workers.avif";
+import beforeAfter from "@images/hero-image.avif";
+import constructionWorkers from "@images/features-image.avif";
 import aerialView from "@images/aerial-view.avif";
-import usingTools from "@images/using-tools.avif";
-import progressBuilding from "@images/progress-building.avif";
-import underConstruction from "@images/under-construction.avif";
+import usingTools from "@images/person-working.avif";
+import progressBuilding from "@images/dashboard-image.avif";
+import underConstruction from "@images/features-image.avif";
 import { SITE } from "@data/constants";
+import { getRelativeUrl } from "@utils/utils";
 
 interface Article {
   isRightSection: boolean;
@@ -36,56 +37,56 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Delivering Expert Guidance",
+    title: "Data Strategy & Advisory",
     subTitle:
-      "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
+      "Navigating the complex landscape of modern data analytics requires a clear roadmap. We help you define your data strategy, assess your current maturity, and identify high-impact use cases. Our advisory services ensure your data initiatives align with your business goals and deliver measurable ROI.",
     single: false,
     imgOne: blueprints,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgOneAlt: "Strategic planning session",
     imgTwo: personWorking,
-    imgTwoAlt: "Person working in the office",
+    imgTwoAlt: "Data architect designing solution",
   },
   {
     isRightSection: false,
-    title: "Transforming Designs into Reality",
+    title: "Data Engineering & Architecture",
     subTitle:
-      "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, Amber Aardvark offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
+      "Build a solid foundation for your analytics. We design and implement scalable, secure, and efficient data platforms on Azure. From data lakes to data warehouses, we engineer robust pipelines using Azure Data Factory, Synapse Analytics, and Databricks to ensure your data is accurate, timely, and accessible.",
     img: beforeAfter,
-    imgAlt: "Construction site before and after",
+    imgAlt: "Data architecture diagram",
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "#",
   },
   {
     isRightSection: true,
-    title: "Navigating Projects with Professional Oversight",
+    title: "Power BI & Visualization",
     subTitle:
-      "Effective project management is at the heart of any successful build. Amber Aardvark provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
+      "Turn data into insights with stunning, interactive dashboards. Our Power BI experts create intuitive visualizations that tell a compelling story. We follow best practices for data modeling (Star Schema) and DAX optimization to ensure your reports are fast, reliable, and easy to use.",
     single: false,
     imgOne: constructionWorkers,
-    imgOneAlt: "Construction workers orchestrating a project",
+    imgOneAlt: "Team reviewing Power BI dashboard",
     imgTwo: aerialView,
-    imgTwoAlt: "Aerial view of managed construction",
+    imgTwoAlt: "Data visualization on screen",
   },
   {
     isRightSection: false,
-    title: "Ensuring Long-lasting Performance",
+    title: "Microsoft Fabric Implementation",
     subTitle:
-      "Our commitment to your project doesn't end at completion. Amber Aardvark offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
+      "Embrace the future of analytics with Microsoft Fabric. We help you migrate to and optimize this all-in-one analytics solution. Whether it's OneLake, Direct Lake mode, or Real-Time Intelligence, we guide you through the adoption of Fabric to unify your data estate.",
     img: usingTools,
     imgAlt:
-      "Man in orange and black vest wearing white helmet holding yellow and black power tool",
+      "Microsoft Fabric interface",
   },
   {
     isRightSection: true,
-    title: "Crafting Bespoke Strategies for Unique Challenges",
+    title: "Managed Analytics Services",
     subTitle:
-      "For our larger enterprise clients, Amber Aardvark offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward.",
+      "Focus on your business while we handle your data operations. Our managed services provide ongoing monitoring, support, and enhancements for your data platform. We ensure high availability, performance optimization, and proactive issue resolution.",
     single: false,
     imgOne: progressBuilding,
-    imgOneAlt: "In progress building structure",
+    imgOneAlt: "Monitoring dashboard",
     imgTwo: underConstruction,
-    imgTwoAlt: "Brown and gray building under construction",
+    imgTwoAlt: "Team collaborating on code",
     btnExists: true,
     btnTitle: "Read more",
     btnURL: "#",
@@ -94,8 +95,8 @@ const articles: Article[] = [
 
 const pageTitle: string = `Services | ${SITE.title}`;
 const metaDescription =
-  "Uniting expertise with your vision, Amber Aardvark Analytics provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.";
-const ogTitle = "Expert Consultation Services | Amber Aardvark";
+  "Expert data analytics and engineering services. From strategy to implementation, Amber Aardvark Analytics helps you unlock the value of your data with the Microsoft Data Platform.";
+const ogTitle = "Data Analytics Services | Amber Aardvark";
 ---
 
 <MainLayout
@@ -107,26 +108,26 @@ const ogTitle = "Expert Consultation Services | Amber Aardvark";
     "@type": "WebPage",
     "@id": `${SITE.url}/services`,
     url: `${SITE.url}/services`,
-    name: "Expert Consultation Services | Amber Aardvark",
+    name: "Data Analytics Services | Amber Aardvark",
     description:
-      "Uniting expertise with your vision, Amber Aardvark Analytics provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+      "Expert data analytics and engineering services. From strategy to implementation, Amber Aardvark Analytics helps you unlock the value of your data with the Microsoft Data Platform.",
     isPartOf: {
       "@type": "WebSite",
       url: SITE.url,
       name: "Amber Aardvark",
       description:
-        "Amber Aardvark Analytics offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "Amber Aardvark Analytics offers top-tier data engineering and analytics consulting services.",
     },
     inLanguage: "en-US",
   }}
 >
   {/* MainSection is the introductory section of the page, it also contains a CTA button */}
   <MainSection
-    title="Uniting Expertise with Your Vision"
-    subTitle="At Amber Aardvark Analytics, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
+    title="Transforming Data into Value"
+    subTitle="At Amber Aardvark Analytics, we specialize in turning complex data challenges into competitive advantages. Our comprehensive suite of services covers the entire data lifecycle, ensuring you have the insights you need to drive your business forward."
     btnExists={true}
     btnTitle="Schedule a Consultation"
-    btnURL="#"
+    btnURL={getRelativeUrl("contact")}
   />
   {/* RightSection and LeftSection contain details about various services along with pertinent imagery.
   They alternate for variety in design.

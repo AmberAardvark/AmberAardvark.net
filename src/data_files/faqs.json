@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Common questions about our data consultancy services.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "What technologies do you specialize in?",
+      "answer": "We specialize exclusively in the Microsoft Data Platform. This includes Power BI, Azure SQL Database, Azure Synapse Analytics, Azure Data Factory, and the new Microsoft Fabric ecosystem."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "Do you offer training for our internal team?",
+      "answer": "Yes! We believe in empowering our clients. We offer tailored training sessions for Power BI developers, data engineers, and business users to ensure you get the most out of your data investment."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "Can you help us migrate from on-premise to the cloud?",
+      "answer": "Absolutely. Cloud migration is one of our core competencies. We can help you assess your current on-premise SQL Server environment and design a migration strategy to Azure that minimizes downtime and maximizes performance."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "What is Microsoft Fabric and should we be using it?",
+      "answer": "Microsoft Fabric is an all-in-one analytics solution for enterprises that covers everything from data movement to data science, Real-Time Analytics, and business intelligence. We can help you evaluate if Fabric is the right fit for your organization and help you implement it."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "How do you ensure data security?",
+      "answer": "Security is paramount in everything we do. We follow Microsoft's best practices for security and governance, implementing Row-Level Security (RLS), Object-Level Security (OLS), and network security measures to protect your sensitive data."
     },
     {
-      "question": "Does Amber Aardvark offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "Do you provide ongoing support after the project is finished?",
+      "answer": "Yes, we offer Managed Analytics services where we provide ongoing monitoring, support, and enhancements for your data platform, ensuring it continues to meet your evolving business needs."
     }
   ]
 }

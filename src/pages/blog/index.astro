@@ -30,17 +30,17 @@ const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
+const title: string = "Data & Analytics Insights";
 const subTitle: string =
-  "Explore the latest news, tips, and insights from Amber Aardvark Analytics to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-const secondTitle: string = "Insights";
+  "Explore the latest trends, best practices, and technical deep dives from Amber Aardvark Analytics. From data engineering patterns to Power BI tips, our blog is your resource for mastering the Microsoft Data Platform.";
+const secondTitle: string = "Case Studies";
 const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from Amber Aardvark's team of industry experts. ";
+  "See how we've helped organizations transform their data landscape and drive business value with modern analytics solutions.";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from Amber Aardvark's team of industry experts.";
-const ogTitle = "Construction Industry Blog | Amber Aardvark";
+  "Stay up-to-date with the latest trends and developments in data analytics and engineering with insights from Amber Aardvark's team of experts.";
+const ogTitle = "Data Analytics Blog | Amber Aardvark";
 ---
 
 <MainLayout
@@ -50,17 +50,17 @@ const ogTitle = "Construction Industry Blog | Amber Aardvark";
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://amberaardvark.net/blog",
-    url: "https://amberaardvark.net/blog",
-    name: "Blog | Amber Aardvark",
+    "@id": `${SITE.url}/blog`,
+    url: `${SITE.url}/blog`,
+    name: "Data Analytics Blog | Amber Aardvark",
     description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from Amber Aardvark's team of industry experts.",
+      "Stay up-to-date with the latest trends and developments in data analytics and engineering with insights from Amber Aardvark's team of experts.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://amberaardvark.net",
+      url: SITE.url,
       name: "Amber Aardvark",
       description:
-        "Amber Aardvark Analytics offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "Amber Aardvark Analytics offers top-tier data engineering and analytics consulting services.",
     },
     inLanguage: "en-US",
   }}

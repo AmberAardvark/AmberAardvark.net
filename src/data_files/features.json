@@ -1,22 +1,22 @@
 [
   {
-    "heading": "Dedicated Teams",
-    "content": "Benefit from our committed teams who ensure your success is personal. Count on expert guidance and exceptional results throughout your project journey.",
+    "heading": "Expert Consultants",
+    "content": "Our team consists of certified Microsoft Data Platform experts. We bring deep technical knowledge and industry best practices to every engagement.",
     "svg": "groups"
   },
   {
-    "heading": "Simplicity and Affordability",
-    "content": "Find easy-to-use, affordable solutions with Amber Aardvark's line of tools and equipment. Our products make procurement simple and keep projects within budget.",
+    "heading": "Scalable Architecture",
+    "content": "We design data solutions that grow with your business. From small data marts to petabyte-scale data lakes, our architectures are built for the future.",
     "svg": "verified"
   },
   {
-    "heading": "Comprehensive Documentation",
-    "content": "Integrate with ease using Amber Aardvark's exhaustive guides and libraries. Achieve seamless product adoption with our full suite of documentation designed for your success.",
+    "heading": "Knowledge Transfer",
+    "content": "We don't just build and leave. We empower your internal teams with comprehensive documentation, training, and mentoring to ensure long-term success.",
     "svg": "books"
   },
   {
-    "heading": "User-Centric Design",
-    "content": "Experience the difference with Amber Aardvark's user-focused design — where functionality meets practicality for an enhanced work experience.",
+    "heading": "User-Centric Analytics",
+    "content": "We prioritize the end-user experience. Our dashboards and reports are designed to be intuitive, accessible, and actionable for business users.",
     "svg": "frame"
   }
 ]

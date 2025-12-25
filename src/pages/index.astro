@@ -15,10 +15,11 @@ import faqs from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
 import featureImage from "@images/features-image.avif";
-import construction from "@images/construction-image.avif";
-import tools from "@images/automated-tools.avif";
+import construction from "@images/dashboard-image.avif";
+import tools from "@images/features-image.avif";
 import dashboard from "@images/dashboard-image.avif";
 import { partnersData } from "@/data_files/constants";
+import { getRelativeUrl } from "@utils/utils";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -36,101 +37,101 @@ const avatarSrcs: Array<string> = [
   />
 
   <HeroSection
-    title=`Equip Your Projects with <span
+    title=`Unlock the Power of Your Data with <span
         class="text-yellow-500 dark:text-yellow-400">Amber Aardvark</span>`
-    subTitle="Top-quality hardware tools and expert construction services for every project need."
-    primaryBtn="Start Exploring"
-    primaryBtnURL="/products"
-    secondaryBtn="Contact Sales Team"
-    secondaryBtnURL="/contact"
+    subTitle="Expert consultancy for the Microsoft Data Platform. We transform raw data into actionable insights using Power BI, Azure, and Fabric."
+    primaryBtn="Our Services"
+    primaryBtnURL={getRelativeUrl("services")}
+    secondaryBtn="Contact Us"
+    secondaryBtnURL={getRelativeUrl("contact")}
     withReview={true}
     avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
+    rating=`<span class="font-bold">4.9</span> / 5`
+    starCount={5}
+    reviews=`From Over <span class="font-bold">50+</span> Enterprise Clients`
     src={heroImage}
-    alt="Stack of Amber Aardvark product boxes containing assorted hardware tools"
+    alt="Data analytics dashboard on a screen"
   />
 
   <ClientsSection
-    title="Trusted by Industry Leaders"
-    subTitle="Experience the reliability chosen by industry giants."
+    title="Trusted by Data-Driven Organizations"
+    subTitle="Partnering with industry leaders to deliver scalable data solutions."
     partners={partnersData}
   />
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At Amber Aardvark Analytics, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
+    title="Data Solutions for the Modern Enterprise"
+    subTitle="We help you navigate the complexities of the modern data stack. From migration to visualization, we are your partners in data excellence."
     src={featureImage}
-    alt="Amber Aardvark products in floating boxes"
+    alt="Abstract data visualization graphic"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">Amber Aardvark</span>'s offerings to perfectly suit your hardware and construction needs.`
+    title=`Tailored <span class="text-yellow-500 dark:text-yellow-400">Data Solutions</span> for your business needs.`
     tabs={[
       {
-        heading: "Cutting-Edge Tools",
+        heading: "Power BI & Visualization",
         content:
-          "Empower your projects with Amber Aardvark's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
-        svg: "tools",
+          "Transform complex data into clear, interactive stories. Our Power BI experts design intuitive dashboards that drive decision-making and democratize data access across your organization.",
+        svg: "dashboard",
         src: tools,
-        alt: "Yellow and black heavy equipment on brown grass field",
+        alt: "Interactive Power BI dashboard showing sales metrics",
         first: true,
       },
       {
-        heading: "Intuitive Dashboards",
+        heading: "Azure Data Engineering",
         content:
-          "Navigate with ease using Amber Aardvark's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
-        svg: "dashboard",
+          "Build robust, scalable data pipelines with Azure Synapse and Data Factory. We engineer the backbone of your data infrastructure to ensure reliability, security, and performance.",
+        svg: "tools",
         src: dashboard,
-        alt: "A screenshot or graphic representation of the intuitive dashboard",
+        alt: "Azure data pipeline architecture diagram",
         second: true,
       },
       {
-        heading: "Robust Features",
+        heading: "Microsoft Fabric",
         content:
-          "Minimize complexity, maximize productivity. Amber Aardvark's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+          "Future-proof your analytics with Microsoft Fabric. We help you unify your data estate, leveraging OneLake and real-time intelligence to stay ahead of the curve.",
         svg: "house",
         src: construction,
-        alt: "Gray metal building frame near tower crane during daytime",
+        alt: "Microsoft Fabric interface showing data lineage",
       },
     ]}
   />
 
   <TestimonialsSection
-    title="Fast-Track Your Projects"
-    subTitle="At Amber Aardvark, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
+    title="Accelerate Your Insights"
+    subTitle="See how we've helped other organizations transform their data landscape and drive business value."
     ;
     testimonials={[
       {
         content:
-          "Amber Aardvark dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!",
-        author: "Samantha Ruiz",
-        role: "Chief Operating Officer | ConstructIt Inc.",
+          "Amber Aardvark Analytics revolutionized our reporting. Their Power BI optimization reduced our report load times by 90%, and the new data warehouse gives us a single source of truth we can trust.",
+        author: "Sarah Jenkins",
+        role: "VP of Data Strategy | TechFlow Corp",
         avatarSrc:
           "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
       },
     ]}
     statistics={[
       {
-        count: "70k+",
+        count: "500+",
         description:
-          "customers equipped — from DIY to major construction firms",
+          "Power BI reports deployed across various industries",
       },
       {
-        count: "35%",
+        count: "30%",
         description:
-          "uptick in project efficiency with Amber Aardvark tools and services",
+          "average reduction in data processing costs for our clients",
       },
       {
-        count: "15.3%",
+        count: "100%",
         description:
-          "reduction in maintenance costs reported by long-term clients",
+          "success rate in on-premise to Azure cloud migrations",
       },
       {
-        count: "2x",
-        description: "quicker assembly using innovative fastening solutions",
+        count: "24/7",
+        description: "monitoring and support for critical data pipelines",
       },
     ]}
   />
@@ -140,8 +141,8 @@ const avatarSrcs: Array<string> = [
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
   <HeroSectionAlt
-    title="Let's Build Together"
-    subTitle="Amber Aardvark is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
-    url="https://github.com/AmberAardvark/AmberAardvark.net"
+    title="Ready to Transform Your Data?"
+    subTitle="Contact us today to schedule a consultation and discover how Amber Aardvark Analytics can help you achieve your data goals."
+    url={import.meta.env.BASE_URL + "contact"}
   />
 </MainLayout>

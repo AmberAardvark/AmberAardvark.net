@@ -2,6 +2,7 @@
 // Import SecondaryCTA component for use in this module
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
 import Icon from "@components/ui/icons/Icon.astro";
+import { getRelativeUrl } from "@utils/utils";
 
 // Define props from Astro
 const { pricing } = Astro.props;
@@ -85,7 +86,7 @@ interface PricingSectionProps {
       </ul>
       <!-- CTA for purchasing the product -->
       <a
-        href={pricing.starterKit.purchaseLink}
+        href={getRelativeUrl(pricing.starterKit.purchaseLink)}
         class="block rounded-lg bg-gray-500 px-8 py-3 text-center text-sm font-bold text-gray-100 outline-hidden ring-indigo-300 transition duration-100 hover:bg-gray-600 focus-visible:ring-3 active:text-gray-300 md:text-base"
         >{pricing.starterKit.purchaseBtnTitle}</a
       >
@@ -135,7 +136,7 @@ interface PricingSectionProps {
       </ul>
       <!-- CTA for purchasing the product -->
       <a
-        href={pricing.professionalToolbox.purchaseLink}
+        href={getRelativeUrl(pricing.professionalToolbox.purchaseLink)}
         class="block rounded-lg bg-orange-200/40 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-hidden ring-orange-300 transition duration-300 hover:bg-orange-300 focus-visible:ring-3 active:bg-orange-400 md:text-base"
         >{pricing.professionalToolbox.purchaseBtnTitle}</a
       >
@@ -147,6 +148,6 @@ interface PricingSectionProps {
       {pricing.thirdOption}
     </p>
 
-    <SecondaryCTA title={pricing.btnText} url="#" />
+    <SecondaryCTA title={pricing.btnText} url={getRelativeUrl("contact")} />
   </div>
 </section>

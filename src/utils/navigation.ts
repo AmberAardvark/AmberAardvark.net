@@ -1,26 +1,28 @@
 // An array of links for navigation bar
+import { getRelativeUrl } from "./utils";
+
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
-  { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
+  { name: "Home", url: getRelativeUrl("/") },
+  { name: "About", url: getRelativeUrl("about") },
+  { name: "Services", url: getRelativeUrl("services") },
+  { name: "Blog", url: getRelativeUrl("blog") },
+  { name: "Contact", url: getRelativeUrl("contact") },
 ];
 // An array of links for footer
 const footerLinks = [
   {
     section: "Ecosystem",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Documentation", url: getRelativeUrl("welcome-to-docs/") },
+      { name: "Data Engineering", url: getRelativeUrl("services") },
+      { name: "Analytics Consulting", url: getRelativeUrl("services") },
     ],
   },
   {
     section: "Company",
     links: [
-      { name: "About us", url: "#" },
-      { name: "Blog", url: "/blog" },
+      { name: "About us", url: getRelativeUrl("about") },
+      { name: "Blog", url: getRelativeUrl("blog") },
       { name: "Careers", url: "#" },
       { name: "Customers", url: "#" },
     ],

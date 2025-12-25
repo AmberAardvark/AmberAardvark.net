@@ -1,53 +1,54 @@
 ---
-title: "SF-FN F303"
-description: "Hex Bolts"
+title: "Azure Cost Optimizer"
+description: "FinOps Solution"
 main:
   id: 4
   content: |
-    Introducing the SF-FN F303 Hex Bolts – the perfect choice for heavy-duty fastening applications. Crafted with precision and durability in mind, these hex bolts provide the strength and reliability you need for your toughest projects.
+    Stop overspending on Azure. Our Cost Optimizer solution analyzes your usage patterns and recommends actionable changes to reduce your cloud bill. From rightsizing VMs to identifying orphaned resources, we help you get the most out of your cloud investment.
   imgCard: "@/images/product-image-4.avif"
   imgMain: "@/images/product-image-main-4.avif"
-  imgAlt: "Mockup boxes of hex bolts"
+  imgAlt: "Azure Cost Analysis Dashboard"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
     title: "Description"
   - id: "tabs-with-card-item-2"
     dataTab: "#tabs-with-card-2"
-    title: "Specifications"
+    title: "Features"
   - id: "tabs-with-card-item-3"
     dataTab: "#tabs-with-card-3"
-    title: "Blueprints"
+    title: "Reports"
 longDescription:
-  title: "Heavy-Duty Fastening Solutions"
+  title: "Maximize ROI on Your Cloud Spend"
   subTitle: |
-    The SF-FN F303 Hex Bolts are designed to handle the toughest fastening challenges with ease. Whether you're working on construction projects or heavy machinery, these hex bolts deliver the strength and reliability you need.
+    Cloud costs can spiral out of control if not managed actively. Our solution brings FinOps best practices to your organization, providing visibility and accountability for cloud spending.
   btnTitle: "Contact sales to learn more"
   btnURL: "#"
 descriptionList:
-  - title: "Strength and Durability"
-    subTitle: "Constructed from high-quality materials, these hex bolts are built to withstand heavy loads and tough conditions."
-  - title: "Precision Engineering"
-    subTitle: "Engineered with precision-cut threads and exact specifications, ensuring a tight and secure fit every time."
-  - title: "Versatility"
-    subTitle: "Suitable for a wide range of applications, from construction to machinery, providing versatile fastening solutions."
+  - title: "Automated Recommendations"
+    subTitle: "Receive daily recommendations for cost savings, such as reserved instances, savings plans, and rightsizing."
+  - title: "Budget Tracking"
+    subTitle: "Set up granular budgets and alerts for teams, projects, or departments to prevent budget overruns."
+  - title: "Waste Elimination"
+    subTitle: "Identify and remove unused resources like unattached disks, idle load balancers, and stopped VMs."
 specificationsLeft:
-  - title: "Material"
-    subTitle: "Made from premium-grade steel or alloy, offering exceptional strength and corrosion resistance."
-  - title: "Thread Design"
-    subTitle: "Precision-cut threads ensure optimal grip and reliability, even in high-stress environments."
-  - title: "Quantity"
-    subTitle: "Each set includes a sufficient quantity of hex bolts to tackle various projects and applications."
-  - title: "Sizes"
-    subTitle: "Available in a range of sizes to accommodate different project requirements, ensuring versatility and compatibility."
+  - title: "Integration"
+    subTitle: "Connects securely to your Azure Cost Management and Billing data."
+  - title: "Reporting"
+    subTitle: "Interactive Power BI dashboards for visualizing trends and anomalies."
+  - title: "Forecasting"
+    subTitle: "Predict future spending based on historical data and growth trends."
+  - title: "Tagging"
+    subTitle: "Enforce tagging policies to ensure accurate cost allocation."
 specificationsRight:
-  - title: "Finish"
-    subTitle: "Finished with a protective coating to enhance corrosion resistance and extend service life."
-  - title: "Load Capacity"
-    subTitle: "Designed to meet or exceed industry standards for load-bearing capacity, ensuring reliable performance under heavy loads."
-  - title: "Certifications"
-    subTitle: "Compliant with relevant industry standards and certifications, guaranteeing quality and reliability."
-  - title: "Applications"
+  - title: "Multi-Cloud"
+    subTitle: "Support for AWS and Google Cloud Platform (optional add-on)."
+  - title: "Savings Potential"
+    subTitle: "Typical customers see a 20-30% reduction in their monthly cloud bill."
+  - title: "Implementation"
+    subTitle: "Rapid deployment with no impact on your running services."
+  - title: "Support"
+    subTitle: "Ongoing support from our certified FinOps practitioners."
     subTitle: "Ideal for use in construction, machinery, automotive, and other heavy-duty applications that demand strong and reliable fastening."
 blueprints:
   first: "@/images/blueprint-1.avif"

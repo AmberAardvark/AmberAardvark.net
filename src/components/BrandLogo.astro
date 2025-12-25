@@ -1,6 +1,18 @@
 ---
+import { Image } from "astro:assets";
+import logo from "@images/starlight/screwfast_logo.svg";
+
 const { class: className } = Astro.props;
 ---
-<span class:list={[className, "font-bold text-neutral-800 dark:text-neutral-200 text-2xl"]}>
-  Amber Aardvark
+
+<span class="flex items-center gap-x-2">
+  <Image
+    src={logo}
+    alt="Amber Aardvark"
+    class:list={[className, "h-10 w-auto"]}
+    loading="eager"
+  />
+  <span class="text-xl font-bold text-neutral-800 dark:text-neutral-200">
+    Amber Aardvark Analytics
+  </span>
 </span>

@@ -1,38 +1,39 @@
 {
-  "title": "Simple, Transparent Pricing",
-  "subTitle": "Boost efficiency with Amber Aardvark's clear, value-driven plans.",
-  "badge": "Best value",
-  "thirdOption": "Enterprise Solutions?",
-  "btnText": "Get a Custom Quote",
+  "title": "Flexible Engagement Models",
+  "subTitle": "Choose the right level of support for your data journey.",
+  "badge": "Most Popular",
+  "thirdOption": "Need a Custom Solution?",
+  "btnText": "Contact Us",
 
   "starterKit": {
-    "name": "Starter Kit",
-    "description": "Best option for DIY projects",
-    "price": "49",
-    "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "name": "Data Assessment",
+    "description": "Perfect for understanding your current data estate",
+    "price": "Custom",
+    "cents": "",
+    "billingFrequency": "One-time engagement",
     "features": [
-      "Key hardware tools",
-      "Access to guides & tutorials",
-      "Standard support"
+      "Architecture Review",
+      "Performance Analysis",
+      "Security Audit",
+      "Roadmap & Recommendations"
     ],
-    "purchaseBtnTitle": "Get the Starter Kit",
-    "purchaseLink": "#"
+    "purchaseBtnTitle": "Schedule Assessment",
+    "purchaseLink": "/contact"
   },
 
   "professionalToolbox": {
-    "name": "Professional Toolbox",
-    "description": "Best for large scale uses",
-    "price": "89",
-    "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "name": "Managed Analytics",
+    "description": "Ongoing support and development for your data platform",
+    "price": "Retainer",
+    "cents": "",
+    "billingFrequency": "Monthly",
     "features": [
-      "Premium tool selection",
-      "Priority support",
-      "Exclusive content & deals",
-      "Bulk order discounts"
+      "Dedicated Support Team",
+      "Proactive Monitoring",
+      "Continuous Improvement",
+      "Priority Incident Response"
     ],
-    "purchaseBtnTitle": "Get the Professional Toolbox",
-    "purchaseLink": "#"
+    "purchaseBtnTitle": "Get Managed Services",
+    "purchaseLink": "/contact"
   }
 }

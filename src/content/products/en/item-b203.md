@@ -1,53 +1,54 @@
 ---
-title: "SF-BN B203"
-description: "Tap Bolts and Nuts Set"
+title: "Power BI Audit Tool"
+description: "Governance & Monitoring"
 main:
   id: 3
   content: |
-    Meet the SF-BN B203 – your reliable companion for professional-grade fastening. This comprehensive box set comes with a versatile selection of tap bolts and nuts, meticulously crafted to provide the strongest hold for your construction and assembly projects.
+    Gain complete visibility into your Power BI tenant with our Audit Tool. It extracts, processes, and visualizes audit logs to help you understand usage patterns, identify inactive reports, and ensure compliance with data governance policies.
   imgCard: "@/images/product-image-3.avif"
   imgMain: "@/images/product-image-main-3.avif"
-  imgAlt: "Mockup boxes of a tap bolts and nuts set"
+  imgAlt: "Power BI Audit Dashboard"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
     title: "Description"
   - id: "tabs-with-card-item-2"
     dataTab: "#tabs-with-card-2"
-    title: "Specifications"
+    title: "Features"
   - id: "tabs-with-card-item-3"
     dataTab: "#tabs-with-card-3"
-    title: "Blueprints"
+    title: "Screenshots"
 longDescription:
-  title: "Strength Meets Precision"
+  title: "Take Control of Your Power BI Estate"
   subTitle: |
-    The SF-BN B203 Tap Bolts and Nuts Set offers robust durability and precision for construction professionals, ensuring reliable performance in every application, from house framing to machinery assembly.
+    As Power BI adoption grows, so does the challenge of managing it. Our Audit Tool provides the insights you need to optimize licensing, improve performance, and secure your data.
   btnTitle: "Contact sales to learn more"
   btnURL: "#"
 descriptionList:
-  - title: "Corrosion Resistance"
-    subTitle: "Zinc coating not only provides a polished look but also shields against corrosion, ensuring longevity."
-  - title: "Improved Safety"
-    subTitle: "A secure fitting translates to safer structures with reduced risk of component failure."
-  - title: "Convenience"
-    subTitle: "This all-in-one set means you have the right size on hand, cutting down on project delays and additional trips to the hardware store."
+  - title: "Usage Analytics"
+    subTitle: "Track who is viewing which reports and when, to identify high-value content and training needs."
+  - title: "Security Auditing"
+    subTitle: "Monitor sharing activities, export events, and gateway changes to detect potential security risks."
+  - title: "License Optimization"
+    subTitle: "Identify unused Pro/Premium licenses and reallocate them to save costs."
 specificationsLeft:
-  - title: "Material Composition"
-    subTitle: "Manufactured from high-grade steel, delivering strength and reliability for demanding applications."
-  - title: "Surface Finish"
-    subTitle: "Protected with a zinc coating to offer enhanced corrosion resistance and longevity."
-  - title: "Quantity Per Set"
-    subTitle: "The set includes a balanced selection of 25 tap bolts and 25 matching nuts."
-  - title: "Size Assortment"
-    subTitle: "Features a comprehensive range of sizes to cater to various project requirements, ensuring compatibility and versatility."
+  - title: "Data Source"
+    subTitle: "Connects directly to Office 365 Unified Audit Log and Power BI Activity Log."
+  - title: "Deployment"
+    subTitle: "Available as a Power BI App or a custom solution deployed to your Azure tenant."
+  - title: "History"
+    subTitle: "Retain audit history indefinitely, overcoming the 30-day or 90-day limits of the default logs."
+  - title: "Alerts"
+    subTitle: "Configure email alerts for specific events like mass exports or permission changes."
 specificationsRight:
-  - title: "Thread Details"
-    subTitle: "Engineered with precision-cut threads for a secure fit and easy installation."
-  - title: "Mechanical Properties"
-    subTitle: "Each bolt and nut is designed to meet specific load rating or strength grades, suitable for structural applications."
-  - title: "Standards and Certifications"
-    subTitle: "Complies with relevant industry standards and certifications, ensuring consistent quality and safety."
-  - title: "Suitable Applications"
+  - title: "Report Catalog"
+    subTitle: "Automatically generate a catalog of all workspaces, datasets, and reports."
+  - title: "Performance Metrics"
+    subTitle: "Analyze dataset refresh times and failure rates to improve reliability."
+  - title: "Compliance"
+    subTitle: "Supports GDPR and internal audit requirements with detailed activity tracking."
+  - title: "Customization"
+    subTitle: "Fully customizable Power BI report to meet your specific governance needs."
     subTitle: "Ideal for a wide array of uses, from construction environments to mechanical assemblies that demand strong and secure joints."
 blueprints:
   first: "@/images/blueprint-1.avif"

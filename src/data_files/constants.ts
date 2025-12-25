@@ -4,9 +4,9 @@ import ogImageSrc from "@images/social.png";
 
 export const SITE = {
   title: "Amber Aardvark",
-  tagline: "Top-quality Hardware Tools",
-  description: "Amber Aardvark Analytics offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
-  description_short: "Amber Aardvark Analytics offers top-tier hardware tools and expert construction services to meet all your project needs.",
+  tagline: "Data Analytics & Engineering",
+  description: "Amber Aardvark Analytics offers top-tier data engineering, analytics consulting, and Power BI solutions to unlock the value of your data. Start exploring and contact our team for expert guidance.",
+  description_short: "Amber Aardvark Analytics offers top-tier data engineering and analytics consulting services.",
   url: import.meta.env.SITE + import.meta.env.BASE_URL,
   author: "Amber Aardvark",
 };
@@ -35,8 +35,8 @@ export const OG = {
   locale: "en_US",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
-  description: "Equip your projects with Amber Aardvark's top-quality hardware tools and expert construction services. Trusted by industry leaders, Amber Aardvark offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  title: `${SITE.title}: : Data Analytics & Engineering Services`,
+  description: "Transform your business with Amber Aardvark's expert data services. From data lakes to dashboards, we provide the insights you need to succeed. Trusted by industry leaders for reliability and innovation.",
   image: ogImageSrc,
 };
 

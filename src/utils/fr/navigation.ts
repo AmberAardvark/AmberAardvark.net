@@ -1,26 +1,27 @@
 
+import { getRelativeUrl } from "../utils";
+
 const navBarLinks = [
-  { name: "Accueil", url: "/fr" },
-  { name: "Produits", url: "/fr/products" },
-  { name: "Services", url: "/fr/services" },
-  { name: "Blog", url: "/fr/blog" },
-  { name: "Contact", url: "/fr/contact" },
+  { name: "Accueil", url: getRelativeUrl("fr") },
+  { name: "Services", url: getRelativeUrl("fr/services") },
+  { name: "Blog", url: getRelativeUrl("fr/blog") },
+  { name: "Contact", url: getRelativeUrl("fr/contact") },
 ];
 
 const footerLinks = [
   {
     section: "Écosystème",
     links: [
-      { name: "Documentation", url: "/fr/welcome-to-docs/" },
-      { name: "Outils et Équipements", url: "/fr/products" },
-      { name: "Services de Construction", url: "/fr/services" },
+      { name: "Documentation", url: getRelativeUrl("fr/welcome-to-docs/") },
+      { name: "Ingénierie des Données", url: getRelativeUrl("fr/services") },
+      { name: "Conseil en Analytique", url: getRelativeUrl("fr/services") },
     ],
   },
   {
     section: "Société",
     links: [
       { name: "À propos de nous", url: "#" },
-      { name: "Blog", url: "/fr/blog" },
+      { name: "Blog", url: getRelativeUrl("fr/blog") },
       { name: "Carrières", url: "#" },
       { name: "Clients", url: "#" },
     ],

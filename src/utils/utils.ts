@@ -13,3 +13,20 @@ function capitalize(str:string): string {
 }
 
   export { formatDate, capitalize };
+
+// Utility function to handle URL construction with the base path
+export function getRelativeUrl(path: string): string {
+  let base = import.meta.env.BASE_URL;
+  
+  // Ensure base ends with a slash
+  if (!base.endsWith("/")) {
+    base += "/";
+  }
+  
+  // Remove leading slash from path if present to avoid double slashes
+  if (path.startsWith("/")) {
+    path = path.slice(1);
+  }
+  
+  return base + path;
+}
