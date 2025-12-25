@@ -43,7 +43,7 @@ const socialImageRes = await getImage({
   width: 1200,
   height: 600,
 });
-const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+const socialImage = new URL(socialImageRes.src, Astro.site).href;
 
 const languages: { [key: string]: string } = {
   en: "",

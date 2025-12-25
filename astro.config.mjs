@@ -6,11 +6,14 @@ import starlight from "@astrojs/starlight";
 
 import mdx from "@astrojs/mdx";
 
+const site = "https://AmberAardvark.github.io";
+const base = "/AmberAardvark.net";
+
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://AmberAardvark.github.io",
-  base: "/AmberAardvark.net",
+  site,
+  base,
   image: {
     domains: ["images.unsplash.com"],
   },
@@ -106,14 +109,14 @@ export default defineConfig({
           tag: "meta",
           attrs: {
             property: "og:image",
-            content: "https://AmberAardvark.net" + "/social.webp",
+            content: site + base + "/social.webp",
           },
         },
         {
           tag: "meta",
           attrs: {
             property: "twitter:image",
-            content: "https://AmberAardvark.net" + "/social.webp",
+            content: site + base + "/social.webp",
           },
         },
       ],

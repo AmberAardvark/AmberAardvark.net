@@ -10,7 +10,7 @@ The website is built using the following technologies:
 - HTML5
 - CSS3
 - JavaScript (ES6+)
-- 
+- Astro framework
 
 ## Coding Instructions
 
