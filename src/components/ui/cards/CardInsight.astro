@@ -4,11 +4,7 @@ import { Image } from "astro:assets";
 import Icon from "@components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
 
-const {
-  insightEntry,
-  insightLocale,
-  label = Astro.currentLocale === "fr" ? "Lire plus" : "Read more",
-} = Astro.props;
+const { insightEntry, insightLocale, label = "Read more" } = Astro.props;
 
 interface Props {
   insightEntry: CollectionEntry<"insights">;
@@ -19,7 +15,7 @@ interface Props {
 
 <!-- The anchor tag is the root container for the "Insight" card. It links to the insight detail page. -->
 <a
-  class="group rounded-xl outline-hidden ring-zinc-500 transition duration-300 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
+  class="group rounded-xl ring-zinc-500 outline-hidden transition duration-300 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
   href={insightLocale && insightLocale !== "en"
     ? `/${insightLocale}/insights/${insightEntry.id.replace(/^fr\//, "")}/`
     : `/insights/${insightEntry.id.replace(/^en\//, "")}/`}

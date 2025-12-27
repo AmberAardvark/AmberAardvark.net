@@ -4,44 +4,11 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import Btn404 from "@components/ui/buttons/Btn404.astro";
 import { SITE } from "@data/constants";
 
-// Define types for translations
-type TranslationKeys = "en" | "fr";
-type Translations = {
-  [key in TranslationKeys]: {
-    pageTitle: string;
-    subTitle: string;
-    content: string;
-    btnTitle: string;
-  };
-};
-
-// Define variables for page content
-const defaultLang: TranslationKeys = "en";
-const translations: Translations = {
-  en: {
-    pageTitle: `Page Not Found | ${SITE.title}`,
-    subTitle: "Oops, this data point is missing!",
-    content:
-      "Don't let this null value slow you down. Let's get you back to your analysis.",
-    btnTitle: "Go Back",
-  },
-  fr: {
-    pageTitle: `Page Non Trouvée | ${SITE.title}`,
-    subTitle: "Oups, ce point de données est manquant!",
-    content:
-      "Ne laissez pas cette valeur nulle vous ralentir. Revenons à votre analyse.",
-    btnTitle: "Retournez",
-  },
-};
-
-// Determine language from the URL
-const urlPath = Astro.url.pathname;
-const langCodeMatch = urlPath.match(/^\/(en|fr)\//);
-const lang: TranslationKeys = langCodeMatch
-  ? (langCodeMatch[1] as TranslationKeys)
-  : defaultLang;
-
-const { pageTitle, subTitle, content, btnTitle } = translations[lang];
+const pageTitle = `Page Not Found | ${SITE.title}`;
+const subTitle = "Oops, this data point is missing!";
+const content =
+  "Don't let this null value slow you down. Let's get you back to your analysis.";
+const btnTitle = "Go Back";
 ---
 
 <MainLayout title={pageTitle}>
@@ -49,19 +16,19 @@ const { pageTitle, subTitle, content, btnTitle } = translations[lang];
     <div class="mx-auto max-w-(--breakpoint-xl) px-4 py-8 lg:px-6 lg:py-16">
       <div class="mx-auto max-w-(--breakpoint-sm) text-center">
         <h1
-          class="text-dark mb-4 text-7xl font-extrabold text-yellow-500 dark:text-yellow-400 text-outline lg:text-9xl"
+          class="text-dark text-outline mb-4 text-7xl font-extrabold text-yellow-500 lg:text-9xl dark:text-yellow-400"
         >
           404
         </h1>
         <p
           id="subtitle"
-          class="mb-4 text-balance text-3xl font-bold tracking-tight text-neutral-700 dark:text-neutral-300 md:text-4xl"
+          class="mb-4 text-3xl font-bold tracking-tight text-balance text-neutral-700 md:text-4xl dark:text-neutral-300"
         >
           {subTitle}
         </p>
         <p
           id="content"
-          class="mb-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
+          class="mb-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400"
         >
           {content}
         </p>

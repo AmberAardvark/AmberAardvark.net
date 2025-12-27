@@ -34,10 +34,8 @@ const ogDescription = customDescription || OG.description;
 // Define the metadata for your website and individual pages
 const siteURL = `${Astro.site}`; // Set the website URL in astro.config.mjs
 const author = SITE.author;
-const canonical = new URL(
-  Astro.url.pathname,
-  Astro.site || Astro.url.origin
-).href;
+const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
+  .href;
 const basePath = Astro.url.pathname;
 const socialImageRes = await getImage({
   src: OG.image,
@@ -48,7 +46,6 @@ const socialImage = new URL(socialImageRes.src, Astro.site).href;
 
 const languages: { [key: string]: string } = {
   en: "",
-  fr: "fr",
 };
 
 function createHref(lang: string, prefix: string, path: string): string {
@@ -87,8 +84,10 @@ const appleTouchIcon = await getImage({
 });
 ---
 
-{/*  Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
-     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data */}{
+{
+  /*  Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
+     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data */
+}{
   structuredData && (
     <script
       type="application/ld+json"
