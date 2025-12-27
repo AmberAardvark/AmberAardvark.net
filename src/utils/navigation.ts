@@ -11,7 +11,7 @@ const navBarLinks = [
 // An array of links for footer
 const footerLinks = [
   {
-    section: "Ecosystem",
+    section: "Services",
     links: [
       { name: "Documentation", url: getRelativeUrl("welcome-to-docs/") },
       { name: "Data Engineering", url: getRelativeUrl("services") },
@@ -23,8 +23,6 @@ const footerLinks = [
     links: [
       { name: "About us", url: getRelativeUrl("about") },
       { name: "Blog", url: getRelativeUrl("blog") },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
     ],
   },
 ];

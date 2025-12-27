@@ -22,8 +22,6 @@ const footerLinks = [
     links: [
       { name: "À propos de nous", url: "#" },
       { name: "Blog", url: getRelativeUrl("fr/blog") },
-      { name: "Carrières", url: "#" },
-      { name: "Clients", url: "#" },
     ],
   },
 ];

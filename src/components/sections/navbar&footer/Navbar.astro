@@ -2,11 +2,9 @@
 //Import relevant dependencies
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
-import Authentication from "../misc/Authentication.astro";
 import enStrings from "@utils/navigation.ts";
 import frStrings from "@utils/fr/navigation.ts";
 import BrandLogo from "@components/BrandLogo.astro";
-import LanguagePicker from "@components/ui/LanguagePicker.astro";
 import { getRelativeUrl } from "@utils/utils";
 
 // Select the correct translation based on the page's lang prop:
@@ -20,17 +18,17 @@ const homeUrl = Astro.currentLocale === "fr" ? getRelativeUrl("fr") : getRelativ
 >
   <!-- Navigation container -->
   <nav
-    class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-3 backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
+    class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-2 backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
     aria-label="Global"
   >
     <div class="flex items-center justify-between">
       <!-- Brand logo -->
       <a
-        class="flex-none rounded-lg text-xl font-bold outline-hidden ring-zinc-500 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
+        class="flex-none rounded-lg text-sm font-bold outline-hidden ring-zinc-500 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden sm:text-xl"
         href={homeUrl}
         aria-label="Brand"
       >
-        <BrandLogo class="h-10 w-auto" />
+        <BrandLogo class="h-6 w-auto sm:h-10" />
       </a>
       <!-- Collapse toggle for smaller screens -->
       <div class="ml-auto mr-5 md:hidden">
@@ -72,10 +70,6 @@ const homeUrl = Astro.currentLocale === "fr" ? getRelativeUrl("fr") : getRelativ
           </svg>
         </button>
       </div>
-      <!-- ThemeIcon component specifically for smaller screens -->
-      <span class="inline-block md:hidden">
-        <ThemeIcon />
-      </span>
     </div>
     <!-- Contains navigation links -->
     <div
@@ -91,10 +85,8 @@ const homeUrl = Astro.currentLocale === "fr" ? getRelativeUrl("fr") : getRelativ
           <NavLink url={link.url} name={link.name} />
         ))}
 
-        <Authentication />
-        <LanguagePicker />
         <!-- ThemeIcon component specifically for larger screens -->
-        <span class="hidden md:inline-block">
+        <span class="inline-block">
           <ThemeIcon />
         </span>
       </div>
