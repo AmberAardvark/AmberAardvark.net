@@ -7,6 +7,7 @@ import EmailContactInput from "@components/ui/forms/input/EmailContactInput.astr
 import PhoneInput from "@components/ui/forms/input/PhoneInput.astro";
 import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import Icon from "@components/ui/icons/Icon.astro";
+import { getRelativeUrl } from "@utils/utils";
 
 // Define the variables that will be used in this component
 const title: string = "Contact us";
@@ -91,7 +92,7 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
           content="Browse through all of our knowledgebase articles."
           isLinkVisible={true}
           linkTitle="Visit guides & tutorials"
-          linkURL="#"
+          linkURL={getRelativeUrl("welcome-to-docs/")}
           isArrowVisible={true}
           ><Icon name="question" />
         </ContactIconBlock>
@@ -101,17 +102,9 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
           content="Explore our FAQ for quick, clear answers to common queries."
           isLinkVisible={true}
           linkTitle="Visit FAQ"
-          linkURL="#"
+          linkURL={getRelativeUrl("#faq")}
           isArrowVisible={true}
           ><Icon name="chatBubble" />
-        </ContactIconBlock>
-
-        <ContactIconBlock
-          heading="Visit our office"
-          content="Amber Aardvark UK"
-          isAddressVisible={true}
-          addressContent="72 Union Terrace, E10 4PE London"
-          ><Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock

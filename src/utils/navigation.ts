@@ -24,6 +24,7 @@ const footerLinks = [
     links: [
       { name: "About us", url: getRelativeUrl("about") },
       { name: "Blog", url: getRelativeUrl("blog") },
+      { name: "Contact", url: getRelativeUrl("contact") },
     ],
   },
 ];
