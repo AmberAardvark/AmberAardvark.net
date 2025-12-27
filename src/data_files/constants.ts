@@ -3,7 +3,7 @@ import ogImageSrc from "@images/social.png";
 
 
 export const SITE = {
-  title: "Amber Aardvark",
+  title: "Amber Aardvark Analytics",
   tagline: "Data Analytics & Engineering",
   description: "Amber Aardvark Analytics offers top-tier data engineering, analytics consulting, and Power BI solutions to unlock the value of your data. Start exploring and contact our team for expert guidance.",
   description_short: "Amber Aardvark Analytics offers top-tier data engineering and analytics consulting services.",
@@ -35,7 +35,7 @@ export const OG = {
   locale: "en_US",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Data Analytics & Engineering Services`,
+  title: `${SITE.title}: Data Analytics & Engineering Services`,
   description: "Transform your business with Amber Aardvark's expert data services. From data lakes to dashboards, we provide the insights you need to succeed. Trusted by industry leaders for reliability and innovation.",
   image: ogImageSrc,
 };

@@ -14,6 +14,7 @@ const {
   imgOneAlt,
   imgTwo,
   imgTwoAlt,
+  id,
 } = Astro.props;
 // Define TypeScript interface for the properties
 interface Props {
@@ -27,10 +28,12 @@ interface Props {
   imgOneAlt?: any;
   imgTwo?: any;
   imgTwoAlt?: any;
+  id?: string;
 }
 ---
 <!-- Root section of the component -->
 <section
+  id={id}
   class="mx-auto max-w-[85rem] items-center gap-16 px-4 py-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full"
 >
   <div>

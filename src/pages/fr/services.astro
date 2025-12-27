@@ -16,6 +16,7 @@ import aerialView from "@images/aerial-view.avif";
 import usingTools from "@images/using-tools.avif";
 import progressBuilding from "@images/progress-building.avif";
 import underConstruction from "@images/under-construction.avif";
+import trainingImage from "@images/features-image.avif";
 
 interface Article {
   isRightSection: boolean;
@@ -31,6 +32,7 @@ interface Article {
   imgOneAlt?: string;
   imgTwo?: any;
   imgTwoAlt?: string;
+  id?: string;
 }
 
 const articles: Article[] = [
@@ -44,6 +46,7 @@ const articles: Article[] = [
     imgOneAlt: "Plans et tablette numérique avec des plans de construction.",
     imgTwo: personWorking,
     imgTwoAlt: "Personne travaillant au bureau",
+    id: "analytics-consulting",
   },
   {
     isRightSection: false,
@@ -55,6 +58,7 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "En savoir plus",
     btnURL: "#",
+    id: "data-engineering",
   },
   {
     isRightSection: true,
@@ -66,6 +70,7 @@ const articles: Article[] = [
     imgOneAlt: "Ouvriers du bâtiment orchestrant un projet",
     imgTwo: aerialView,
     imgTwoAlt: "Vue aérienne d'une construction gérée",
+    id: "power-bi",
   },
   {
     isRightSection: false,
@@ -75,6 +80,7 @@ const articles: Article[] = [
     img: usingTools,
     imgAlt:
       "Homme en gilet orange et noir portant un casque blanc tenant un outil électrique jaune et noir",
+    id: "fabric",
   },
   {
     isRightSection: true,
@@ -89,6 +95,16 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "Lire la suite",
     btnURL: "#",
+    id: "managed-services",
+  },
+  {
+    isRightSection: false,
+    title: "Formation et Habilitation",
+    subTitle:
+      "Donnez à votre équipe les compétences dont elle a besoin pour réussir. Nous proposons des programmes de formation complets sur Power BI, Azure Data Engineering et Microsoft Fabric. Des ateliers pour débutants aux masterclasses avancées, nous vous aidons à renforcer vos capacités internes et à favoriser une culture axée sur les données.",
+    img: trainingImage,
+    imgAlt: "Session de formation",
+    id: "training",
   },
 ];
 ---
@@ -144,6 +160,7 @@ const articles: Article[] = [
           btnExists={article.btnExists}
           btnTitle={article.btnTitle}
           btnURL={article.btnURL}
+          id={article.id}
         />
       ) : (
         <LeftSection
@@ -154,6 +171,7 @@ const articles: Article[] = [
           btnExists={article.btnExists}
           btnTitle={article.btnTitle}
           btnURL={article.btnURL}
+          id={article.id}
         />
       );
     })

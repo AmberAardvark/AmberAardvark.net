@@ -14,8 +14,9 @@ const footerLinks = [
     section: "Services",
     links: [
       { name: "Documentation", url: getRelativeUrl("welcome-to-docs/") },
-      { name: "Data Engineering", url: getRelativeUrl("services") },
-      { name: "Analytics Consulting", url: getRelativeUrl("services") },
+      { name: "Data Engineering", url: getRelativeUrl("services#data-engineering") },
+      { name: "Analytics Consulting", url: getRelativeUrl("services#analytics-consulting") },
+      { name: "Training", url: getRelativeUrl("services#training") },
     ],
   },
   {

@@ -10,6 +10,7 @@ import { SITE } from "@data/constants";
 
 // Get all blogs post in French and sort them based on publish date
 
+/*
 const frenchBlogEntries = await getCollection("blog", ({ id }) => {
   return id.startsWith("fr/");
 });
@@ -28,14 +29,17 @@ const insightPosts: CollectionEntry<"insights">[] = frenchInsightsEntries;
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+*/
 
 // Define variables for page content
 const title: string = "Votre Passerelle vers l'Excellence en Construction";
 const subTitle: string =
   "Explorez les dernières actualités, astuces et analyses de Amber Aardvark pour améliorer vos projets de construction. Des mises en avant de produits aux stratégies de gestion de projet, notre blog est votre ressource incontournable pour tout ce qui concerne les outils et la construction.";
+/*
 const secondTitle: string = "Perspectives";
 const secondSubTitle: string =
   "Restez à jour avec les dernières tendances et évolutions de l'industrie de la construction grâce aux analyses de l'équipe d'experts de Amber Aardvark.";
+*/
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
@@ -86,43 +90,17 @@ const ogTitle = "Blog de l'Industrie de la Construction | Amber Aardvark";
   </section>
 
   <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full text-center"
   >
-    {/* Blog posts grid */}
-    <div class="grid gap-6 lg:grid-cols-2">
-      {
-        otherPosts.map((blogEntry) => (
-          <CardBlog blogEntry={blogEntry} blogLocale="fr" />
-        ))
-      }
-    </div>
-  </section>
-  {/* Most recent blog post */}
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="fr" />
-  </section>
-  {/* Insights section */}
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
-      <h2
-        class="text-2xl font-bold text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
-      >
-        {secondTitle}
+    <div class="bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl p-8 md:p-12">
+      <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200">
+        Bientôt disponible
       </h2>
-      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
-        {secondSubTitle}
+      <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+        Nous travaillons dur pour vous apporter des articles perspicaces. Restez à l'écoute !
       </p>
     </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} insightLocale="fr" />
-        ))
-      }
-    </div>
   </section>
+
+
 </MainLayout>

@@ -12,9 +12,10 @@ import personWorking from "@images/person-working.avif";
 import beforeAfter from "@images/amber-aardvark-map.png";
 import constructionWorkers from "@images/amber-aardvark-features.png";
 import aerialView from "@images/aerial-view.avif";
-import usingTools from "@images/person-working.avif";
-import progressBuilding from "@images/dashboard-image.avif";
-import underConstruction from "@images/amber-aardvark-features.png";
+import usingTools from "@images/automated-tools.avif";
+import progressBuilding from "@images/blueprint-1.avif";
+import underConstruction from "@images/blueprint-2.avif";
+import trainingImage from "@images/construction-workers.avif";
 import { SITE } from "@data/constants";
 import { getRelativeUrl } from "@utils/utils";
 
@@ -32,6 +33,7 @@ interface Article {
   imgOneAlt?: string;
   imgTwo?: any;
   imgTwoAlt?: string;
+  id?: string;
 }
 
 const articles: Article[] = [
@@ -45,6 +47,7 @@ const articles: Article[] = [
     imgOneAlt: "Strategic planning session",
     imgTwo: personWorking,
     imgTwoAlt: "Data architect designing solution",
+    id: "analytics-consulting",
   },
   {
     isRightSection: false,
@@ -56,6 +59,7 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "Learn More",
     btnURL: "#",
+    id: "data-engineering",
   },
   {
     isRightSection: true,
@@ -67,6 +71,7 @@ const articles: Article[] = [
     imgOneAlt: "Team reviewing Power BI dashboard",
     imgTwo: aerialView,
     imgTwoAlt: "Data visualization on screen",
+    id: "power-bi",
   },
   {
     isRightSection: false,
@@ -76,6 +81,7 @@ const articles: Article[] = [
     img: usingTools,
     imgAlt:
       "Microsoft Fabric interface",
+    id: "fabric",
   },
   {
     isRightSection: true,
@@ -90,6 +96,16 @@ const articles: Article[] = [
     btnExists: true,
     btnTitle: "Read more",
     btnURL: "#",
+    id: "managed-services",
+  },
+  {
+    isRightSection: false,
+    title: "Training & Enablement",
+    subTitle:
+      "Empower your team with the skills they need to succeed. We offer comprehensive training programs on Power BI, Azure Data Engineering, and Microsoft Fabric. From beginner workshops to advanced masterclasses, we help you build internal capability and foster a data-driven culture.",
+    img: trainingImage,
+    imgAlt: "Training session",
+    id: "training",
   },
 ];
 
@@ -151,6 +167,7 @@ const ogTitle = "Data Analytics Services | Amber Aardvark";
           btnExists={article.btnExists}
           btnTitle={article.btnTitle}
           btnURL={article.btnURL}
+          id={article.id}
         />
       ) : (
         <LeftSection
@@ -161,6 +178,7 @@ const ogTitle = "Data Analytics Services | Amber Aardvark";
           btnExists={article.btnExists}
           btnTitle={article.btnTitle}
           btnURL={article.btnURL}
+          id={article.id}
         />
       );
     })
