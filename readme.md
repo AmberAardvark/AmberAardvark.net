@@ -36,6 +36,30 @@ npm run test:headed   # See browser window
 npm run test:debug    # Debug mode
 ```
 
+### Review Dependabot PRs
+
+**Interactive review:**
+
+```bash
+npm run review-deps
+```
+
+This will:
+
+- List all Dependabot PRs
+- Show version type (MAJOR/MINOR/PATCH)
+- Display security status
+- Show test results
+- Prompt you to merge, test locally, view, or skip each PR
+
+**Auto-merge patches:**
+
+```bash
+npm run review-deps:auto
+```
+
+Automatically merges patch updates that pass tests.
+
 ## Going Live (Custom Domain)
 
 Currently, the site is configured for a temporary GitHub Pages URL (`https://AmberAardvark.github.io/AmberAardvark.net/`) and blocks search engines.

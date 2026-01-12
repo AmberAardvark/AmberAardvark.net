@@ -9,6 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "browsers": "powershell -ExecutionPolicy Bypass -File ./launch-browsers.ps1",
+    "review-deps": "powershell -ExecutionPolicy Bypass -File ./review-dependabot.ps1",
+    "review-deps:auto": "powershell -ExecutionPolicy Bypass -File ./review-dependabot.ps1 -AutoMergePatch",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
