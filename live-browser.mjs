@@ -1,5 +1,5 @@
 import { chromium } from "@playwright/test";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const cdpUrl = process.env.PLAYWRIGHT_CDP_URL ?? "http://127.0.0.1:9222";
@@ -7,6 +7,7 @@ const baseUrl =
   process.env.PLAYWRIGHT_LIVE_BASE_URL ??
   "http://localhost:4321/AmberAardvark.net/";
 const outputDir = path.resolve("test-results", "live-browser");
+const windowStatePath = path.join(outputDir, "window-state.json");
 const projectPathPrefix = new URL(baseUrl).pathname.replace(/\/$/, "");
 
 async function main() {
@@ -464,12 +465,22 @@ async function main() {
     }
 
     if (command === "viewport") {
+      if (args[0] === "reset" || args[0] === "auto" || args[0] === "release") {
+        const page = await getInteractivePage(browser);
+        await resetViewportControl(page);
+        console.log("Viewport control returned to the browser window.");
+        return;
+      }
+
       const width = parseInt(args[0], 10);
       const height = parseInt(args[1], 10);
       if (!width || !height) {
-        throw new Error("Usage: npm run live-browser -- viewport 1280 720");
+        throw new Error(
+          "Usage: npm run live-browser -- viewport 1280 720 | viewport reset",
+        );
       }
       const page = await getInteractivePage(browser);
+      await saveWindowStateIfNeeded(page);
       await page.setViewportSize({ width, height });
       console.log(`Viewport set to ${width}x${height}`);
       return;
@@ -613,6 +624,78 @@ async function settlePage(page) {
   try {
     await page.waitForLoadState("load", { timeout: 5000 });
   } catch {}
+}
+
+async function resetViewportControl(page) {
+  const session = await page.context().newCDPSession(page);
+
+  try {
+    await session.send("Emulation.clearDeviceMetricsOverride");
+    await restoreWindowState(session);
+  } finally {
+    await session.detach();
+  }
+}
+
+async function saveWindowStateIfNeeded(page) {
+  try {
+    await readFile(windowStatePath, "utf8");
+    return;
+  } catch {}
+
+  await mkdir(outputDir, { recursive: true });
+
+  const session = await page.context().newCDPSession(page);
+
+  try {
+    const { bounds } = await session.send("Browser.getWindowForTarget");
+    const normalizedBounds = normalizeWindowBounds(bounds);
+    await writeFile(
+      windowStatePath,
+      `${JSON.stringify(normalizedBounds, null, 2)}\n`,
+      "utf8",
+    );
+  } finally {
+    await session.detach();
+  }
+}
+
+async function restoreWindowState(session) {
+  let savedBounds;
+
+  try {
+    const raw = await readFile(windowStatePath, "utf8");
+    savedBounds = JSON.parse(raw);
+  } catch {
+    return;
+  }
+
+  const { windowId } = await session.send("Browser.getWindowForTarget");
+  const bounds = savedBounds.windowState && savedBounds.windowState !== "normal"
+    ? { windowState: savedBounds.windowState }
+    : {
+        left: savedBounds.left,
+        top: savedBounds.top,
+        width: savedBounds.width,
+        height: savedBounds.height,
+      };
+
+  await session.send("Browser.setWindowBounds", {
+    windowId,
+    bounds,
+  });
+
+  await rm(windowStatePath, { force: true });
+}
+
+function normalizeWindowBounds(bounds) {
+  return {
+    windowState: bounds.windowState ?? "normal",
+    left: bounds.left,
+    top: bounds.top,
+    width: bounds.width,
+    height: bounds.height,
+  };
 }
 
 // --- Watchers ---
@@ -782,6 +865,7 @@ function printUsage() {
     "  storage [show|cookies|clear]    Inspect or clear browser storage",
   );
   console.log("  viewport <width> <height>       Resize the viewport");
+  console.log("  viewport reset                  Return viewport control to the browser");
   console.log("  pdf                             Export page as PDF");
 }
 

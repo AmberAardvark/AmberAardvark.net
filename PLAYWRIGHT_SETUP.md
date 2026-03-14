@@ -96,6 +96,7 @@ npm run live-browser -- <command> [args]
 | `network [ms]`                   | Watch network requests (default 5 s) |
 | `storage [show\|cookies\|clear]` | Inspect or clear browser storage     |
 | `viewport <width> <height>`      | Resize the viewport                  |
+| `viewport reset`                 | Restore browser-controlled resizing and prior window size |
 | `pdf`                            | Export the page as a PDF             |
 
 ## Output Files

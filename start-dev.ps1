@@ -23,6 +23,10 @@
 .PARAMETER EdgeDebugPort
     CDP port for Edge (default: 9222).
 
+.PARAMETER SkipServer
+    Do not start or detect a local dev server. Use this for arbitrary live
+    websites, userscript workflows, or extension page analysis.
+
 .PARAMETER SkipBrowser
     Start only the dev server, skip launching Edge.
 #>
@@ -33,6 +37,7 @@ param(
     [string]$BasePath,
     [string]$Url,
     [int]$EdgeDebugPort = 9222,
+    [switch]$SkipServer,
     [switch]$SkipBrowser
 )
 
@@ -132,68 +137,79 @@ function Test-ServerReady {
 
 # ---- main ----
 
-$pkg = Get-PackageJson
-
-# Resolve dev command
-if (-not $DevCommand) {
-    $DevCommand = Find-DevScript $pkg
-}
-
-# Resolve port
-if ($Port -eq 0) {
-    $Port = Detect-Port $pkg $DevCommand
-}
-
-# Resolve base path
-if (-not $BasePath) {
-    $BasePath = Detect-BasePath
-}
-
-# Build the full URL
-if (-not $Url) {
-    $basePart = $BasePath.TrimStart("/")
-    if ($basePart) {
-        $Url = "http://localhost:$Port/$basePart/"
-    } else {
-        $Url = "http://localhost:$Port/"
-    }
-}
-
-Write-Host "Dev command : npm run $DevCommand"
-Write-Host "Port        : $Port"
-Write-Host "Base path   : $(if ($BasePath) { $BasePath } else { '(none)' })"
-Write-Host "URL         : $Url"
-Write-Host ""
-
-# Check if server is already running
-$alreadyRunning = Test-ServerReady $Url
-if ($alreadyRunning) {
-    Write-Host "Dev server is already running at $Url"
-} else {
-    Write-Host "Starting dev server (npm run $DevCommand)..."
-    # Start in a minimised window so it does not block
-    $npmPath = (Get-Command npm -ErrorAction SilentlyContinue).Source
-    if (-not $npmPath) {
-        Write-Error "npm not found on PATH"
+if ($SkipServer) {
+    if (-not $Url) {
+        Write-Error "-Url is required when -SkipServer is used."
         exit 1
     }
-    Start-Process cmd.exe -ArgumentList ('/c', 'cd /d', ('"' + $PSScriptRoot + '"'), '&&', 'npm', 'run', $DevCommand) `
-        -WindowStyle Minimized
 
-    # Poll until the server responds (up to 60 s)
-    $maxWait = 60
-    $elapsed = 0
-    while (-not (Test-ServerReady $Url)) {
-        Start-Sleep -Seconds 2
-        $elapsed += 2
-        if ($elapsed -ge $maxWait) {
-            Write-Warning "Dev server did not respond after ${maxWait}s.  Continuing anyway..."
-            break
-        }
-        Write-Host "  Waiting for server... (${elapsed}s)"
+    Write-Host "Dev server : skipped"
+    Write-Host "URL        : $Url"
+    Write-Host ""
+} else {
+    $pkg = Get-PackageJson
+
+    # Resolve dev command
+    if (-not $DevCommand) {
+        $DevCommand = Find-DevScript $pkg
     }
-    if (Test-ServerReady $Url) {
-        Write-Host "Dev server is ready."
+
+    # Resolve port
+    if ($Port -eq 0) {
+        $Port = Detect-Port $pkg $DevCommand
+    }
+
+    # Resolve base path
+    if (-not $BasePath) {
+        $BasePath = Detect-BasePath
+    }
+
+    # Build the full URL
+    if (-not $Url) {
+        $basePart = $BasePath.TrimStart("/")
+        if ($basePart) {
+            $Url = "http://localhost:$Port/$basePart/"
+        } else {
+            $Url = "http://localhost:$Port/"
+        }
+    }
+
+    Write-Host "Dev command : npm run $DevCommand"
+    Write-Host "Port        : $Port"
+    Write-Host "Base path   : $(if ($BasePath) { $BasePath } else { '(none)' })"
+    Write-Host "URL         : $Url"
+    Write-Host ""
+
+    # Check if server is already running
+    $alreadyRunning = Test-ServerReady $Url
+    if ($alreadyRunning) {
+        Write-Host "Dev server is already running at $Url"
+    } else {
+        Write-Host "Starting dev server (npm run $DevCommand)..."
+        # Start in a minimised window so it does not block
+        $npmPath = (Get-Command npm -ErrorAction SilentlyContinue).Source
+        if (-not $npmPath) {
+            Write-Error "npm not found on PATH"
+            exit 1
+        }
+        Start-Process cmd.exe -ArgumentList ('/c', 'cd /d', ('"' + $PSScriptRoot + '"'), '&&', 'npm', 'run', $DevCommand) `
+            -WindowStyle Minimized
+
+        # Poll until the server responds (up to 60 s)
+        $maxWait = 60
+        $elapsed = 0
+        while (-not (Test-ServerReady $Url)) {
+            Start-Sleep -Seconds 2
+            $elapsed += 2
+            if ($elapsed -ge $maxWait) {
+                Write-Warning "Dev server did not respond after ${maxWait}s.  Continuing anyway..."
+                break
+            }
+            Write-Host "  Waiting for server... (${elapsed}s)"
+        }
+        if (Test-ServerReady $Url) {
+            Write-Host "Dev server is ready."
+        }
     }
 }
 
