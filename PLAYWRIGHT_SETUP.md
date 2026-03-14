@@ -1,141 +1,137 @@
 # Shared Browser Workflow
 
-This repo can use Playwright to attach to the same Edge window you are using for local Astro development.
+This repo uses Playwright to attach to the same Edge window you are using for
+local development. The agent can inspect and interact with what you see — no
+screenshots or error text copy-pasting required.
 
-That is the practical way to let an agent inspect and interact with what you are seeing. The agent cannot directly read an arbitrary desktop window, but it can control a Chromium-based browser instance that was started with remote debugging enabled.
-
-Within that browser context, the agent can act like a user: navigate, click, hover, type, fill fields, press keys, and capture the resulting rendered page.
-
-## What This Gives You
-
-- You view the site in a normal Edge window.
-- The agent can attach to that same browser instance through Playwright CDP.
-- The agent can capture the current page state without you copying screenshots or error text by hand.
-
-## One-Time Constraint
-
-Edge must be started with remote debugging enabled before the agent can attach.
-
-If Edge is already open normally, close all Edge windows first.
-
-## Recommended Workflow
-
-1. Start the Astro dev server:
-
-   ```powershell
-   npm run dev
-   ```
-
-2. In a second terminal, launch a shared Edge window for the local site:
-
-   ```powershell
-   npm run browser:shared
-   ```
-
-   This opens Edge at `http://localhost:4321/AmberAardvark.net/` with CDP enabled on port `9222`.
-
-3. Use that Edge window as your normal working browser for the site.
-
-4. When you want the agent to inspect what you are seeing, use one of these commands:
-
-   ```powershell
-   npm run live-browser -- status
-   npm run live-browser -- capture
-   npm run live-browser -- help
-   ```
-
-## Commands
-
-### Show the pages currently open in the shared Edge instance
+## Quick Start
 
 ```powershell
-npm run live-browser -- status
+npm run start-dev
 ```
 
-### Capture the current local page for agent inspection
+This single command:
+
+1. Auto-detects the dev command, port, and base path from `package.json` and
+   framework config files.
+2. Starts the dev server in a background window (or detects it is already
+   running).
+3. Launches a shared Edge instance with CDP enabled.
+4. Sets `PLAYWRIGHT_LIVE_BASE_URL` so `live-browser` knows where the site is.
+
+You can also start each piece manually:
 
 ```powershell
-npm run live-browser -- capture
+npm run dev              # terminal 1 — Astro dev server
+npm run browser:shared   # terminal 2 — Edge with CDP on port 9222
 ```
 
-This writes:
+### Portability
 
-- `test-results/live-browser/live-browser.png`
-- `test-results/live-browser/live-browser.html`
-- `test-results/live-browser/live-browser.json`
+`start-dev.ps1` is designed to work on **any repo** that has a `package.json`
+with a `dev`, `start`, or `serve` script. Copy `start-dev.ps1`,
+`launch-browsers.ps1`, and `live-browser.mjs` into another project, run
+`npm run start-dev`, and it will auto-detect the framework.
 
-### Navigate the shared Edge page to another route
+Override auto-detection with parameters:
 
 ```powershell
-npm run live-browser -- open /contact
+.\start-dev.ps1 -DevCommand serve -Port 8080 -BasePath /my-app
 ```
 
-This resolves against the current project page, so `/contact` becomes the local route under `/AmberAardvark.net/`.
+## Command Reference
 
-You can also pass a full URL.
-
-### Click a visible element in the shared page
+Run any command via:
 
 ```powershell
-npm run live-browser -- click "text=Contact Us"
+npm run live-browser -- <command> [args]
 ```
 
-### Fill an input field
+### Observation
 
-```powershell
-npm run live-browser -- fill "input[name=email]" "name@example.com"
-```
+| Command                       | Description                                                           |
+| ----------------------------- | --------------------------------------------------------------------- |
+| `status`                      | List open pages in the shared browser                                 |
+| `capture`                     | Screenshot + HTML + metadata to `test-results/live-browser/`          |
+| `text <selector>`             | Read visible text from an element                                     |
+| `html <selector>`             | Read `innerHTML` from an element                                      |
+| `attr <selector> <attribute>` | Read an attribute value                                               |
+| `count <selector>`            | Count matching elements                                               |
+| `visible <selector>`          | Check if an element is visible (`true`/`false`)                       |
+| `links`                       | List all links on the page                                            |
+| `meta`                        | Show title, meta tags, and canonical URL                              |
+| `screenshot <selector>`       | Screenshot a single element                                           |
+| `a11y`                        | Accessibility snapshot + basic audit (missing alt, unlabelled inputs) |
+| `eval <expression>`           | Run JavaScript in the page context                                    |
 
-### Type keystrokes into an element
+### Navigation
 
-```powershell
-npm run live-browser -- type "textarea" "Hello from Playwright"
-```
+| Command                            | Description                         |
+| ---------------------------------- | ----------------------------------- |
+| `open <path-or-url>`               | Navigate to a route or full URL     |
+| `back`                             | Browser back                        |
+| `forward`                          | Browser forward                     |
+| `reload`                           | Reload the page                     |
+| `scroll [top\|bottom\|<selector>]` | Scroll the page (default: `bottom`) |
 
-### Press a key on an element
+### Interaction
 
-```powershell
-npm run live-browser -- press "input[name=q]" Enter
-```
+| Command                     | Description                                |
+| --------------------------- | ------------------------------------------ |
+| `click <selector>`          | Click an element                           |
+| `fill <selector> <value>`   | Set an input value (clears first)          |
+| `type <selector> <value>`   | Type keystrokes into an element            |
+| `press <selector> <key>`    | Press a key on an element                  |
+| `select <selector> <value>` | Select an option in a `<select>`           |
+| `check <selector>`          | Check a checkbox or radio button           |
+| `uncheck <selector>`        | Uncheck a checkbox                         |
+| `hover <selector>`          | Hover over an element                      |
+| `wait <selector>`           | Wait for an element to appear (up to 30 s) |
 
-### Hover over an element
+### Diagnostics
 
-```powershell
-npm run live-browser -- hover "nav a"
-```
+| Command                          | Description                          |
+| -------------------------------- | ------------------------------------ |
+| `console [ms]`                   | Watch console output (default 5 s)   |
+| `network [ms]`                   | Watch network requests (default 5 s) |
+| `storage [show\|cookies\|clear]` | Inspect or clear browser storage     |
+| `viewport <width> <height>`      | Resize the viewport                  |
+| `pdf`                            | Export the page as a PDF             |
 
-### Read text from an element
+## Output Files
 
-```powershell
-npm run live-browser -- text "main h1"
-```
+All files are written to `test-results/live-browser/`.
 
-### Watch console output and page errors
+| File                     | Produced by  |
+| ------------------------ | ------------ |
+| `live-browser.png`       | `capture`    |
+| `live-browser.html`      | `capture`    |
+| `live-browser.json`      | `capture`    |
+| `element-screenshot.png` | `screenshot` |
+| `a11y-snapshot.json`     | `a11y`       |
+| `live-browser.pdf`       | `pdf`        |
 
-```powershell
-npm run live-browser -- console 5000
-```
-
-That listens for 5 seconds and prints console events and uncaught page errors from the attached page.
-
-## How to Use This With the Agent
+## Agent Usage
 
 Once the shared browser is running, you can ask the agent to:
 
-- capture the current page,
-- inspect the DOM or rendered HTML,
-- navigate to another route,
-- click buttons or links,
-- fill and submit forms,
-- read visible text from the page,
-- watch the browser console for errors,
-- reproduce a local issue in the same browser instance,
-- or create a one-off Playwright script that attaches through CDP for a more specific interaction.
+- Capture the current page (screenshot, HTML, metadata)
+- Read text, attributes, or HTML from any element
+- Navigate to routes, go back/forward, reload
+- Click buttons, fill forms, type text, press keys
+- Check accessibility (missing alt text, unlabelled inputs)
+- Audit SEO meta tags and links
+- Watch console output or network traffic for errors
+- Inspect or clear localStorage, sessionStorage, cookies
+- Resize the viewport for responsive testing
+- Export a PDF of the current page
+- Run arbitrary JavaScript in the page context
 
 ## Notes
 
-- This workflow is best with Edge or Chrome. Playwright CDP attach is the reliable option for a shared live browser window.
-- Firefox is not the right path for this particular workflow.
-- Because the agent is attaching to your live browser session, actions taken by the agent affect the page you are looking at.
-- This gives the agent browser-level interaction with the page content. It does not provide desktop-level control over browser chrome, other applications, or native OS dialogs.
-- This repo uses an Astro `base` path of `/AmberAardvark.net`, so local navigation needs to stay under that path.
+- Edge or Chrome required. Firefox does not support CDP attach.
+- Actions taken by the agent affect the page you are looking at.
+- This repo uses an Astro `base` of `/AmberAardvark.net`, so local navigation
+  stays under that path.
+- The `PLAYWRIGHT_LIVE_BASE_URL` env var overrides the default base URL.
+- `test-results/` is gitignored — captured files are local only.

@@ -16,7 +16,8 @@
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
-    "live-browser": "node ./live-browser.mjs"
+    "live-browser": "node ./live-browser.mjs",
+    "start-dev": "powershell -ExecutionPolicy Bypass -File ./start-dev.ps1"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
