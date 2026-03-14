@@ -9,12 +9,14 @@
     "preview": "astro preview",
     "astro": "astro",
     "browsers": "powershell -ExecutionPolicy Bypass -File ./launch-browsers.ps1",
+    "browser:shared": "powershell -ExecutionPolicy Bypass -File ./launch-browsers.ps1 -EdgeOnly -Url http://localhost:4321/AmberAardvark.net/",
     "review-deps": "powershell -ExecutionPolicy Bypass -File ./review-dependabot.ps1",
     "review-deps:auto": "powershell -ExecutionPolicy Bypass -File ./review-dependabot.ps1 -AutoMergePatch",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
-    "test:debug": "playwright test --debug"
+    "test:debug": "playwright test --debug",
+    "live-browser": "node ./live-browser.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
