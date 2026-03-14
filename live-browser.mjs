@@ -671,14 +671,15 @@ async function restoreWindowState(session) {
   }
 
   const { windowId } = await session.send("Browser.getWindowForTarget");
-  const bounds = savedBounds.windowState && savedBounds.windowState !== "normal"
-    ? { windowState: savedBounds.windowState }
-    : {
-        left: savedBounds.left,
-        top: savedBounds.top,
-        width: savedBounds.width,
-        height: savedBounds.height,
-      };
+  const bounds =
+    savedBounds.windowState && savedBounds.windowState !== "normal"
+      ? { windowState: savedBounds.windowState }
+      : {
+          left: savedBounds.left,
+          top: savedBounds.top,
+          width: savedBounds.width,
+          height: savedBounds.height,
+        };
 
   await session.send("Browser.setWindowBounds", {
     windowId,
@@ -865,7 +866,9 @@ function printUsage() {
     "  storage [show|cookies|clear]    Inspect or clear browser storage",
   );
   console.log("  viewport <width> <height>       Resize the viewport");
-  console.log("  viewport reset                  Return viewport control to the browser");
+  console.log(
+    "  viewport reset                  Return viewport control to the browser",
+  );
   console.log("  pdf                             Export page as PDF");
 }
 
