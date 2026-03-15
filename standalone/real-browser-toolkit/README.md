@@ -372,6 +372,8 @@ It always covers the commands that are generic enough to work on most pages:
 - viewport size changes and automatic reset
 - PDF export
 
+Viewport smoke checks are executed in isolated temporary tabs so your active working tab is not left in emulation mode after the run.
+
 ### What Needs a Config File
 
 Commands like these depend on your page structure:

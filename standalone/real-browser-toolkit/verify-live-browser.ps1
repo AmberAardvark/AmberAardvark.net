@@ -170,38 +170,49 @@ function Invoke-ViewportTest {
   Write-Host "`n=== $Name ===" -ForegroundColor Cyan
   Write-Host ("ARGS: viewport | $Width | $Height") -ForegroundColor DarkGray
 
-  Push-Location $ResolvedProjectRoot
-  try {
-    & node $LiveBrowserScript viewport "$Width" "$Height"
-    $setCode = $LASTEXITCODE
-  } finally {
-    Pop-Location
-  }
+  $oldIsolated = $env:PLAYWRIGHT_LIVE_ISOLATED
+  $env:PLAYWRIGHT_LIVE_ISOLATED = "1"
 
-  if ($setCode -ne 0) {
-    Add-Result -Name $Name -ExitCode $setCode
+  try {
+    Push-Location $ResolvedProjectRoot
+    try {
+      & node $LiveBrowserScript viewport "$Width" "$Height"
+      $setCode = $LASTEXITCODE
+    } finally {
+      Pop-Location
+    }
+
+    if ($setCode -ne 0) {
+      Add-Result -Name $Name -ExitCode $setCode
+      Start-Sleep -Milliseconds $StepDelayMs
+      return
+    }
+
     Start-Sleep -Milliseconds $StepDelayMs
-    return
-  }
 
-  Start-Sleep -Milliseconds $StepDelayMs
+    Write-Host "Resetting viewport control..." -ForegroundColor DarkGray
+    Push-Location $ResolvedProjectRoot
+    try {
+      & node $LiveBrowserScript viewport reset
+      $resetCode = $LASTEXITCODE
+    } finally {
+      Pop-Location
+    }
 
-  Write-Host "Resetting viewport control..." -ForegroundColor DarkGray
-  Push-Location $ResolvedProjectRoot
-  try {
-    & node $LiveBrowserScript viewport reset
-    $resetCode = $LASTEXITCODE
+    if ($resetCode -eq 0) {
+      Add-Result -Name $Name -ExitCode 0
+    } else {
+      Add-Result -Name $Name -ExitCode $resetCode
+    }
+
+    Start-Sleep -Milliseconds $StepDelayMs
   } finally {
-    Pop-Location
+    if ($null -eq $oldIsolated) {
+      Remove-Item Env:PLAYWRIGHT_LIVE_ISOLATED -ErrorAction SilentlyContinue
+    } else {
+      $env:PLAYWRIGHT_LIVE_ISOLATED = $oldIsolated
+    }
   }
-
-  if ($resetCode -eq 0) {
-    Add-Result -Name $Name -ExitCode 0
-  } else {
-    Add-Result -Name $Name -ExitCode $resetCode
-  }
-
-  Start-Sleep -Milliseconds $StepDelayMs
 }
 
 function Test-WatcherWithTrigger {
