@@ -320,6 +320,114 @@ function Invoke-LiveRaw {
   }
 }
 
+function Invoke-LiveParallelCommands {
+  param(
+    [object[]]$Specs,
+    [int]$MaxParallel = 1
+  )
+
+  if (-not $Specs -or $Specs.Count -eq 0) {
+    return
+  }
+
+  if ($MaxParallel -lt 1) { $MaxParallel = 1 }
+  if ($MaxParallel -gt 12) { $MaxParallel = 12 }
+
+  $queue = New-Object System.Collections.Generic.Queue[object]
+  foreach ($spec in $Specs) {
+    if (-not (Should-RunTest -Name $spec.Name)) {
+      Write-Host "SKIP: $($spec.Name)" -ForegroundColor DarkYellow
+      continue
+    }
+
+    $queue.Enqueue($spec)
+  }
+
+  if ($queue.Count -eq 0) {
+    return
+  }
+
+  $logDir = Join-Path $ResolvedProjectRoot "test-results\live-browser"
+  New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+
+  $oldIsolated = $env:PLAYWRIGHT_LIVE_ISOLATED
+  $env:PLAYWRIGHT_LIVE_ISOLATED = "1"
+
+  $running = @()
+  try {
+    while ($queue.Count -gt 0 -or $running.Count -gt 0) {
+      while ($queue.Count -gt 0 -and $running.Count -lt $MaxParallel) {
+        $spec = $queue.Dequeue()
+        Write-Host "`n=== $($spec.Name) ===" -ForegroundColor Cyan
+        Write-Host ("ARGS: " + ($spec.Args -join " | ")) -ForegroundColor DarkGray
+
+        $token = [Guid]::NewGuid().ToString("N")
+        $safeName = ($spec.Name -replace "[^A-Za-z0-9_-]", "_")
+        $stdoutPath = Join-Path $logDir ("parallel-{0}-{1}.stdout.log" -f $safeName, $token)
+        $stderrPath = Join-Path $logDir ("parallel-{0}-{1}.stderr.log" -f $safeName, $token)
+        $argumentList = @($LiveBrowserScript) + @($spec.Args)
+
+        $proc = Start-Process -FilePath node `
+          -ArgumentList $argumentList `
+          -WorkingDirectory $ResolvedProjectRoot `
+          -RedirectStandardOutput $stdoutPath `
+          -RedirectStandardError $stderrPath `
+          -WindowStyle Hidden `
+          -PassThru
+
+        $running += [pscustomobject]@{
+          Spec = $spec
+          Proc = $proc
+          Stdout = $stdoutPath
+          Stderr = $stderrPath
+        }
+      }
+
+      if ($running.Count -eq 0) {
+        continue
+      }
+
+      $stillRunning = @()
+      foreach ($item in $running) {
+        if (-not $item.Proc.HasExited) {
+          $stillRunning += $item
+          continue
+        }
+
+        $exitCode = $item.Proc.ExitCode
+        Add-Result -Name $item.Spec.Name -ExitCode $exitCode
+
+        if ($exitCode -ne 0) {
+          $errText = ""
+          if (Test-Path $item.Stdout) { $errText += (Get-Content $item.Stdout -Raw) }
+          if (Test-Path $item.Stderr) {
+            if ($errText) { $errText += "`n" }
+            $errText += (Get-Content $item.Stderr -Raw)
+          }
+
+          if ($errText) {
+            Write-Host "Failure output:" -ForegroundColor Yellow
+            Write-Host $errText
+          }
+        }
+      }
+
+      $running = $stillRunning
+      if ($running.Count -gt 0) {
+        Start-Sleep -Milliseconds 200
+      }
+    }
+  } finally {
+    if ($null -eq $oldIsolated) {
+      Remove-Item Env:PLAYWRIGHT_LIVE_ISOLATED -ErrorAction SilentlyContinue
+    } else {
+      $env:PLAYWRIGHT_LIVE_ISOLATED = $oldIsolated
+    }
+  }
+
+  Start-Sleep -Milliseconds $StepDelayMs
+}
+
 function Ensure-TrailingSlash {
   param([string]$Url)
 
@@ -447,6 +555,11 @@ function Ensure-ProbeSelectorCandidate {
   }
 
   return $false
+}
+
+function Remove-ProbeFixture {
+  $cleanup = Invoke-LiveRaw -CommandArgs @("eval", "(() => { const host = document.getElementById('lb-probe-host'); if (host) host.remove(); return 'ok'; })()") -CaptureOutput
+  return ($cleanup.ExitCode -eq 0)
 }
 
 function Add-SelectorsFromPageData {
@@ -653,16 +766,27 @@ Invoke-Live "help" @("help") -NoDelay
 Invoke-Live "status" @("status")
 Invoke-Live "open primary" @("open", (Resolve-RouteTarget -PathOrUrl ([string]$config.primaryPath)))
 Crawl-SelectorPool
-Invoke-Live "capture" @("capture")
-Invoke-Live "links" @("links")
-Invoke-Live "meta" @("meta")
-Invoke-Live "eval" @("eval", "document.title")
+
+$parallelTabs = [int]$config.crawlParallelTabs
+if ($parallelTabs -lt 1) { $parallelTabs = 1 }
+if ($parallelTabs -gt 12) { $parallelTabs = 12 }
+
+Invoke-LiveParallelCommands -MaxParallel $parallelTabs -Specs @(
+  [pscustomobject]@{ Name = "capture"; Args = @("capture") },
+  [pscustomobject]@{ Name = "links"; Args = @("links") },
+  [pscustomobject]@{ Name = "meta"; Args = @("meta") },
+  [pscustomobject]@{ Name = "eval"; Args = @("eval", "document.title") },
+  [pscustomobject]@{ Name = "scroll bottom"; Args = @("scroll", "bottom") },
+  [pscustomobject]@{ Name = "scroll top"; Args = @("scroll", "top") },
+  [pscustomobject]@{ Name = "storage show"; Args = @("storage", "show") },
+  [pscustomobject]@{ Name = "storage cookies"; Args = @("storage", "cookies") },
+  [pscustomobject]@{ Name = "pdf"; Args = @("pdf") }
+)
+
 Invoke-Live "open secondary" @("open", (Resolve-RouteTarget -PathOrUrl ([string]$config.secondaryPath)))
 Invoke-Live "back" @("back")
 Invoke-Live "forward" @("forward")
 Invoke-Live "reload" @("reload")
-Invoke-Live "scroll bottom" @("scroll", "bottom")
-Invoke-Live "scroll top" @("scroll", "top")
 Invoke-LiveWithSelectorFallback "scroll selector" "scroll" { param($s) @("scroll", $s) }
 Invoke-LiveWithSelectorFallback "text" "text" { param($s) @("text", $s) }
 Invoke-LiveWithSelectorFallback "html" "html" { param($s) @("html", $s) }
@@ -688,6 +812,10 @@ Invoke-LiveWithSelectorFallback "select" "select" {
 }
 Invoke-LiveWithSelectorFallback "check" "check" { param($s) @("check", $s) }
 Invoke-LiveWithSelectorFallback "uncheck" "check" { param($s) @("uncheck", $s) }
+
+# Ensure probe controls do not interfere with real interaction tests.
+[void](Remove-ProbeFixture)
+
 Invoke-LiveWithSelectorFallback "hover" "hover" { param($s) @("hover", $s) }
 Invoke-LiveWithSelectorFallback "wait" "wait" { param($s) @("wait", $s) }
 
@@ -711,15 +839,12 @@ Test-WatcherWithTrigger `
   -TriggerExpression "(() => { const u = '$escapedProbePath'; fetch(u).catch(() => {}); return u; })()" `
   -ExpectedMarker ($networkProbePath.TrimStart('/').Split('?')[-1])
 
-Invoke-Live "storage show" @("storage", "show")
-Invoke-Live "storage cookies" @("storage", "cookies")
 Invoke-Live "storage clear" @("storage", "clear")
 Invoke-ViewportTest "viewport sd" 640 480
 Invoke-ViewportTest "viewport full-hd" 1920 1080
 Invoke-ViewportTest "viewport 4k" 3840 2160
 Invoke-ViewportTest "viewport tablet" 768 1024
 Invoke-ViewportTest "viewport smartphone" 390 844
-Invoke-Live "pdf" @("pdf")
 
 Write-Host "`n=== SUMMARY ===" -ForegroundColor Yellow
 if ($results.Count -eq 0) {

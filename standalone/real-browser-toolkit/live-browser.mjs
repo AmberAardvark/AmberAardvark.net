@@ -4,6 +4,7 @@ import path from "node:path";
 
 const cdpUrl = process.env.PLAYWRIGHT_CDP_URL ?? "http://127.0.0.1:9222";
 const configuredBaseUrl = process.env.PLAYWRIGHT_LIVE_BASE_URL?.trim() || null;
+const isolatedMode = process.env.PLAYWRIGHT_LIVE_ISOLATED === "1";
 const defaultBaseUrl = "http://localhost:3000/";
 const outputDir = path.resolve(
   process.env.PLAYWRIGHT_LIVE_OUTPUT_DIR ??
@@ -13,6 +14,7 @@ const windowStatePath = path.join(outputDir, "window-state.json");
 const projectPathPrefix = configuredBaseUrl
   ? new URL(configuredBaseUrl).pathname.replace(/\/$/, "")
   : "";
+let isolatedPage = null;
 
 async function main() {
   const command = process.argv[2] ?? "status";
@@ -529,6 +531,9 @@ async function main() {
       `Unknown command '${command}'. Run 'npm run live-browser -- help' for available commands.`,
     );
   } finally {
+    if (isolatedPage && !isolatedPage.isClosed()) {
+      await isolatedPage.close().catch(() => {});
+    }
     await browser.close();
   }
 }
@@ -571,6 +576,10 @@ async function printStatus(browser) {
 }
 
 async function getPreferredPage(browser) {
+  if (isolatedMode) {
+    return getIsolatedPage(browser);
+  }
+
   const pages = getAllPages(browser);
 
   if (pages.length === 0) {
@@ -590,10 +599,49 @@ async function getPreferredPage(browser) {
 }
 
 async function getInteractivePage(browser) {
+  if (isolatedMode) {
+    const page = await getIsolatedPage(browser);
+    await page.waitForLoadState("domcontentloaded");
+    return page;
+  }
+
   const page = await getPreferredPage(browser);
   await page.bringToFront();
   await page.waitForLoadState("domcontentloaded");
   return page;
+}
+
+async function getIsolatedPage(browser) {
+  if (isolatedPage && !isolatedPage.isClosed()) {
+    return isolatedPage;
+  }
+
+  const context = browser.contexts()[0];
+  if (!context) {
+    throw new Error("Connected to browser, but no contexts are available.");
+  }
+
+  isolatedPage = await context.newPage();
+
+  let startUrl = configuredBaseUrl || defaultBaseUrl;
+  if (!configuredBaseUrl) {
+    for (const page of getAllPages(browser)) {
+      const url = page.url();
+      if (isProjectPage(url) || /localhost|127\.0\.0\.1/.test(url)) {
+        startUrl = inferBaseUrl(url);
+        break;
+      }
+    }
+  }
+
+  try {
+    await isolatedPage.goto(startUrl, { waitUntil: "domcontentloaded" });
+    await settlePage(isolatedPage);
+  } catch {
+    // Continue with a blank tab if navigation fails.
+  }
+
+  return isolatedPage;
 }
 
 function getAllPages(browser) {
