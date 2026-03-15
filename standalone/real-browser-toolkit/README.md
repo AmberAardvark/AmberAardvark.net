@@ -372,7 +372,9 @@ It always covers the commands that are generic enough to work on most pages:
 - viewport size changes and automatic reset
 - PDF export
 
-Viewport smoke checks are executed in isolated temporary tabs so your active working tab is not left in emulation mode after the run.
+By default, viewport smoke checks run on your active page so you can visually see each size change.
+If you prefer non-intrusive viewport checks, set `viewportUseIsolatedTabs` to `true` in your smoke config.
+At the end of a verifier run, the toolkit also performs a global viewport cleanup (`viewport reset-all`) to clear residual emulation on all open tabs.
 
 ### What Needs a Config File
 
@@ -411,6 +413,7 @@ This means the verifier no longer depends on a single hardcoded selector for com
 You can control how far that crawl goes:
 
 - `baseUrl`: strongly recommended when multiple unrelated tabs are open. It anchors navigation and crawl to your target site.
+- `viewportUseIsolatedTabs`: when `true`, viewport smoke checks run in temporary tabs. Default is `false`.
 - `crawlDepth`: how many internal link levels to follow from the root route. The default is `1`.
 - `crawlParallelTabs`: how many background tabs are opened at once while crawling. The default is `4`.
 - `crawlIncludePaths`: extra routes to scan directly, even if they are deeper than the normal click-depth limit or not linked from the start page.

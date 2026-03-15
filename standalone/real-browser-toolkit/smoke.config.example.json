@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:4321/AmberAardvark.net/",
+  "viewportUseIsolatedTabs": false,
   "primaryPath": "/",
   "secondaryPath": "/about",
   "fillValue": "qa@example.com",

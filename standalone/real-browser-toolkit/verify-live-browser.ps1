@@ -37,6 +37,7 @@ $config = [ordered]@{
   typeValue = "-typed"
   pressKey = "Enter"
   networkProbePath = "/robots.txt?lb_probe=smoke"
+  viewportUseIsolatedTabs = $false
   crawlDepth = 1
   crawlMaxLinks = 8
   crawlParallelTabs = 4
@@ -170,8 +171,11 @@ function Invoke-ViewportTest {
   Write-Host "`n=== $Name ===" -ForegroundColor Cyan
   Write-Host ("ARGS: viewport | $Width | $Height") -ForegroundColor DarkGray
 
+  $useIsolatedTabs = [bool]$config.viewportUseIsolatedTabs
   $oldIsolated = $env:PLAYWRIGHT_LIVE_ISOLATED
-  $env:PLAYWRIGHT_LIVE_ISOLATED = "1"
+  if ($useIsolatedTabs) {
+    $env:PLAYWRIGHT_LIVE_ISOLATED = "1"
+  }
 
   try {
     Push-Location $ResolvedProjectRoot
@@ -207,10 +211,12 @@ function Invoke-ViewportTest {
 
     Start-Sleep -Milliseconds $StepDelayMs
   } finally {
-    if ($null -eq $oldIsolated) {
-      Remove-Item Env:PLAYWRIGHT_LIVE_ISOLATED -ErrorAction SilentlyContinue
-    } else {
-      $env:PLAYWRIGHT_LIVE_ISOLATED = $oldIsolated
+    if ($useIsolatedTabs) {
+      if ($null -eq $oldIsolated) {
+        Remove-Item Env:PLAYWRIGHT_LIVE_ISOLATED -ErrorAction SilentlyContinue
+      } else {
+        $env:PLAYWRIGHT_LIVE_ISOLATED = $oldIsolated
+      }
     }
   }
 }
@@ -856,6 +862,14 @@ Invoke-ViewportTest "viewport full-hd" 1920 1080
 Invoke-ViewportTest "viewport 4k" 3840 2160
 Invoke-ViewportTest "viewport tablet" 768 1024
 Invoke-ViewportTest "viewport smartphone" 390 844
+
+Write-Host "`n=== viewport global cleanup ===" -ForegroundColor Cyan
+$cleanup = Invoke-LiveRaw -CommandArgs @("viewport", "reset-all")
+if ($cleanup.ExitCode -eq 0) {
+  Write-Host "PASS: viewport global cleanup" -ForegroundColor Green
+} else {
+  Write-Host "WARN: viewport global cleanup failed" -ForegroundColor Yellow
+}
 
 Write-Host "`n=== SUMMARY ===" -ForegroundColor Yellow
 if ($results.Count -eq 0) {

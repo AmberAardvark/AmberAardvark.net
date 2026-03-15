@@ -497,6 +497,12 @@ async function main() {
     }
 
     if (command === "viewport") {
+      if (args[0] === "reset-all") {
+        await resetViewportControlOnAllPages(browser);
+        console.log("Viewport emulation cleared on all open tabs.");
+        return;
+      }
+
       if (args[0] === "reset" || args[0] === "auto" || args[0] === "release") {
         const page = await getInteractivePage(browser);
         await resetViewportControl(page);
@@ -1020,6 +1026,23 @@ async function resetViewportControl(page) {
   }
 }
 
+async function resetViewportControlOnAllPages(browser) {
+  const pages = getAllPages(browser);
+
+  for (const page of pages) {
+    const session = await page.context().newCDPSession(page);
+    try {
+      await session.send("Emulation.clearDeviceMetricsOverride");
+    } catch {
+      // Ignore tabs that do not expose this CDP operation.
+    } finally {
+      await session.detach().catch(() => {});
+    }
+  }
+
+  await rm(windowStatePath, { force: true });
+}
+
 async function saveWindowStateIfNeeded(page) {
   try {
     await readFile(windowStatePath, "utf8");
@@ -1289,6 +1312,9 @@ function printUsage() {
   console.log("  viewport <width> <height>       Resize the viewport");
   console.log(
     "  viewport reset                  Return viewport control to the browser",
+  );
+  console.log(
+    "  viewport reset-all              Clear viewport emulation on all open tabs",
   );
   console.log("  pdf                             Export page as PDF");
 }
