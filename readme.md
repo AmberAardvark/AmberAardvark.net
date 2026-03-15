@@ -15,27 +15,6 @@ This project uses **Astro** with the **ScrewFast** theme.
 npm run dev
 ```
 
-### Testing with Playwright
-
-This project uses Playwright for browser testing with your system-installed Firefox and Edge browsers.
-
-**Launch browsers for testing:**
-
-```bash
-npm run browsers
-```
-
-This opens Firefox and Edge with debugging enabled and your existing session cookies.
-
-**Run tests:**
-
-```bash
-npm test              # Run all tests
-npm run test:ui       # Open Playwright UI
-npm run test:headed   # See browser window
-npm run test:debug    # Debug mode
-```
-
 ### Review Dependabot PRs
 
 **Interactive review:**
