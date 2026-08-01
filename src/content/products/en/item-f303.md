@@ -5,8 +5,8 @@ main:
   id: 4
   content: |
     Stop overspending on Azure. Our Cost Optimizer solution analyzes your usage patterns and recommends actionable changes to reduce your cloud bill. From rightsizing VMs to identifying orphaned resources, we help you get the most out of your cloud investment.
-  imgCard: "@/images/product-image-4.avif"
-  imgMain: "@/images/product-image-main-4.avif"
+  imgCard: "@/images/amber-aardvark-features.png"
+  imgMain: "@/images/amber-aardvark-map.png"
   imgAlt: "Azure Cost Analysis Dashboard"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -50,6 +50,6 @@ specificationsRight:
   - title: "Support"
     subTitle: "Ongoing support from our certified FinOps practitioners."
 blueprints:
-  first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprint-2.avif"
+  first: "@/images/dashboard-image.avif"
+  second: "@/images/amber-aardvark-map.png"
 ---

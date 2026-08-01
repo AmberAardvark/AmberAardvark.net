@@ -1,36 +1,36 @@
 {
   "title": "Flexible Engagement Models",
-  "subTitle": "Choose the right level of support for your data journey.",
+  "subTitle": "Choose the right level of support for your business automation and app development needs.",
   "badge": "Most Popular",
   "thirdOption": "Need a Custom Solution?",
   "btnText": "Contact Us",
 
   "starterKit": {
-    "name": "Data Assessment",
-    "description": "Perfect for understanding your current data estate",
+    "name": "Project-based",
+    "description": "Perfect for distinct automation workflows, or app development projects",
     "price": "Custom",
     "cents": "",
     "billingFrequency": "One-time engagement",
     "features": [
-      "Architecture Review",
-      "Performance Analysis",
-      "Security Audit",
-      "Roadmap & Recommendations"
+      "Requirements Analysis & Scoping",
+      "Process Automation Deployment",
+      "Custom Application Delivery",
+      "Clear Deliverables & Timelines"
     ],
-    "purchaseBtnTitle": "Schedule Assessment",
+    "purchaseBtnTitle": "Discuss Your Project",
     "purchaseLink": "/contact"
   },
 
   "professionalToolbox": {
-    "name": "Managed Analytics",
-    "description": "Ongoing support and development for your data platform",
+    "name": "Retainer-based",
+    "description": "Ongoing support, continuous iteration, and scale-as-you-grow service",
     "price": "Retainer",
     "cents": "",
     "billingFrequency": "Monthly",
     "features": [
-      "Dedicated Support Team",
-      "Proactive Monitoring",
-      "Continuous Improvement",
+      "Dedicated Support & Development Team",
+      "Proactive Workflow Monitoring",
+      "Continuous Iteration & Improvement",
       "Priority Incident Response"
     ],
     "purchaseBtnTitle": "Get Managed Services",

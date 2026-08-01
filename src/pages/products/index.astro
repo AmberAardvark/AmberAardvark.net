@@ -25,7 +25,7 @@ const product: CollectionEntry<"products">[] = (
 // Define variables for page content
 const title: string = "Accelerators";
 const subTitle: string =
-  "Jumpstart your data journey with our pre-built solutions and accelerators. Designed to reduce time-to-value, our accelerators embody best practices and proven patterns for the Microsoft Data Platform.";
+  "Jumpstart your automation journey with our pre-built solutions and accelerators. Designed to reduce time-to-value, our accelerators embody best practices and proven patterns for business automation and data engineering.";
 
 // Testimonial data that will be rendered in the component
 const testimonials = [
@@ -52,9 +52,9 @@ const testimonials = [
   // Third testimonial data
   {
     content:
-      " \"I've been a professional carpenter for over 15 years, and I can sincerely say that Amber Aardvark's tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
+      " \"The Data Quality Framework caught issues in our pipelines that had been silently corrupting reports for months. Rollout was painless, and the reusable validation rules have already saved our team dozens of hours of manual auditing.\" ",
     author: "Richard Kim",
-    role: "Master Carpenter | WoodWright",
+    role: "Head of Data | WoodWright Manufacturing",
     avatarSrc:
       "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
     avatarAlt: "Image Description",
@@ -63,8 +63,8 @@ const testimonials = [
 
 const pageTitle: string = `Products | ${SITE.title}`;
 const metaDescription =
-  "Explore the durability and precision of Amber Aardvark Analytics tools, designed for both professionals and enthusiasts.";
-const ogTitle = "Hardware Tools | Amber Aardvark";
+  "Explore Amber Aardvark's pre-built accelerators for data engineering, governance, and cost optimization, designed to reduce time-to-value.";
+const ogTitle = "Accelerators | Amber Aardvark";
 ---
 
 <MainLayout
@@ -76,15 +76,15 @@ const ogTitle = "Hardware Tools | Amber Aardvark";
     "@type": "WebPage",
     "@id": "https://amberaardvark.net/products",
     url: "https://amberaardvark.net/products",
-    name: "Hardware Tools | Amber Aardvark",
+    name: "Accelerators | Amber Aardvark",
     description:
-      "Explore the durability and precision of Amber Aardvark Analytics tools, designed for both professionals and enthusiasts.",
+      "Explore Amber Aardvark's pre-built accelerators for data engineering, governance, and cost optimization, designed to reduce time-to-value.",
     isPartOf: {
       "@type": "WebSite",
       url: "https://amberaardvark.net",
       name: "Amber Aardvark",
       description:
-        "Amber Aardvark Analytics offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "Amber Aardvark offers top-tier data engineering, process automation, and app development services.",
     },
     inLanguage: "en-US",
   }}
@@ -127,10 +127,10 @@ const ogTitle = "Hardware Tools | Amber Aardvark";
   {/* Features statistics section */}
   <FeaturesStatsAlt
     title="Why Choose Amber Aardvark?"
-    subTitle="Transform your ideas into tangible results with Amber Aardvark tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
+    subTitle="Turn your data and automation goals into tangible results with Amber Aardvark accelerators. Whether you're standing up a new data platform or hardening an existing one, our pre-built solutions help you move with confidence."
     benefits={[
-      "Robust and reliable tools for long-lasting performance.",
-      "Innovative solutions tailored to modern construction needs.",
+      "Battle-tested accelerators that cut deployment time from weeks to minutes.",
+      "Innovative solutions tailored to modern data, automation, and app development needs.",
       "Customer support dedicated to your project's success.",
     ]}
   />

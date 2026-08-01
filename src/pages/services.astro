@@ -8,14 +8,13 @@ import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 
 // Import necessary images
 import blueprints from "@images/dashboard-image.avif";
-import personWorking from "@images/person-working.avif";
+import personWorking from "@images/amber-aardvark-features.png";
 import beforeAfter from "@images/amber-aardvark-map.png";
 import constructionWorkers from "@images/amber-aardvark-features.png";
-import aerialView from "@images/aerial-view.avif";
-import usingTools from "@images/automated-tools.avif";
-import progressBuilding from "@images/blueprint-1.avif";
-import underConstruction from "@images/blueprint-2.avif";
-import trainingImage from "@images/construction-workers.avif";
+import aerialView from "@images/dashboard-image.avif";
+import usingTools from "@images/amber-aardvark-map.png";
+import progressBuilding from "@images/amber-aardvark-features.png";
+import underConstruction from "@images/dashboard-image.avif";
 import { SITE } from "@data/constants";
 import { getRelativeUrl } from "@utils/utils";
 
@@ -75,44 +74,56 @@ const articles: Article[] = [
   },
   {
     isRightSection: false,
-    title: "Microsoft Fabric Implementation",
+    title: "Process Automation",
     subTitle:
-      "Embrace the future of analytics with Microsoft Fabric. We help you migrate to and optimize this all-in-one analytics solution. Whether it's OneLake, Direct Lake mode, or Real-Time Intelligence, we guide you through the adoption of Fabric to unify your data estate.",
+      "Eliminate tedious manual tasks and streamline your operations. We examine your bottlenecks and deploy custom automated workflows that save your team hundreds of hours. Affordable and efficient, our solutions reduce operational costs without the exorbitant price tag of enterprise software.",
     img: usingTools,
-    imgAlt:
-      "Microsoft Fabric interface",
-    id: "fabric",
+    imgAlt: "Planning automation workflows",
+    id: "process-automation",
   },
   {
     isRightSection: true,
-    title: "Managed Analytics Services",
+    title: "Custom App Development",
     subTitle:
-      "Focus on your business while we handle your data operations. Our managed services provide ongoing monitoring, support, and enhancements for your data platform. We ensure high availability, performance optimization, and proactive issue resolution.",
+      "Off-the-shelf software rarely fits specialized business needs perfectly. We develop tailored, budget-friendly web applications designed exactly for your niche use cases. Enjoy tools that look and work exactly how your team needs them.",
+    single: true,
+    imgOne: aerialView,
+    imgOneAlt: "Web application interface",
+    btnExists: true,
+    btnTitle: "Learn More",
+    btnURL: "#",
+    id: "custom-app-development",
+  },
+  {
+    isRightSection: false,
+    title: "Agentic Workflows",
+    subTitle:
+      "When basic automation isn't enough, we build intelligent AI agent systems. These advanced setups work autonomously, collaborating on multi-step tasks specific to your niche. Our custom agentic frameworks handle complexity so you don't have to.",
+    img: blueprints,
+    imgAlt: "AI agent workflow orchestration diagram",
+    id: "agentic-workflows",
+  },
+  {
+    isRightSection: true,
+    title: "Managed Support & Improvements",
+    subTitle:
+      "Focus on running your business while we monitor and maintain your automated workflows, data platforms, and custom apps. Our flexible retainer-based managed services provide continuous iterations, ensuring your digital tools scale seamlessly alongside your company's growth.",
     single: false,
     imgOne: progressBuilding,
     imgOneAlt: "Monitoring dashboard",
     imgTwo: underConstruction,
-    imgTwoAlt: "Team collaborating on code",
+    imgTwoAlt: "Team collaborating on enhancements",
     btnExists: true,
     btnTitle: "Read more",
     btnURL: "#",
     id: "managed-services",
   },
-  {
-    isRightSection: false,
-    title: "Training & Enablement",
-    subTitle:
-      "Empower your team with the skills they need to succeed. We offer comprehensive training programs on Power BI, Azure Data Engineering, and Microsoft Fabric. From beginner workshops to advanced masterclasses, we help you build internal capability and foster a data-driven culture.",
-    img: trainingImage,
-    imgAlt: "Training session",
-    id: "training",
-  },
 ];
 
 const pageTitle: string = `Services | ${SITE.title}`;
 const metaDescription =
-  "Expert data analytics and engineering services. From strategy to implementation, Amber Aardvark Analytics helps you unlock the value of your data with the Microsoft Data Platform.";
-const ogTitle = "Data Analytics Services | Amber Aardvark";
+  "Expert data analytics, data engineering, process automation, and custom application development services from Amber Aardvark.";
+const ogTitle = "Data Analytics & Automation Services | Amber Aardvark";
 ---
 
 <MainLayout
@@ -124,23 +135,23 @@ const ogTitle = "Data Analytics Services | Amber Aardvark";
     "@type": "WebPage",
     "@id": `${SITE.url}/services`,
     url: `${SITE.url}/services`,
-    name: "Data Analytics Services | Amber Aardvark",
+    name: "Data Analytics & Automation Services | Amber Aardvark",
     description:
-      "Expert data analytics and engineering services. From strategy to implementation, Amber Aardvark Analytics helps you unlock the value of your data with the Microsoft Data Platform.",
+      "Expert data analytics, data engineering, process automation, and custom application development services from Amber Aardvark.",
     isPartOf: {
       "@type": "WebSite",
       url: SITE.url,
       name: "Amber Aardvark",
       description:
-        "Amber Aardvark Analytics offers top-tier data engineering and analytics consulting services.",
+        "Amber Aardvark offers expert data analytics, process automation, agentic workflows, and custom app development services to fit niche use cases.",
     },
     inLanguage: "en-US",
   }}
 >
   {/* MainSection is the introductory section of the page, it also contains a CTA button */}
   <MainSection
-    title="Transforming Data into Value"
-    subTitle="At Amber Aardvark Analytics, we specialize in turning complex data challenges into competitive advantages. Our comprehensive suite of services covers the entire data lifecycle, ensuring you have the insights you need to drive your business forward."
+    title="Transforming Your Data into True Performance"
+    subTitle="As data analytics experts first, we take a comprehensive, big-picture approach to your business. By looking at your data ecosystems and internal bottlenecks as an interconnected whole, we ensure that modern data engineering, combined with new AI workflows and bespoke apps, cascades into massive operational efficiencies across your entire organization."
     btnExists={true}
     btnTitle="Schedule a Consultation"
     btnURL={getRelativeUrl("contact")}
@@ -186,21 +197,21 @@ const ogTitle = "Data Analytics Services | Amber Aardvark";
   {/* FeaturesStats section showcases essential stats valuable to users */}
   <FeaturesStats
     title="By the Numbers"
-    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At Amber Aardvark Analytics, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
+    subTitle="Our commitment to efficiency and affordability is evident in every project we undertake. At Amber Aardvark, we are dedicated to delivering high-quality automation and custom applications that help your business scale effortlessly."
     mainStatTitle="96%"
-    mainStatSubTitle="of our clients rate their experience with Amber Aardvark as exceptional"
+    mainStatSubTitle="of our clients rate their custom solutions and workflows as exceptional"
     stats={[
       {
-        stat: "99.8%",
-        description: "project completion rate",
+        stat: "10k+",
+        description: "hours saved for our clients annually",
       },
       {
-        stat: "5,000+",
-        description: "successful installations",
+        stat: "50+",
+        description: "custom applications deployed",
       },
       {
-        stat: "85%",
-        description: "client growth year-over-year",
+        stat: "100%",
+        description: "focus on affordability and niche requirements",
       },
     ]}
   />

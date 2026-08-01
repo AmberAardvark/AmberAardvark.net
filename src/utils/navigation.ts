@@ -5,6 +5,7 @@ const navBarLinks = [
   { name: "Home", url: getRelativeUrl("/") },
   { name: "About", url: getRelativeUrl("about") },
   { name: "Services", url: getRelativeUrl("services") },
+  { name: "Accelerators", url: getRelativeUrl("products") },
   { name: "Blog", url: getRelativeUrl("blog") },
   { name: "Contact", url: getRelativeUrl("contact") },
 ];
@@ -13,10 +14,17 @@ const footerLinks = [
   {
     section: "Services",
     links: [
-      { name: "Documentation", url: getRelativeUrl("welcome-to-docs/") },
-      { name: "Data Engineering", url: getRelativeUrl("services#data-engineering") },
-      { name: "Analytics Consulting", url: getRelativeUrl("services#analytics-consulting") },
-      { name: "Training", url: getRelativeUrl("services#training") },
+      { name: "Data Analytics", url: getRelativeUrl("services#data-analytics") },
+      { name: "Process Automation", url: getRelativeUrl("services#process-automation") },
+      { name: "Custom Apps", url: getRelativeUrl("services#custom-app-development") },
+      { name: "Agentic Workflows", url: getRelativeUrl("services#agentic-workflows") },
+    ],
+  },
+  {
+    section: "Accelerators",
+    links: [
+      { name: "All Accelerators", url: getRelativeUrl("products") },
+      { name: "Numbat Data Platform", url: getRelativeUrl("products/item-numbat") },
     ],
   },
   {

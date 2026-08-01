@@ -8,13 +8,10 @@ import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 
 // Import necessary images
 import blueprints from "@images/dashboard-image.avif";
-import personWorking from "@images/person-working.avif";
+import personWorking from "@images/amber-aardvark-features.png";
 import beforeAfter from "@images/amber-aardvark-map.png";
 import constructionWorkers from "@images/amber-aardvark-features.png";
-import aerialView from "@images/aerial-view.avif";
-import usingTools from "@images/person-working.avif";
-import progressBuilding from "@images/dashboard-image.avif";
-import underConstruction from "@images/amber-aardvark-features.png";
+import aerialView from "@images/dashboard-image.avif";
 import { SITE } from "@data/constants";
 import { getRelativeUrl } from "@utils/utils";
 
@@ -50,16 +47,16 @@ const articles: Article[] = [
     isRightSection: false,
     title: "Curiosity & Tenacity",
     subTitle:
-      "For us, the Amber Aardvark is the ultimate symbol of our mission. We embody the aardvark's curiosity and tenacity, digging deep into your data repositories to uncover information that has been locked away. We thrive on the unexpected. In our experience, the most transformative insights often begin with the observation, 'That's peculiar.' We chase these anomalies, knowing they are often the harbingers of the next great 'ah-ha' moment for your business. Like amber, we treat your data as a precious resource that holds the key to understanding your business's past, present, and future.",
+      "For us, the Amber Aardvark is the ultimate symbol of our mission. We embody the aardvark's curiosity and tenacity, digging deep into your data repositories and business operations to uncover efficiencies that have been locked away. We thrive on the unexpected. In our experience, the most transformative solutions often begin with the observation, 'That's peculiar.' We chase these anomalies, knowing they are often the harbingers of the next great 'ah-ha' moment for your business. Like amber, we treat your specific data ecosystems as a precious resource that holds the key to optimizing your future.",
     img: beforeAfter,
-    imgAlt: "Unlocking data insights",
+    imgAlt: "Unlocking business workflows",
     btnExists: false,
   },
   {
     isRightSection: true,
-    title: "Our Philosophy",
+    title: "Our Data-First Philosophy",
     subTitle:
-      "We believe that data is not just a byproduct of business operations; it is a strategic asset waiting to be refined. Our methodology combines rigorous engineering with creative problem-solving. We don't just build pipelines; we build pathways to understanding. By discovering these key insights, we help revolutionize the way our clients conduct business, turning raw information into competitive advantage.",
+      "Before powerful automation can take place, you must master the underlying numbers. We believe that true operational excellence shouldn't be reserved for massive enterprises with unlimited budgets. Our comprehensive, big-picture methodology combines rigorous data engineering with creative problem-solving. We look across your entire operation, knowing that a data breakthrough in one department often cascades into massive efficiencies for the whole organization. We don't just build isolated apps or automate single tasks; we build pathways to scalable growth powered by accurate insights.",
     single: false,
     imgOne: constructionWorkers,
     imgOneAlt: "Team collaboration",
@@ -70,7 +67,7 @@ const articles: Article[] = [
 
 const pageTitle: string = `About Us | ${SITE.title}`;
 const metaDescription =
-  "Discover the story behind Amber Aardvark Analytics. Learn about our philosophy, our methodology, and the unique symbolism of our mascot.";
+  "Discover the story behind Amber Aardvark. Learn about our philosophy on data analytics, affordable process automation, and the unique symbolism of our mascot.";
 const ogTitle = "About Us | Amber Aardvark";
 ---
 
@@ -85,20 +82,20 @@ const ogTitle = "About Us | Amber Aardvark";
     url: `${SITE.url}/about`,
     name: "About Us | Amber Aardvark",
     description:
-      "Discover the story behind Amber Aardvark Analytics. Learn about our philosophy, our methodology, and the unique symbolism of our mascot.",
+      "Discover the story behind Amber Aardvark. Learn about our philosophy on data analytics, affordable process automation, and the unique symbolism of our mascot.",
     isPartOf: {
       "@type": "WebSite",
       url: SITE.url,
       name: "Amber Aardvark",
       description:
-        "Amber Aardvark Analytics offers top-tier data engineering and analytics consulting services.",
+        "Amber Aardvark offers top-tier data analytics, process automation, and custom application development services.",
     },
     inLanguage: "en-US",
   }}
 >
   <MainSection
-    title="Unearthing Value, Preserving Truth"
-    subTitle="At Amber Aardvark, we are more than just consultants. We are data archaeologists and engineers, dedicated to finding the hidden gems within your organization."
+    title="Unearthing Value, Preserving Efficiency"
+    subTitle="At Amber Aardvark, we are data engineers and workflow archaeologists, dedicated to finding hidden insights and unlocking massive growth for your team."
     btnExists={true}
     btnTitle="Work With Us"
     btnURL={getRelativeUrl("contact")}
@@ -135,17 +132,17 @@ const ogTitle = "About Us | Amber Aardvark";
   
   <FeaturesStats
     title="Our Impact"
-    subTitle="We measure our success by the value we create for our clients."
+    subTitle="We measure our success by the value and time we save for our clients."
     mainStatTitle="100%"
     mainStatSubTitle="Client Satisfaction"
     stats={[
       {
         stat: "50+",
-        description: "Enterprise Projects Delivered",
+        description: "Custom Workflows & Apps Delivered",
       },
       {
-        stat: "10TB+",
-        description: "Data Processed Daily",
+        stat: "10,000+",
+        description: "Hours Saved Annually",
       },
       {
         stat: "24/7",

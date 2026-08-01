@@ -5,8 +5,8 @@ main:
   id: 3
   content: |
     Gain complete visibility into your Power BI tenant with our Audit Tool. It extracts, processes, and visualizes audit logs to help you understand usage patterns, identify inactive reports, and ensure compliance with data governance policies.
-  imgCard: "@/images/product-image-3.avif"
-  imgMain: "@/images/product-image-main-3.avif"
+  imgCard: "@/images/amber-aardvark-map.png"
+  imgMain: "@/images/amber-aardvark-features.png"
   imgAlt: "Power BI Audit Dashboard"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -50,6 +50,6 @@ specificationsRight:
   - title: "Customization"
     subTitle: "Fully customizable Power BI report to meet your specific governance needs."
 blueprints:
-  first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprint-2.avif"
+  first: "@/images/dashboard-image.avif"
+  second: "@/images/amber-aardvark-map.png"
 ---

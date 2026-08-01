@@ -1,22 +1,22 @@
 [
   {
-    "heading": "Expert Consultants",
-    "content": "Our team consists of certified Microsoft Data Platform experts. We bring deep technical knowledge and industry best practices to every engagement.",
+    "heading": "Data Analytics & Engineering",
+    "content": "Transform raw data into actionable insights with tailored analytics solutions. We build solid data platforms, robust pipelines, and interactive dashboards to empower your decision-making.",
     "svg": "groups"
   },
   {
-    "heading": "Scalable Architecture",
-    "content": "We design data solutions that grow with your business. From small data marts to petabyte-scale data lakes, our architectures are built for the future.",
+    "heading": "Process Automation",
+    "content": "Eliminate manual tasks and streamline operations. We build efficient, automated workflows that save your team time and dramatically reduce operational costs.",
     "svg": "verified"
   },
   {
-    "heading": "Knowledge Transfer",
-    "content": "We don't just build and leave. We empower your internal teams with comprehensive documentation, training, and mentoring to ensure long-term success.",
-    "svg": "books"
+    "heading": "Custom App Development",
+    "content": "When off-the-shelf software falls short, we build robust custom applications tailored specifically to your exact budget and niche business requirements.",
+    "svg": "frame"
   },
   {
-    "heading": "User-Centric Analytics",
-    "content": "We prioritize the end-user experience. Our dashboards and reports are designed to be intuitive, accessible, and actionable for business users.",
-    "svg": "frame"
+    "heading": "Agentic Workflows",
+    "content": "Deploy sophisticated, autonomous AI agents working in tandem. We create intelligent systems that handle complex, multi-step processes for your unique niche.",
+    "svg": "books"
   }
 ]

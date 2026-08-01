@@ -5,8 +5,8 @@ main:
   id: 2
   content: |
     The Data Lake Accelerator is a comprehensive Infrastructure-as-Code (IaC) package designed to deploy a secure, compliant, and scalable Azure Data Lake in minutes. It includes pre-configured resources for storage, networking, and security, following Microsoft's best practices.
-  imgCard: "@/images/product-image-2.avif"
-  imgMain: "@/images/product-image-main-2.avif"
+  imgCard: "@/images/dashboard-image.avif"
+  imgMain: "@/images/amber-aardvark-map.png"
   imgAlt: "Data Lake Architecture Diagram"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -49,6 +49,6 @@ tableData:
       - ["IaC", "Terraform / Bicep"]
       - ["License", "Enterprise"]
 blueprints:
-  first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprint-2.avif"
+  first: "@/images/dashboard-image.avif"
+  second: "@/images/amber-aardvark-map.png"
 ---

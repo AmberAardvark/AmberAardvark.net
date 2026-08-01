@@ -5,8 +5,8 @@ main:
   id: 1
   content: |
     Ensure your data is accurate, complete, and consistent with our Data Quality Framework. This solution provides a set of reusable components and patterns for validating data at every stage of your pipeline, from ingestion to consumption.
-  imgCard: "@/images/product-image-1.avif"
-  imgMain: "@/images/product-image-main-1.avif"
+  imgCard: "@/images/amber-aardvark-features.png"
+  imgMain: "@/images/dashboard-image.avif"
   imgAlt: "Data Quality Dashboard"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -50,6 +50,6 @@ specificationsRight:
   - title: "Support"
     subTitle: "Includes documentation and sample code to get you started quickly."
 blueprints:
-  first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprint-2.avif"   
+  first: "@/images/dashboard-image.avif"
+  second: "@/images/amber-aardvark-map.png"
 ---

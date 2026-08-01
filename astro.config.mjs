@@ -57,14 +57,14 @@ export default defineConfig({
           autogenerate: { directory: "guides" },
         },
         {
-          label: "Tools & Equipment",
+          label: "Platform & Accelerators",
           items: [
             { label: "Tool Guides", link: "tools/tool-guides/" },
             { label: "Equipment Care", link: "tools/equipment-care/" },
           ],
         },
         {
-          label: "Construction Services",
+          label: "Working With Us",
           autogenerate: { directory: "construction" },
         },
         {
@@ -76,7 +76,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/mearashadowfax/ScrewFast",
+          href: "https://github.com/AmberAardvark/AmberAardvark.net",
         },
       ],
       disable404Route: true,

@@ -23,7 +23,7 @@ export const servicesData = [
   {
     title: "Cutting-Edge Tools",
     description:
-      "Build Smarter, Faster. Experience next-level efficiency with Amber Aardvark's cutting-edge construction tools",
+      "Build Smarter, Faster. Experience next-level efficiency with Amber Aardvark's cutting-edge automation and data tools",
     icon: "hammer",
     url: "#",
   },

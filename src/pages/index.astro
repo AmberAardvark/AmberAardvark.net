@@ -39,7 +39,7 @@ const avatarSrcs: Array<string> = [
   <HeroSection
     title=`Discover the Power of Your Data with <span
         class="text-yellow-500 dark:text-yellow-400 text-outline">Amber Aardvark</span>`
-    subTitle="Expert consultancy for the Microsoft Data Platform. We transform raw data into actionable insights using Power BI, Azure, and Fabric."
+    subTitle="A premier Data Analytics & Engineering consultancy—now expanding our expertise into business automation, agentic workflows, and custom app development for a truly interconnected approach."
     primaryBtn="Our Services"
     primaryBtnURL={getRelativeUrl("services")}
     secondaryBtn="Contact Us"
@@ -48,88 +48,96 @@ const avatarSrcs: Array<string> = [
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.9</span> / 5`
     starCount={5}
-    reviews=`From Over <span class="font-bold">50+</span> Enterprise Clients`
+    reviews=`From Over <span class="font-bold">50+</span> Satisfied Clients`
     src={heroImage}
-    alt="Data analytics dashboard on a screen"
+    alt="Process automation dashboard on a screen"
   />
 
   <ClientsSection
-    title="Trusted by Data-Driven Organizations"
-    subTitle="Partnering with industry leaders to deliver scalable data solutions."
+    title="Trusted by Forward-Thinking Organizations"
+    subTitle="Partnering with growing businesses to deliver scalable automation and app solutions."
     partners={partnersData}
   />
 
   <FeaturesGeneral
-    title="Data Solutions for the Modern Enterprise"
-    subTitle="We help you navigate the complexities of the modern data stack. From migration to visualization, we are your partners in data excellence."
+    title="Data & Automation Solutions Built for You"
+    subTitle="Data is at the core of everything we do. We take a comprehensive approach to modern data stacks and complex processes. By mastering your data foundations, we ensure that an analytics, app, or automation breakthrough in one department cascades into massive efficiencies for your entire organization."
     src={featureImage}
-    alt="Abstract data visualization graphic"
+    alt="Abstract workflow visualization graphic"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Tailored <span class="text-yellow-500 dark:text-yellow-400 text-outline">Data Solutions</span> for your business needs.`
+    title=`Tailored <span class="text-yellow-500 dark:text-yellow-400 text-outline">Digital Solutions</span> for your business needs.`
     tabs={[
       {
-        heading: "Power BI & Visualization",
+        heading: "Data Analytics & Engineering",
         content:
-          "Transform complex data into clear, interactive stories. Our Power BI experts design intuitive dashboards that drive decision-making and democratize data access across your organization.",
+          "Transform complex data into clear, interactive stories. We build robust data pipelines, data warehouses, and Power BI dashboards to drive your decision-making.",
         svg: "dashboard",
         src: tools,
-        alt: "Interactive Power BI dashboard showing sales metrics",
+        alt: "Data analytics dashboard",
         first: true,
       },
       {
-        heading: "Azure Data Engineering",
+        heading: "Process Automation",
         content:
-          "Build robust, scalable data pipelines with Azure Synapse and Data Factory. We engineer the backbone of your data infrastructure to ensure reliability, security, and performance.",
+          "Eliminate manual tasks and streamline operations. We build efficient, automated workflows that save your team time and reduce operational costs.",
         svg: "tools",
         src: dashboard,
-        alt: "Azure data pipeline architecture diagram",
+        alt: "Visual representation of automated workflows",
         second: true,
       },
       {
-        heading: "Microsoft Fabric",
+        heading: "Agentic Workflows",
         content:
-          "Future-proof your analytics with Microsoft Fabric. We help you unify your data estate, leveraging OneLake and real-time intelligence to stay ahead of the curve.",
+          "Intelligent AI agents working in tandem. We deploy sophisticated agentic structures that autonomously handle complex, multi-step processes for your unique niche.",
+        svg: "tools",
+        src: dashboard,
+        alt: "Diagram of AI agents collaborating",
+      },
+      {
+        heading: "Custom App Development",
+        content:
+          "Bespoke applications tailored to your exact budget and requirements. When off-the-shelf software falls short, we build robust custom solutions that fit perfectly.",
         svg: "house",
         src: construction,
-        alt: "Microsoft Fabric interface showing data lineage",
+        alt: "Interface of a custom business application",
       },
     ]}
   />
 
   <TestimonialsSection
-    title="Accelerate Your Insights"
-    subTitle="See how we've helped other organizations transform their data landscape and drive business value."
+    title="Accelerate Your Growth"
+    subTitle="See how we've helped other organizations transform their workflows and drive business value."
     ;
     testimonials={[
       {
         content:
-          "Amber Aardvark Analytics revolutionized our reporting. Their Power BI optimization reduced our report load times by 90%, and the new data warehouse gives us a single source of truth we can trust.",
+          "Amber Aardvark revolutionized our daily operations. Their custom automated workflows save us hundreds of hours a month, and the tailored web app they built fits our niche process perfectly—all within our tight budget.",
         author: "Sarah Jenkins",
-        role: "VP of Data Strategy | TechFlow Corp",
+        role: "COO | NicheFlow Logistics",
         avatarSrc:
           "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
       },
     ]}
     statistics={[
       {
-        count: "500+",
-        description: "Power BI reports deployed across various industries",
+        count: "10k+",
+        description: "Hours saved for our clients annually through automation",
       },
       {
-        count: "30%",
+        count: "50+",
         description:
-          "average reduction in data processing costs for our clients",
+          "custom applications deployed successfully",
       },
       {
         count: "100%",
-        description: "success rate in on-premise to Azure cloud migrations",
+        description: "commitment to affordability and client success",
       },
       {
         count: "24/7",
-        description: "monitoring and support for critical data pipelines",
+        description: "reliable support for critical business pipelines",
       },
     ]}
   />
@@ -139,8 +147,8 @@ const avatarSrcs: Array<string> = [
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
   <HeroSectionAlt
-    title="Ready to Transform Your Data?"
-    subTitle="Contact us today to schedule a consultation and discover how Amber Aardvark Analytics can help you achieve your data goals."
+    title="Ready to Transform Your Business?"
+    subTitle="Contact us today to schedule a consultation and discover how Amber Aardvark can help you achieve your goals."
     url={getRelativeUrl("contact")}
   />
 </MainLayout>
