@@ -19,7 +19,7 @@ const product: CollectionEntry<"products">[] = (
   })
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id
+    a.data.main.id - b.data.main.id,
 );
 
 // Define variables for page content
@@ -32,7 +32,7 @@ const testimonials = [
   // First testimonial data
   {
     content:
-      " \"The Data Lake Accelerator from Amber Aardvark saved us months of development time. We had a secure, compliant, and scalable data foundation up and running in weeks, not months. The documentation and support were exceptional.\" ",
+      ' "The Data Lake Accelerator from Amber Aardvark saved us months of development time. We had a secure, compliant, and scalable data foundation up and running in weeks, not months. The documentation and support were exceptional." ',
     author: "Sarah Jenkins",
     role: "CTO | FinTech Innovations",
     avatarSrc:
@@ -42,7 +42,7 @@ const testimonials = [
   // Second testimonial data
   {
     content:
-      " \"Amber Aardvark's Power BI Audit Tool gave us visibility into our tenant that we never had before. We were able to identify unused reports, optimize capacity, and improve governance overnight. A must-have for any Power BI admin.\" ",
+      ' "Amber Aardvark\'s Power BI Audit Tool gave us visibility into our tenant that we never had before. We were able to identify unused reports, optimize capacity, and improve governance overnight. A must-have for any Power BI admin." ',
     author: "Michael Chen",
     role: "Data Governance Lead | Global Retail",
     avatarSrc:
@@ -52,7 +52,7 @@ const testimonials = [
   // Third testimonial data
   {
     content:
-      " \"The Data Quality Framework caught issues in our pipelines that had been silently corrupting reports for months. Rollout was painless, and the reusable validation rules have already saved our team dozens of hours of manual auditing.\" ",
+      ' "The Data Quality Framework caught issues in our pipelines that had been silently corrupting reports for months. Rollout was painless, and the reusable validation rules have already saved our team dozens of hours of manual auditing." ',
     author: "Richard Kim",
     role: "Head of Data | WoodWright Manufacturing",
     avatarSrc:
@@ -109,8 +109,10 @@ const ogTitle = "Accelerators | Amber Aardvark";
       </div>
       <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
-    {/* Displaying products in alternating styles. Alternative product gets different card styling.
-    Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */}
+    {
+      /* Displaying products in alternating styles. Alternative product gets different card styling.
+    Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */
+    }
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
