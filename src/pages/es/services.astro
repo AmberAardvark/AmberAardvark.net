@@ -1,0 +1,115 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+import dataImage from "@images/dashboard-image.avif";
+import workflowImage from "@images/amber-aardvark-features.png";
+import mapImage from "@images/amber-aardvark-map.png";
+import { SITE } from "@data/constants";
+import { getRelativeUrl } from "@utils/utils";
+
+interface Article {
+  right: boolean;
+  title: string;
+  content: string;
+  id: string;
+  single?: boolean;
+  image: any;
+  imageAlt: string;
+  secondImage?: any;
+  secondImageAlt?: string;
+}
+
+const articles: Article[] = [
+  {
+    right: true,
+    title: "Análisis de datos",
+    content:
+      "Haz que tus datos operativos sean útiles sin construir una plataforma sobredimensionada. Evaluamos lo que ya tienes, conectamos y limpiamos las fuentes relevantes, y creamos reportes enfocados en las decisiones que tu equipo toma todos los días.",
+    id: "data-analytics",
+    image: dataImage,
+    imageAlt: "Panel de análisis de datos empresariales",
+    secondImage: workflowImage,
+    secondImageAlt: "Preparación de reportes conectados",
+  },
+  {
+    right: false,
+    title: "Automatización de procesos",
+    content:
+      "Elimina los pasos repetitivos que retrasan el trabajo. Documentamos el proceso, conectamos las herramientas y automatizamos transferencias, aprobaciones, notificaciones y movimientos rutinarios de datos. La revisión humana permanece donde realmente importa.",
+    id: "process-automation",
+    image: mapImage,
+    imageAlt: "Mapa de automatización de un proceso empresarial",
+  },
+  {
+    right: true,
+    title: "Flujos con agentes de IA",
+    content:
+      "Utiliza agentes de IA cuando puedan avanzar de forma segura en un proceso de varios pasos. Diseñamos tareas acotadas, conectamos los sistemas correctos y agregamos evaluación, observabilidad y puntos de control humanos.",
+    id: "agentic-workflows",
+    image: workflowImage,
+    imageAlt: "Planificación de un flujo con agentes de IA",
+    secondImage: dataImage,
+    secondImageAlt: "Flujo coordinado de agentes de IA",
+  },
+  {
+    right: false,
+    title: "Desarrollo de aplicaciones",
+    content:
+      "Construye la aplicación enfocada que tu proceso realmente necesita. Convertimos flujos especializados, hojas de cálculo y soluciones improvisadas en herramientas web seguras y fáciles de mantener, con las funciones que generan valor.",
+    id: "custom-app-development",
+    image: dataImage,
+    imageAlt: "Interfaz de una aplicación empresarial a la medida",
+  },
+];
+---
+
+<MainLayout
+  lang="es-419"
+  title={`Servicios | ${SITE.title}`}
+  customDescription="Análisis de datos, automatización, agentes de IA y desarrollo de aplicaciones accesibles para procesos empresariales especializados."
+  customOgTitle="Servicios de datos, automatización y aplicaciones | Amber Aardvark"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Servicios de Amber Aardvark",
+    description:
+      "Cuatro servicios prácticos para reducir la fricción operativa con soluciones accesibles.",
+    inLanguage: "es-419",
+    url: `${SITE.url}/es/services`,
+  }}
+>
+  <MainSection
+    title="Cuatro servicios. Un objetivo práctico."
+    subTitle="Reduce la fricción operativa con la combinación adecuada de análisis de datos, automatización, flujos con agentes de IA y aplicaciones a la medida. Cada colaboración comienza con tu reto específico."
+    btnExists={true}
+    btnTitle="Agenda una consulta"
+    btnURL={getRelativeUrl("es/contact")}
+  />
+
+  {
+    articles.map((article) =>
+      article.right ? (
+        <RightSection
+          title={article.title}
+          subTitle={article.content}
+          single={!article.secondImage}
+          imgOne={article.image}
+          imgOneAlt={article.imageAlt}
+          imgTwo={article.secondImage}
+          imgTwoAlt={article.secondImageAlt}
+          id={article.id}
+        />
+      ) : (
+        <LeftSection
+          title={article.title}
+          subTitle={article.content}
+          img={article.image}
+          imgAlt={article.imageAlt}
+          id={article.id}
+        />
+      ),
+    )
+  }
+</MainLayout>

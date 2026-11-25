@@ -3,13 +3,12 @@
 import { Image } from "astro:assets";
 import Icon from "@components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
-import { getRelativeUrl } from "@utils/utils";
+import { getRelativeUrl, slugify } from "@utils/utils";
 
-const { product, productLocale = "" } = Astro.props;
+const { product } = Astro.props;
 
 interface Props {
   product: CollectionEntry<"products">;
-  productLocale?: string;
 }
 
 // Define classes to be used with the Image component
@@ -19,11 +18,7 @@ const imageClass =
 
 <!-- A clickable card that leads to the details of the product-->
 <a
-  href={productLocale && productLocale !== "en"
-    ? getRelativeUrl(
-        `${productLocale}/products/${product.id.replace(/^fr\//, "")}`,
-      )
-    : getRelativeUrl(`products/${product.id.replace(/^en\//, "")}`)}
+  href={getRelativeUrl(`products/${slugify(product.data.title)}`)}
   data-astro-prefetch
   class="group relative flex h-48 items-end overflow-hidden rounded-xl shadow-lg ring-zinc-500 outline-hidden focus-visible:ring-3 md:h-80 dark:ring-zinc-200 dark:focus:outline-hidden"
 >

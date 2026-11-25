@@ -1,0 +1,29 @@
+{
+  "subTitle": "Preguntas comunes sobre cómo resolver necesidades especializadas de manera accesible.",
+  "faqs": [
+    {
+      "question": "¿Trabajan con empresas que tienen un presupuesto limitado?",
+      "answer": "Sí. Comenzamos con el problema y el valor que puede generar; después, diseñamos una solución y un plan por etapas de acuerdo con tu presupuesto. Los equipos pequeños y medianos no necesitan la estructura de una gran empresa para aprovechar la automatización, los datos o el software a medida."
+    },
+    {
+      "question": "¿Pueden automatizar un flujo muy específico?",
+      "answer": "Sí. Podemos trabajar con procesos inusuales y casos límite que las plataformas genéricas no cubren. Primero documentamos cómo trabaja tu equipo y luego elegimos o construimos la solución más pequeña y confiable."
+    },
+    {
+      "question": "¿Qué tecnologías utilizan?",
+      "answer": "Elegimos tecnologías prácticas y fáciles de mantener según el trabajo, en lugar de obligar a cada empresa a usar una sola plataforma. Esto puede incluir frameworks web, plataformas de datos, servicios de integración, motores de flujo y herramientas de IA."
+    },
+    {
+      "question": "¿Necesitamos llegar con un plan técnico definido?",
+      "answer": "No. Puedes presentarnos el cuello de botella, la hoja de cálculo difícil, las herramientas desconectadas o el proceso manual. Te ayudamos a aclarar la oportunidad, identificar restricciones y definir pasos razonables."
+    },
+    {
+      "question": "¿Cuánto tarda un proyecto de aplicación o automatización?",
+      "answer": "Depende del alcance y la complejidad. Preferimos entregas por etapas, de modo que una primera versión útil genere valor pronto mientras las aplicaciones y los flujos más grandes avanzan con hitos claros."
+    },
+    {
+      "question": "¿Ofrecen soporte después de terminar el proyecto?",
+      "answer": "Sí. Nuestros servicios continuos pueden cubrir monitoreo, mantenimiento, mejoras y nuevas oportunidades para tus análisis, flujos, agentes y aplicaciones."
+    }
+  ]
+}

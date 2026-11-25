@@ -2,24 +2,44 @@
 //Import relevant dependencies
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
-import enStrings from "@utils/navigation.ts";
+import { getNavigation } from "@utils/navigation.ts";
 import BrandLogo from "@components/BrandLogo.astro";
+import FlagIcon from "@components/ui/icons/FlagIcon.astro";
 import { getRelativeUrl } from "@utils/utils";
 
-const strings = enStrings;
-const homeUrl = getRelativeUrl("");
+const { lang = "en" } = Astro.props;
+interface Props {
+  lang?: string;
+}
+
+const locale = lang.startsWith("es") ? "es" : "en";
+const strings = getNavigation(locale);
+const homeUrl = getRelativeUrl(locale === "es" ? "es" : "");
+const basePath = getRelativeUrl("").replace(/\/$/, "");
+const currentPath = Astro.url.pathname.startsWith(basePath)
+  ? Astro.url.pathname.slice(basePath.length).replace(/^\/?/, "")
+  : Astro.url.pathname.replace(/^\//, "");
+const pathWithoutLocale = currentPath.replace(/^es(?:\/|$)/, "");
+const alternateLocaleUrl = getRelativeUrl(
+  locale === "es" ? pathWithoutLocale : `es/${pathWithoutLocale}`,
+);
+const alternateCountry = locale === "es" ? "US" : "MX";
+const alternateLocaleAria =
+  locale === "es" ? "View this page in English" : "Ver esta página en español";
 ---
 
 <!-- Main header component -->
 <header
-  class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start"
+  class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm lg:flex-nowrap lg:justify-start"
 >
   <!-- Navigation container -->
   <nav
-    class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-2 backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md"
+    class="relative mx-2 w-full lg:flex lg:items-center lg:justify-between lg:rounded-[14.4px] lg:border lg:border-yellow-100/40 lg:bg-yellow-50/60 lg:px-8 lg:py-0 lg:backdrop-blur-md xl:mx-auto lg:dark:border-neutral-700/40 lg:dark:bg-neutral-800/80 lg:dark:backdrop-blur-md"
     aria-label="Global"
   >
-    <div class="flex items-center justify-between">
+    <div
+      class="flex items-center justify-between rounded-[14.4px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-2 backdrop-blur-md lg:rounded-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none dark:border-neutral-700/40 dark:bg-neutral-800/80 lg:dark:bg-transparent"
+    >
       <!-- Brand logo -->
       <a
         class="flex-none rounded-lg text-sm font-bold ring-zinc-500 outline-hidden focus-visible:ring-3 sm:text-xl dark:ring-zinc-200 dark:focus:outline-hidden"
@@ -29,7 +49,7 @@ const homeUrl = getRelativeUrl("");
         <BrandLogo class="h-6 w-auto sm:h-10" />
       </a>
       <!-- Collapse toggle for smaller screens -->
-      <div class="mr-5 ml-auto md:hidden">
+      <div class="mr-5 ml-auto lg:hidden">
         <button
           type="button"
           class="hs-collapse-toggle flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-neutral-600 transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:outline-hidden"
@@ -72,11 +92,11 @@ const homeUrl = getRelativeUrl("");
     <!-- Contains navigation links -->
     <div
       id="navbar-collapse-with-animation"
-      class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:block"
+      class="hs-collapse absolute end-0 top-[calc(100%+5px)] z-40 ml-auto hidden w-64 max-w-full overflow-hidden rounded-[14.4px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-2 backdrop-blur-md transition-all duration-300 lg:static lg:mr-0 lg:ml-0 lg:block lg:w-auto lg:grow lg:basis-full lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none dark:border-neutral-700/40 dark:bg-neutral-800/80 lg:dark:bg-transparent"
     >
       <!-- Navigation links container -->
       <div
-        class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
+        class="flex flex-col items-end gap-x-0 gap-y-2 text-right lg:mt-0 lg:flex-row lg:items-center lg:justify-end lg:gap-x-5 lg:gap-y-0 lg:ps-7 lg:text-left xl:gap-x-7"
       >
         <!-- Navigation links and Authentication component -->
         {
@@ -84,6 +104,16 @@ const homeUrl = getRelativeUrl("");
             <NavLink url={link.url} name={link.name} />
           ))
         }
+
+        <a
+          class="inline-flex w-fit rounded-full border border-neutral-300 px-3 py-1.5 font-semibold text-neutral-700 transition hover:border-yellow-500 hover:text-neutral-900 focus-visible:ring-3 focus-visible:ring-yellow-400 dark:border-neutral-600 dark:text-neutral-200 dark:hover:text-white"
+          href={alternateLocaleUrl}
+          lang={locale === "es" ? "en" : "es"}
+          hreflang={locale === "es" ? "en" : "es-419"}
+          aria-label={alternateLocaleAria}
+        >
+          <FlagIcon country={alternateCountry} />
+        </a>
 
         <!-- ThemeIcon component specifically for larger screens -->
         <span class="inline-block">
@@ -137,7 +167,7 @@ const homeUrl = getRelativeUrl("");
 
       if (dispatchEvent) {
         window.dispatchEvent(
-          new CustomEvent("on-hs-appearance-change", { detail: theme })
+          new CustomEvent("on-hs-appearance-change", { detail: theme }),
         );
       }
     },
@@ -167,10 +197,10 @@ const homeUrl = getRelativeUrl("");
 
   window.addEventListener("load", () => {
     const $clickableThemes = document.querySelectorAll(
-      "[data-hs-theme-click-value]"
+      "[data-hs-theme-click-value]",
     );
     const $switchableThemes = document.querySelectorAll(
-      "[data-hs-theme-switch]"
+      "[data-hs-theme-switch]",
     );
 
     $clickableThemes.forEach(($item) => {
@@ -178,8 +208,8 @@ const homeUrl = getRelativeUrl("");
         HSThemeAppearance.setAppearance(
           $item.getAttribute("data-hs-theme-click-value"),
           true,
-          $item
-        )
+          $item,
+        ),
       );
     });
 

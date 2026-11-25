@@ -5,7 +5,8 @@ import Icon from "@components/ui/icons/Icon.astro";
 import { getRelativeUrl } from "@utils/utils";
 
 // Define props from Astro
-const { pricing } = Astro.props;
+const { pricing, locale = "en" } = Astro.props;
+const contactUrl = locale === "es" ? "es/contact" : "contact";
 
 // Define TypeScript type for products.
 type Product = {
@@ -31,6 +32,7 @@ interface PricingSectionProps {
     starterKit: Product;
     professionalToolbox: Product;
   };
+  locale?: "en" | "es";
 }
 ---
 
@@ -40,7 +42,7 @@ interface PricingSectionProps {
   <!-- Section heading and sub-heading -->
   <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
     <h2
-      class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+      class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
     >
       {pricing.title}
     </h2>
@@ -87,7 +89,7 @@ interface PricingSectionProps {
       <!-- CTA for purchasing the product -->
       <a
         href={getRelativeUrl(pricing.starterKit.purchaseLink)}
-        class="block rounded-lg bg-gray-500 px-8 py-3 text-center text-sm font-bold text-gray-100 outline-hidden ring-indigo-300 transition duration-100 hover:bg-gray-600 focus-visible:ring-3 active:text-gray-300 md:text-base"
+        class="block rounded-lg bg-gray-500 px-8 py-3 text-center text-sm font-bold text-gray-100 ring-indigo-300 outline-hidden transition duration-100 hover:bg-gray-600 focus-visible:ring-3 active:text-gray-300 md:text-base"
         >{pricing.starterKit.purchaseBtnTitle}</a
       >
     </div>
@@ -102,11 +104,13 @@ interface PricingSectionProps {
           <h3 class="text-2xl font-bold text-neutral-100 sm:text-3xl">
             {pricing.professionalToolbox.name}
           </h3>
-          <p class="text-orange-200">{pricing.professionalToolbox.description}</p>
+          <p class="text-orange-200">
+            {pricing.professionalToolbox.description}
+          </p>
         </div>
 
         <span
-          class="order-first inline-block rounded-full bg-orange-200/60 bg-opacity-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-center text-orange-600 lg:order-none"
+          class="bg-opacity-50 order-first inline-block rounded-full bg-orange-200/60 px-3 py-1 text-center text-xs font-bold tracking-wider text-orange-600 uppercase lg:order-none"
           >{pricing.badge}</span
         >
       </div>
@@ -137,7 +141,7 @@ interface PricingSectionProps {
       <!-- CTA for purchasing the product -->
       <a
         href={getRelativeUrl(pricing.professionalToolbox.purchaseLink)}
-        class="block rounded-lg bg-orange-200/40 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-hidden ring-orange-300 transition duration-300 hover:bg-orange-300 focus-visible:ring-3 active:bg-orange-400 md:text-base"
+        class="bg-opacity-50 block rounded-lg bg-orange-200/40 px-8 py-3 text-center text-sm font-bold text-neutral-100 ring-orange-300 outline-hidden transition duration-300 hover:bg-orange-300 focus-visible:ring-3 active:bg-orange-400 md:text-base"
         >{pricing.professionalToolbox.purchaseBtnTitle}</a
       >
     </div>
@@ -148,6 +152,6 @@ interface PricingSectionProps {
       {pricing.thirdOption}
     </p>
 
-    <SecondaryCTA title={pricing.btnText} url={getRelativeUrl("contact")} />
+    <SecondaryCTA title={pricing.btnText} url={getRelativeUrl(contactUrl)} />
   </div>
 </section>

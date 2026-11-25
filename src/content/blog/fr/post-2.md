@@ -16,6 +16,6 @@ contents:
     "Mais notre engagement envers l'excellence ne s'arrête pas là. Nous fournissons également des services complets de gestion de projet pour maintenir votre construction sur la bonne voie et dans les limites du budget. De la coordination du flux de travail à la communication avec les parties prenantes, Amber Aardvark gère les complexités pour que vous puissiez vous concentrer sur votre vision.",
     "Ce qui distingue Amber Aardvark, c'est notre dévouement à un soutien continu. Nous ne terminons pas simplement le travail et partons - nous sommes là pour le long terme. Nos services de maintenance garantissent que votre construction reste en parfait état, offrant une tranquillité d'esprit pour les années à venir.",
     "Pour les clients d'entreprise de plus grande envergure, nous proposons des solutions personnalisées adaptées à vos défis uniques. En comprenant vos besoins spécifiques, nous concevons des stratégies visant à maximiser l'efficacité et à faire avancer votre entreprise.",
-    "Avec les services de construction de Amber Aardvark, vous pouvez avoir confiance que vos projets sont entre de bonnes mains. Découvrez la différence dès aujourd'hui et voyez pourquoi tant de clients choisissent Amber Aardvark pour leurs besoins en construction.",
+    "Les services proposés par Amber Aardvark doivent être adaptés aux besoins, aux contraintes et aux normes applicables à chaque projet.",
   ]
 ---

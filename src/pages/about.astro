@@ -4,7 +4,6 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
-import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 
 // Import necessary images
 import blueprints from "@images/dashboard-image.avif";
@@ -47,16 +46,16 @@ const articles: Article[] = [
     isRightSection: false,
     title: "Curiosity & Tenacity",
     subTitle:
-      "For us, the Amber Aardvark is the ultimate symbol of our mission. We embody the aardvark's curiosity and tenacity, digging deep into your data repositories and business operations to uncover efficiencies that have been locked away. We thrive on the unexpected. In our experience, the most transformative solutions often begin with the observation, 'That's peculiar.' We chase these anomalies, knowing they are often the harbingers of the next great 'ah-ha' moment for your business. Like amber, we treat your specific data ecosystems as a precious resource that holds the key to optimizing your future.",
+      "The Amber Aardvark reflects how we solve problems. We dig beneath the first symptom, follow the unusual detail, and keep going until the real bottleneck is visible. Like amber, a useful solution preserves the important context: the people, constraints, handoffs, and exceptions that make your operation unique.",
     img: beforeAfter,
     imgAlt: "Unlocking business workflows",
     btnExists: false,
   },
   {
     isRightSection: true,
-    title: "Our Data-First Philosophy",
+    title: "Practical Solutions, Accessible to More Businesses",
     subTitle:
-      "Before powerful automation can take place, you must master the underlying numbers. We believe that true operational excellence shouldn't be reserved for massive enterprises with unlimited budgets. Our comprehensive, big-picture methodology combines rigorous data engineering with creative problem-solving. We look across your entire operation, knowing that a data breakthrough in one department often cascades into massive efficiencies for the whole organization. We don't just build isolated apps or automate single tasks; we build pathways to scalable growth powered by accurate insights.",
+      "Useful technology should not be reserved for enterprises with the largest budgets. Our services are designed for growing teams and specialized businesses that have outgrown spreadsheets, disconnected tools, or software that almost fits. Whether the answer is analytics, automation, an agentic workflow, or a custom application, we start with a focused outcome and plan the work in maintainable steps.",
     single: false,
     imgOne: constructionWorkers,
     imgOneAlt: "Team collaboration",
@@ -67,7 +66,7 @@ const articles: Article[] = [
 
 const pageTitle: string = `About Us | ${SITE.title}`;
 const metaDescription =
-  "Discover the story behind Amber Aardvark. Learn about our philosophy on data analytics, affordable process automation, and the unique symbolism of our mascot.";
+  "Learn how Amber Aardvark delivers affordable data, automation, agentic workflows, and custom applications for growing businesses and specialized use cases.";
 const ogTitle = "About Us | Amber Aardvark";
 ---
 
@@ -82,20 +81,20 @@ const ogTitle = "About Us | Amber Aardvark";
     url: `${SITE.url}/about`,
     name: "About Us | Amber Aardvark",
     description:
-      "Discover the story behind Amber Aardvark. Learn about our philosophy on data analytics, affordable process automation, and the unique symbolism of our mascot.",
+      "Learn how Amber Aardvark delivers affordable data, automation, agentic workflows, and custom applications for growing businesses and specialized use cases.",
     isPartOf: {
       "@type": "WebSite",
       url: SITE.url,
       name: "Amber Aardvark",
       description:
-        "Amber Aardvark offers top-tier data analytics, process automation, and custom application development services.",
+        "Amber Aardvark builds practical technology solutions for specialized business needs.",
     },
     inLanguage: "en-US",
   }}
 >
   <MainSection
-    title="Unearthing Value, Preserving Efficiency"
-    subTitle="At Amber Aardvark, we are data engineers and workflow archaeologists, dedicated to finding hidden insights and unlocking massive growth for your team."
+    title="Unearthing Value, Building What Fits"
+    subTitle="We are problem solvers who combine data, automation, AI-assisted workflows, and custom software to make specialized business processes simpler, faster, and more affordable."
     btnExists={true}
     btnTitle="Work With Us"
     btnURL={getRelativeUrl("contact")}
@@ -129,25 +128,4 @@ const ogTitle = "About Us | Amber Aardvark";
       );
     })
   }
-
-  <FeaturesStats
-    title="Our Impact"
-    subTitle="We measure our success by the value and time we save for our clients."
-    mainStatTitle="100%"
-    mainStatSubTitle="Client Satisfaction"
-    stats={[
-      {
-        stat: "50+",
-        description: "Custom Workflows & Apps Delivered",
-      },
-      {
-        stat: "10,000+",
-        description: "Hours Saved Annually",
-      },
-      {
-        stat: "24/7",
-        description: "Support & Monitoring",
-      },
-    ]}
-  />
 </MainLayout>

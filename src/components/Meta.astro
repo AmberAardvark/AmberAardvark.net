@@ -23,6 +23,7 @@ const {
   structuredData = defaultProps.structuredData,
   customDescription = defaultProps.customDescription,
   customOgTitle = defaultProps.customOgTitle,
+  lang = "en",
 } = Astro.props;
 
 // Use custom description if provided, otherwise use default meta
@@ -46,17 +47,17 @@ const socialImage = new URL(socialImageRes.src, Astro.site).href;
 
 const languages: { [key: string]: string } = {
   en: "",
+  "es-419": "es",
 };
 
 function createHref(lang: string, prefix: string, path: string): string {
-  // Remove any existing language prefix
-  const cleanPath = path.replace(/^\/(fr|en)\//, "/");
-
-  // Add the correct language prefix if needed
-  const basePath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
-  const normalizedBasePath = basePath.replace(/\/\/+/g, "/");
-
-  return `${siteURL.slice(0, -1)}${normalizedBasePath}`;
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const cleanPath = path
+    .replace(new RegExp(`^${base}`), "")
+    .replace(/^\/es(?=\/|$)/, "")
+    .replace(/^\/+/, "");
+  const localizedPath = [base, prefix, cleanPath].filter(Boolean).join("/");
+  return new URL(`/${localizedPath.replace(/^\/+/, "")}`, siteURL).href;
 }
 
 const fullPath: string = Astro.url.pathname;
@@ -108,7 +109,10 @@ const appleTouchIcon = await getImage({
 <Fragment set:html={alternateLanguageLinks} />
 
 {/* Facebook Meta Tags */}
-<meta property="og:locale" content="en_US" />
+<meta
+  property="og:locale"
+  content={lang.startsWith("es") ? "es_419" : "en_US"}
+/>
 <meta property="og:url" content={siteURL} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={ogTitle} />

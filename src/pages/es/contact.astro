@@ -1,0 +1,23 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection from "@components/sections/misc/ContactSection.astro";
+import { SITE } from "@data/constants";
+---
+
+<MainLayout
+  lang="es-419"
+  title={`Contacto | ${SITE.title}`}
+  customDescription="Contáctanos para conversar sobre datos, automatización, agentes de IA o una aplicación diseñada para tu proceso empresarial."
+  customOgTitle="Contacto | Amber Aardvark"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Contacto | Amber Aardvark",
+    description:
+      "Comunícate con Amber Aardvark para hablar sobre un reto empresarial especializado.",
+    inLanguage: "es-419",
+    url: `${SITE.url}/es/contact`,
+  }}
+>
+  <ContactSection locale="es" />
+</MainLayout>

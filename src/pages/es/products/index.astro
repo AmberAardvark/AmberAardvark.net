@@ -1,0 +1,65 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import { SITE } from "@data/constants";
+import { getRelativeUrl } from "@utils/utils";
+---
+
+<MainLayout
+  lang="es-419"
+  title={`Aceleradores | ${SITE.title}`}
+  customDescription="Puntos de partida reutilizables para plataformas de datos, gobernanza, análisis y automatización."
+  customOgTitle="Aceleradores | Amber Aardvark"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Aceleradores | Amber Aardvark",
+    description:
+      "Aceleradores y patrones reutilizables para evaluar soluciones de datos y automatización.",
+    inLanguage: "es-419",
+    url: `${SITE.url}/es/products`,
+  }}
+>
+  <section class="mx-auto max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1
+        class="text-4xl font-bold tracking-tight text-neutral-800 md:text-5xl dark:text-neutral-200"
+      >
+        Aceleradores
+      </h1>
+      <p class="mt-5 text-lg text-neutral-600 dark:text-neutral-400">
+        Explora puntos de partida reutilizables para plataformas de datos,
+        gobernanza, análisis y automatización.
+      </p>
+    </div>
+
+    <div
+      class="mx-auto mt-12 max-w-2xl rounded-xl border border-neutral-200 bg-neutral-100 p-8 text-center dark:border-neutral-700 dark:bg-neutral-800"
+    >
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+        Catálogo en preparación
+      </h2>
+      <p class="mt-3 text-neutral-600 dark:text-neutral-400">
+        Estamos preparando versiones en español de las fichas de cada
+        acelerador. Puedes contactarnos para recibir detalles del proyecto que
+        te interese.
+      </p>
+      <a
+        class="mt-6 inline-flex rounded-lg bg-yellow-500 px-5 py-3 font-bold text-neutral-900 transition hover:bg-yellow-400 focus-visible:ring-3 focus-visible:ring-yellow-400"
+        href={getRelativeUrl("es/contact")}
+      >
+        Solicitar información
+      </a>
+    </div>
+  </section>
+
+  <FeaturesStatsAlt
+    title="¿Por qué utilizar un acelerador?"
+    subTitle="Estos aceleradores reúnen componentes configurables y orientación de implementación para evaluar un punto de partida enfocado."
+    benefits={[
+      "Componentes reutilizables para requisitos comunes de datos y automatización.",
+      "Patrones documentados que pueden adaptarse a tu entorno.",
+      "Opciones de código abierto que puedes evaluar antes de iniciar una solución.",
+    ]}
+  />
+</MainLayout>

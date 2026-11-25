@@ -39,7 +39,7 @@ specificationsLeft:
   - title: "Governance & Security"
     subTitle: "DataHub, Authentik, and OpenBao handle data governance, identity, and secrets management."
   - title: "Status"
-    subTitle: "Currently in active design and architecture, with a phased rollout planned starting from a five-component core."
+    subTitle: "Currently in active design and architecture, with a phased rollout planned from a focused five-component core."
 tableData:
   - feature: ["Component", "Role", "Comparable Microsoft Service"]
     description:

@@ -34,6 +34,7 @@ export default defineConfig({
         defaultLocale: "en", // All urls that don't contain language prefix will be treated as default locale
         locales: {
           en: "en", // The `defaultLocale` value must present in `locales` keys
+          es: "es",
         },
       },
     }),

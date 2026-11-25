@@ -1,21 +1,21 @@
 {
   "title": "Flexible Engagement Models",
-  "subTitle": "Choose the right level of support for your business automation and app development needs.",
+  "subTitle": "Choose a scoped project or ongoing partnership for data, automation, agentic, and application work.",
   "badge": "Most Popular",
   "thirdOption": "Need a Custom Solution?",
   "btnText": "Contact Us",
 
   "starterKit": {
     "name": "Project-based",
-    "description": "Perfect for distinct automation workflows, or app development projects",
+    "description": "A focused engagement for a defined data, automation, or application challenge.",
     "price": "Custom",
     "cents": "",
     "billingFrequency": "One-time engagement",
     "features": [
-      "Requirements Analysis & Scoping",
-      "Process Automation Deployment",
-      "Custom Application Delivery",
-      "Clear Deliverables & Timelines"
+      "Discovery & Practical Roadmap",
+      "Defined Deliverables & Timeline",
+      "Build, Integration & Testing",
+      "Launch Support & Documentation"
     ],
     "purchaseBtnTitle": "Discuss Your Project",
     "purchaseLink": "/contact"
@@ -23,15 +23,15 @@
 
   "professionalToolbox": {
     "name": "Retainer-based",
-    "description": "Ongoing support, continuous iteration, and scale-as-you-grow service",
+    "description": "Ongoing delivery and support as your workflows, data, and applications evolve.",
     "price": "Retainer",
     "cents": "",
     "billingFrequency": "Monthly",
     "features": [
-      "Dedicated Support & Development Team",
-      "Proactive Workflow Monitoring",
+      "Prioritized Delivery Backlog",
+      "Monitoring & Maintenance",
       "Continuous Iteration & Improvement",
-      "Priority Incident Response"
+      "Responsive Technical Support"
     ],
     "purchaseBtnTitle": "Get Managed Services",
     "purchaseLink": "/contact"

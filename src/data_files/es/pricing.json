@@ -1,0 +1,39 @@
+{
+  "title": "Modelos de trabajo flexibles",
+  "subTitle": "Elige un proyecto definido o una colaboración continua para datos, automatización, agentes de IA y aplicaciones.",
+  "badge": "Más solicitado",
+  "thirdOption": "¿Necesitas una solución a la medida?",
+  "btnText": "Contáctanos",
+
+  "starterKit": {
+    "name": "Por proyecto",
+    "description": "Una colaboración enfocada en un reto definido de datos, automatización o software.",
+    "price": "A medida",
+    "cents": "",
+    "billingFrequency": "Trabajo único",
+    "features": [
+      "Descubrimiento y plan práctico",
+      "Entregables y cronograma definidos",
+      "Desarrollo, integración y pruebas",
+      "Apoyo al lanzamiento y documentación"
+    ],
+    "purchaseBtnTitle": "Hablemos de tu proyecto",
+    "purchaseLink": "/es/contact"
+  },
+
+  "professionalToolbox": {
+    "name": "Con anticipo",
+    "description": "Desarrollo y soporte continuos mientras evolucionan tus datos, flujos y aplicaciones.",
+    "price": "Anticipo",
+    "cents": "",
+    "billingFrequency": "Mensual",
+    "features": [
+      "Prioridades de trabajo definidas",
+      "Monitoreo y mantenimiento",
+      "Iteración y mejora continua",
+      "Soporte técnico oportuno"
+    ],
+    "purchaseBtnTitle": "Solicitar servicios continuos",
+    "purchaseLink": "/es/contact"
+  }
+}

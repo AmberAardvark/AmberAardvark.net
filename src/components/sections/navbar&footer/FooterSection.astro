@@ -1,94 +1,83 @@
 ---
 // Import the necessary dependencies
-import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
-import enStrings from "@utils/navigation.ts";
-import Icon from "@components/ui/icons/Icon.astro";
-import BrandLogo from "@components/BrandLogo.astro";
-import { SITE } from "@data/constants";
+import { getNavigation } from "@utils/navigation.ts";
 
-const strings = enStrings;
+const { lang = "en" } = Astro.props;
+interface Props {
+  lang?: string;
+}
 
-// Define the variables that will be used in this component
-const sectionThreeTitle: string = "Stay up to date";
-const sectionThreeContent: string =
-  "Stay updated with the latest insights and exclusive offers.";
-const crafted: string = "Crafted by";
+const strings = getNavigation(lang.startsWith("es") ? "es" : "en");
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
   <div
     class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
   >
-    <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
-      <div class="col-span-full lg:col-span-1">
-        <!-- Brand Logo -->
-        <BrandLogo class="h-10 w-auto" />
-      </div>
+    <div class="flex flex-wrap justify-center gap-8">
       <!-- An array of links for Product and Company sections -->
       {
         strings.footerLinks.map((section) => (
-          <div class="col-span-1">
-            <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
-              {section.section}
-            </h3>
-            <ul class="mt-3 grid space-y-3">
-              {section.links.map((link, index) => (
-                <li>
+          <div class="flex w-full justify-center min-[34rem]:w-fit">
+            <div class="flex w-52 max-w-full flex-col items-start text-left min-[34rem]:w-fit">
+              {section.url ? (
+                <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
                   <a
-                    href={link.url}
-                    class="inline-flex gap-x-2 rounded-lg text-neutral-600 ring-zinc-500 outline-hidden transition duration-300 hover:text-neutral-500 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-hidden"
+                    href={section.url}
+                    class="transition hover:text-neutral-500 dark:hover:text-neutral-300"
                   >
-                    {link.name}
+                    {section.section}
                   </a>
-                </li>
-              ))}
-            </ul>
+                </h3>
+              ) : (
+                <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
+                  {section.section}
+                </h3>
+              )}
+              <ul class="mt-3 grid items-start space-y-3 text-left">
+                {section.links.map((link, index) => (
+                  <li>
+                    <a
+                      href={link.url}
+                      class="inline-flex gap-x-2 rounded-lg text-neutral-600 ring-zinc-500 outline-hidden transition duration-300 hover:text-neutral-500 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-hidden"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))
       }
 
-      <div class="col-span-2">
+      <div
+        class="flex w-full max-w-md flex-col items-start text-left sm:w-[28rem]"
+      >
         <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
-          {sectionThreeTitle}
+          {strings.newsletterTitle}
         </h3>
 
-        <form>
-          <EmailFooterInput />
+        <form class="w-full max-w-md">
+          <EmailFooterInput
+            label={strings.newsletterLabel}
+            title={strings.newsletterButton}
+            placeholder={strings.newsletterPlaceholder}
+          />
           <p class="mt-3 text-sm text-neutral-600 dark:text-neutral-400">
-            {sectionThreeContent}
+            {strings.newsletterContent}
           </p>
         </form>
       </div>
     </div>
 
-    <div
-      class="mt-9 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
-    >
-      <div class="flex items-center justify-between">
+    <div class="mt-9 flex justify-center text-center sm:mt-12">
+      <div class="flex items-center justify-center">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
           © <span id="current-year"></span>
-          {SITE.title}. All rights reserved.
+          Amber Aardvark | {strings.copyright}
         </p>
-      </div>
-
-      <!-- Social Brands -->
-      <div>
-        <FooterSocialLink url={strings.socialLinks.facebook}
-          ><Icon name="facebookFooter" />
-        </FooterSocialLink>
-
-        <FooterSocialLink url={strings.socialLinks.github}
-          ><Icon name="githubFooter" />
-        </FooterSocialLink>
-
-        <FooterSocialLink url={strings.socialLinks.google}
-          ><Icon name="googleFooter" />
-        </FooterSocialLink>
-
-        <FooterSocialLink url={strings.socialLinks.slack}
-          ><Icon name="slackFooter" />
-        </FooterSocialLink>
       </div>
     </div>
 

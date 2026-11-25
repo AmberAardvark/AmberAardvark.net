@@ -3,13 +3,10 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
-import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "@images/amber-aardvark-features.png";
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
@@ -18,126 +15,66 @@ import featureImage from "@images/amber-aardvark-map.png";
 import construction from "@images/dashboard-image.avif";
 import tools from "@images/amber-aardvark-features.png";
 import dashboard from "@images/dashboard-image.avif";
-import { partnersData } from "@/data_files/constants";
 import { getRelativeUrl } from "@utils/utils";
-
-const avatarSrcs: Array<string> = [
-  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-];
 ---
 
 <MainLayout>
-  <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Explore Amber Aardvark on GitHub"
-    url="https://github.com/AmberAardvark/AmberAardvark.net"
-  />
-
   <HeroSection
-    title=`Discover the Power of Your Data with <span
+    title=`Solve the Problems Generic Software Overlooks with <span
         class="text-yellow-500 dark:text-yellow-400 text-outline">Amber Aardvark</span>`
-    subTitle="A premier Data Analytics & Engineering consultancy—now expanding our expertise into business automation, agentic workflows, and custom app development for a truly interconnected approach."
+    subTitle="Affordable data analytics, process automation, agentic workflows, and custom business applications - built around the way your team actually works."
     primaryBtn="Our Services"
     primaryBtnURL={getRelativeUrl("services")}
     secondaryBtn="Contact Us"
     secondaryBtnURL={getRelativeUrl("contact")}
-    withReview={true}
-    avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.9</span> / 5`
-    starCount={5}
-    reviews=`From Over <span class="font-bold">50+</span> Satisfied Clients`
     src={heroImage}
-    alt="Process automation dashboard on a screen"
-  />
-
-  <ClientsSection
-    title="Trusted by Forward-Thinking Organizations"
-    subTitle="Partnering with growing businesses to deliver scalable automation and app solutions."
-    partners={partnersData}
+    alt="Amber Aardvark business solutions overview"
   />
 
   <FeaturesGeneral
-    title="Data & Automation Solutions Built for You"
-    subTitle="Data is at the core of everything we do. We take a comprehensive approach to modern data stacks and complex processes. By mastering your data foundations, we ensure that an analytics, app, or automation breakthrough in one department cascades into massive efficiencies for your entire organization."
+    title="Business Solutions Built Around Your Reality"
+    subTitle="Start with the bottleneck, not a predetermined platform. We combine data, automation, AI-assisted workflows, and custom software into focused solutions that are useful, maintainable, and affordable."
     src={featureImage}
-    alt="Abstract workflow visualization graphic"
+    alt="Connected view of Amber Aardvark services"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Tailored <span class="text-yellow-500 dark:text-yellow-400 text-outline">Digital Solutions</span> for your business needs.`
+    title=`Four Ways to Make Your Business Work <span class="text-yellow-500 dark:text-yellow-400 text-outline">Better</span>`
     tabs={[
       {
-        heading: "Data Analytics & Engineering",
+        heading: "Data Analytics",
         content:
-          "Transform complex data into clear, interactive stories. We build robust data pipelines, data warehouses, and Power BI dashboards to drive your decision-making.",
+          "Bring scattered information into focus with practical data preparation, clear reporting, and insights tied to decisions your team needs to make.",
         svg: "dashboard",
         src: tools,
-        alt: "Data analytics dashboard",
+        alt: "Business analytics and reporting workspace",
         first: true,
       },
       {
         heading: "Process Automation",
         content:
-          "Eliminate manual tasks and streamline operations. We build efficient, automated workflows that save your team time and reduce operational costs.",
+          "Connect systems, route work, and remove repetitive steps so routine operations move faster with fewer errors and less manual effort.",
         svg: "tools",
         src: dashboard,
-        alt: "Visual representation of automated workflows",
+        alt: "Connected process automation workflow",
         second: true,
       },
       {
         heading: "Agentic Workflows",
         content:
-          "Intelligent AI agents working in tandem. We deploy sophisticated agentic structures that autonomously handle complex, multi-step processes for your unique niche.",
+          "Give AI a defined job within a multi-step process, with the integrations, boundaries, and human checkpoints required for dependable use.",
         svg: "tools",
         src: dashboard,
-        alt: "Diagram of AI agents collaborating",
+        alt: "Coordinated agentic business workflow",
       },
       {
         heading: "Custom App Development",
         content:
-          "Bespoke applications tailored to your exact budget and requirements. When off-the-shelf software falls short, we build robust custom solutions that fit perfectly.",
+          "Create focused applications for niche operational needs, replacing awkward workarounds without paying for an oversized enterprise platform.",
         svg: "house",
         src: construction,
         alt: "Interface of a custom business application",
-      },
-    ]}
-  />
-
-  <TestimonialsSection
-    title="Accelerate Your Growth"
-    subTitle="See how we've helped other organizations transform their workflows and drive business value."
-    ;
-    testimonials={[
-      {
-        content:
-          "Amber Aardvark revolutionized our daily operations. Their custom automated workflows save us hundreds of hours a month, and the tailored web app they built fits our niche process perfectly—all within our tight budget.",
-        author: "Sarah Jenkins",
-        role: "COO | NicheFlow Logistics",
-        avatarSrc:
-          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-      },
-    ]}
-    statistics={[
-      {
-        count: "10k+",
-        description: "Hours saved for our clients annually through automation",
-      },
-      {
-        count: "50+",
-        description:
-          "custom applications deployed successfully",
-      },
-      {
-        count: "100%",
-        description: "commitment to affordability and client success",
-      },
-      {
-        count: "24/7",
-        description: "reliable support for critical business pipelines",
       },
     ]}
   />
@@ -147,8 +84,8 @@ const avatarSrcs: Array<string> = [
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
   <HeroSectionAlt
-    title="Ready to Transform Your Business?"
-    subTitle="Contact us today to schedule a consultation and discover how Amber Aardvark can help you achieve your goals."
+    title="Have a Problem That Standard Software Cannot Solve?"
+    subTitle="Tell us about the manual process, disconnected data, or specialized workflow holding your team back."
     url={getRelativeUrl("contact")}
   />
 </MainLayout>

@@ -1,0 +1,22 @@
+[
+  {
+    "heading": "Análisis de datos",
+    "content": "Convierte datos dispersos en información útil con bases de datos prácticas, reportes claros y análisis enfocados en tus decisiones.",
+    "svg": "groups"
+  },
+  {
+    "heading": "Automatización de procesos",
+    "content": "Sustituye tareas repetitivas con flujos confiables que conectan tus herramientas, reducen errores y devuelven tiempo a tu equipo.",
+    "svg": "verified"
+  },
+  {
+    "heading": "Flujos con agentes de IA",
+    "content": "Aplica agentes de IA a procesos de varios pasos con límites claros, supervisión humana e integraciones adaptadas a tu operación real.",
+    "svg": "books"
+  },
+  {
+    "heading": "Desarrollo de aplicaciones",
+    "content": "Crea aplicaciones web enfocadas para los procesos especializados que las plataformas genéricas no admiten, ajustadas a tu presupuesto.",
+    "svg": "frame"
+  }
+]

@@ -1,11 +1,9 @@
 ---
 // Importing necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "@components/ui/cards/CardSmall.astro";
 import CardWide from "@components/ui/cards/CardWide.astro";
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
-import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
@@ -25,41 +23,7 @@ const product: CollectionEntry<"products">[] = (
 // Define variables for page content
 const title: string = "Accelerators";
 const subTitle: string =
-  "Jumpstart your automation journey with our pre-built solutions and accelerators. Designed to reduce time-to-value, our accelerators embody best practices and proven patterns for business automation and data engineering.";
-
-// Testimonial data that will be rendered in the component
-const testimonials = [
-  // First testimonial data
-  {
-    content:
-      ' "The Data Lake Accelerator from Amber Aardvark saved us months of development time. We had a secure, compliant, and scalable data foundation up and running in weeks, not months. The documentation and support were exceptional." ',
-    author: "Sarah Jenkins",
-    role: "CTO | FinTech Innovations",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Sarah Jenkins",
-  },
-  // Second testimonial data
-  {
-    content:
-      ' "Amber Aardvark\'s Power BI Audit Tool gave us visibility into our tenant that we never had before. We were able to identify unused reports, optimize capacity, and improve governance overnight. A must-have for any Power BI admin." ',
-    author: "Michael Chen",
-    role: "Data Governance Lead | Global Retail",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Michael Chen",
-  },
-  // Third testimonial data
-  {
-    content:
-      ' "The Data Quality Framework caught issues in our pipelines that had been silently corrupting reports for months. Rollout was painless, and the reusable validation rules have already saved our team dozens of hours of manual auditing." ',
-    author: "Richard Kim",
-    role: "Head of Data | WoodWright Manufacturing",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
-  },
-];
+  "Explore reusable starting points for data platforms, governance, analytics, and automation work.";
 
 const pageTitle: string = `Products | ${SITE.title}`;
 const metaDescription =
@@ -107,7 +71,6 @@ const ogTitle = "Accelerators | Amber Aardvark";
           )
         }
       </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
     {
       /* Displaying products in alternating styles. Alternative product gets different card styling.
@@ -129,16 +92,11 @@ const ogTitle = "Accelerators | Amber Aardvark";
   {/* Features statistics section */}
   <FeaturesStatsAlt
     title="Why Choose Amber Aardvark?"
-    subTitle="Turn your data and automation goals into tangible results with Amber Aardvark accelerators. Whether you're standing up a new data platform or hardening an existing one, our pre-built solutions help you move with confidence."
+    subTitle="These accelerators package configurable components and implementation guidance so you can evaluate a focused starting point for your own requirements."
     benefits={[
-      "Battle-tested accelerators that cut deployment time from weeks to minutes.",
-      "Innovative solutions tailored to modern data, automation, and app development needs.",
-      "Customer support dedicated to your project's success.",
+      "Reusable components for common data and automation requirements.",
+      "Documented patterns you can adapt to your environment.",
+      "Open-source options that can be assessed before committing to a build.",
     ]}
-  />
-  {/* Testimonials section */}
-  <TestimonialsSectionAlt
-    title="What Our Customers Say"
-    testimonials={testimonials}
   />
 </MainLayout>

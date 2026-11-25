@@ -1,0 +1,106 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSection from "@components/sections/landing/HeroSection.astro";
+import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
+import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import FAQ from "@components/sections/misc/FAQ.astro";
+import heroImage from "@images/amber-aardvark-features.png";
+import featureImage from "@images/amber-aardvark-map.png";
+import tools from "@images/amber-aardvark-features.png";
+import dashboard from "@images/dashboard-image.avif";
+import faqs from "@data/es/faqs.json";
+import features from "@data/es/features.json";
+import pricing from "@data/es/pricing.json";
+import { SITE } from "@data/constants";
+import { getRelativeUrl } from "@utils/utils";
+---
+
+<MainLayout
+  lang="es-419"
+  title={`Inicio | ${SITE.title}`}
+  customDescription="Automatización, análisis de datos, flujos con agentes de IA y aplicaciones web a la medida para necesidades empresariales especializadas en Latinoamérica."
+  customOgTitle="Automatización, datos y aplicaciones | Amber Aardvark"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Amber Aardvark en español",
+    description:
+      "Soluciones accesibles de datos, automatización, agentes de IA y aplicaciones para equipos especializados.",
+    inLanguage: "es-419",
+    url: `${SITE.url}/es`,
+  }}
+>
+  <HeroSection
+    title=`Resuelve los problemas que el software genérico pasa por alto con <span
+      class="text-yellow-500 dark:text-yellow-400 text-outline">Amber Aardvark</span>`
+    subTitle="Análisis de datos, automatización de procesos, flujos con agentes de IA y aplicaciones empresariales a la medida, creadas alrededor de cómo trabaja realmente tu equipo."
+    primaryBtn="Nuestros servicios"
+    primaryBtnURL={getRelativeUrl("es/services")}
+    secondaryBtn="Contáctanos"
+    secondaryBtnURL={getRelativeUrl("es/contact")}
+    src={heroImage}
+    alt="Panorama de las soluciones empresariales de Amber Aardvark"
+  />
+
+  <FeaturesGeneral
+    title="Soluciones empresariales construidas para tu realidad"
+    subTitle="Comenzamos con el obstáculo, no con una plataforma predeterminada. Combinamos datos, automatización, flujos con IA y software a la medida en soluciones enfocadas, fáciles de mantener y accesibles."
+    src={featureImage}
+    alt="Vista conectada de los servicios de Amber Aardvark"
+    features={features}
+  />
+
+  <FeaturesNavs
+    title=`Cuatro formas de hacer que tu negocio funcione <span
+      class="text-yellow-500 dark:text-yellow-400 text-outline">mejor</span>`
+    tabs={[
+      {
+        heading: "Análisis de datos",
+        content:
+          "Organiza información dispersa con preparación práctica de datos, reportes claros y análisis vinculados con las decisiones que tu equipo necesita tomar.",
+        svg: "dashboard",
+        src: tools,
+        alt: "Espacio de trabajo de análisis y reportes empresariales",
+        first: true,
+      },
+      {
+        heading: "Automatización de procesos",
+        content:
+          "Conecta sistemas, dirige el trabajo y elimina pasos repetitivos para que la operación avance más rápido, con menos errores y menor esfuerzo manual.",
+        svg: "tools",
+        src: dashboard,
+        alt: "Flujo conectado de automatización de procesos",
+        second: true,
+      },
+      {
+        heading: "Flujos con agentes de IA",
+        content:
+          "Asigna a la IA una tarea definida dentro de un proceso, con las integraciones, límites y revisiones humanas necesarios para utilizarla de forma confiable.",
+        svg: "tools",
+        src: dashboard,
+        alt: "Flujo coordinado con agentes de IA",
+      },
+      {
+        heading: "Desarrollo de aplicaciones",
+        content:
+          "Crea aplicaciones enfocadas en necesidades operativas específicas y reemplaza soluciones improvisadas sin pagar por una plataforma empresarial sobredimensionada.",
+        svg: "house",
+        src: dashboard,
+        alt: "Interfaz de una aplicación empresarial a la medida",
+      },
+    ]}
+  />
+
+  <PricingSection pricing={pricing} locale="es" />
+
+  <FAQ title="Preguntas<br />frecuentes" faqs={faqs} />
+
+  <HeroSectionAlt
+    title="¿Tienes un problema que el software estándar no puede resolver?"
+    subTitle="Cuéntanos sobre el proceso manual, los datos desconectados o el flujo especializado que frena a tu equipo."
+    url={getRelativeUrl("es/contact")}
+    btnTitle="Contáctanos"
+  />
+</MainLayout>

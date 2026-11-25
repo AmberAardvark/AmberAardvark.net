@@ -1,0 +1,62 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+import dataImage from "@images/dashboard-image.avif";
+import featureImage from "@images/amber-aardvark-features.png";
+import mapImage from "@images/amber-aardvark-map.png";
+import { SITE } from "@data/constants";
+import { getRelativeUrl } from "@utils/utils";
+---
+
+<MainLayout
+  lang="es-419"
+  title={`Nosotros | ${SITE.title}`}
+  customDescription="Conoce la visión de Amber Aardvark y nuestro enfoque accesible para datos, automatización, agentes de IA y aplicaciones personalizadas."
+  customOgTitle="Nosotros | Amber Aardvark"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Nosotros | Amber Aardvark",
+    description:
+      "Tecnología práctica para necesidades empresariales especializadas.",
+    inLanguage: "es-419",
+    url: `${SITE.url}/es/about`,
+  }}
+>
+  <MainSection
+    title="Descubrir valor, construir lo que encaja"
+    subTitle="Combinamos datos, automatización, flujos con IA y software a la medida para hacer que los procesos empresariales especializados sean más simples, rápidos y accesibles."
+    btnExists={true}
+    btnTitle="Trabaja con nosotros"
+    btnURL={getRelativeUrl("es/contact")}
+  />
+
+  <RightSection
+    title="La leyenda del oso hormiguero ámbar"
+    subTitle="El oso hormiguero representa curiosidad y tenacidad: la capacidad de profundizar hasta encontrar exactamente lo que se necesita. El ámbar conserva el contexto de un momento. Juntos, representan nuestra forma de investigar los detalles que hacen único a un negocio."
+    single={false}
+    imgOne={dataImage}
+    imgOneAlt="Concepto de exploración de datos"
+    imgTwo={featureImage}
+    imgTwoAlt="Conservación de información importante"
+  />
+
+  <LeftSection
+    title="Curiosidad y tenacidad"
+    subTitle="Comenzamos debajo del primer síntoma, seguimos el detalle inusual y continuamos hasta ver el verdadero cuello de botella. Como el ámbar, una solución útil conserva el contexto importante: las personas, las restricciones, las transferencias y las excepciones."
+    img={mapImage}
+    imgAlt="Descubrimiento de flujos empresariales"
+  />
+
+  <RightSection
+    title="Soluciones prácticas para más empresas"
+    subTitle="La tecnología útil no debe reservarse para empresas con los presupuestos más grandes. Diseñamos servicios para equipos en crecimiento que han superado las hojas de cálculo, las herramientas desconectadas o el software que casi les sirve."
+    single={false}
+    imgOne={featureImage}
+    imgOneAlt="Colaboración para resolver problemas"
+    imgTwo={dataImage}
+    imgTwoAlt="Panorama estratégico"
+  />
+</MainLayout>

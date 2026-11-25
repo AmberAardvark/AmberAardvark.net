@@ -1,29 +1,29 @@
 {
-  "subTitle": "Common questions about our automation and app development services.",
+  "subTitle": "Common questions about solving specialized business problems affordably.",
   "faqs": [
     {
       "question": "Do you work with budget-constrained businesses?",
-      "answer": "Yes. We focus heavily on providing affordable solutions that big firms often overlook, allowing small to medium businesses to leverage advanced automation and custom applications without exorbitant costs."
+      "answer": "Yes. We start with the problem and the value it can create, then shape a right-sized solution and phased plan around your budget. Small and midsize teams do not need enterprise-scale overhead to benefit from automation, analytics, or custom software."
     },
     {
       "question": "Can you help us automate our highly niche workflow?",
-      "answer": "Absolutely. Niche and complex workflows are our specialty. Our agentic workflows and custom automation systems are tailor-made for specific operational requirements that rigid, off-the-shelf software can't handle."
+      "answer": "Absolutely. We specialize in the unusual processes and edge cases that generic platforms are not designed to handle. We map how your team actually works before choosing or building the smallest reliable solution."
     },
     {
       "question": "What technologies do you specialize in?",
-      "answer": "We utilize modern web frameworks, leading AI agentic infrastructures, and versatile process automation tools. Whenever possible, we also leverage the Microsoft Data Platform, Power BI, and Azure to build robust data solutions when required."
+      "answer": "We choose practical, maintainable technologies for the job rather than forcing every client into one platform. That can include modern web frameworks, data platforms, integration services, workflow engines, and AI tools."
     },
     {
-      "question": "Do you still offer your legacy data analytics services?",
-      "answer": "Yes! While our offerings have expanded into automation and custom software, we still provide deep expertise in data analytics, data engineering, and visualization so you can keep transforming raw data into actionable insights."
+      "question": "Do we need a clear technical plan before contacting you?",
+      "answer": "No. Bring us the bottleneck, awkward spreadsheet, disconnected tools, or manual process. We will help clarify the opportunity, identify constraints, and outline practical next steps."
     },
     {
       "question": "How long does a custom app or automation project take?",
-      "answer": "Timelines depend on the complexity of the requirements. A straightforward automation might be deployed in weeks, while robust custom applications use a phased delivery approach. We always prioritize fast time-to-value and clear communication."
+      "answer": "Timing depends on scope and complexity. We favor phased delivery, so a useful first version can create value quickly while larger applications and workflows develop with clear milestones."
     },
     {
       "question": "Do you provide ongoing support after the project is finished?",
-      "answer": "Yes, we offer flexible, retainer-based managed services. We provide ongoing monitoring, continuous iteration, and priority support for your automation pipelines and applications, ensuring they scale with your business."
+      "answer": "Yes. Our flexible retainer engagements can cover monitoring, maintenance, enhancements, and new opportunities across your analytics, workflows, agents, and applications."
     }
   ]
 }

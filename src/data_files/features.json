@@ -1,22 +1,22 @@
 [
   {
-    "heading": "Data Analytics & Engineering",
-    "content": "Transform raw data into actionable insights with tailored analytics solutions. We build solid data platforms, robust pipelines, and interactive dashboards to empower your decision-making.",
+    "heading": "Data Analytics",
+    "content": "Turn scattered business data into dependable, decision-ready insights with practical data foundations, streamlined reporting, and focused analytics.",
     "svg": "groups"
   },
   {
     "heading": "Process Automation",
-    "content": "Eliminate manual tasks and streamline operations. We build efficient, automated workflows that save your team time and dramatically reduce operational costs.",
+    "content": "Replace repetitive work with reliable workflows that connect your existing tools, reduce errors, and give your team time back.",
     "svg": "verified"
   },
   {
-    "heading": "Custom App Development",
-    "content": "When off-the-shelf software falls short, we build robust custom applications tailored specifically to your exact budget and niche business requirements.",
-    "svg": "frame"
+    "heading": "Agentic Workflows",
+    "content": "Apply AI agents to multi-step work with clear guardrails, human oversight, and integrations designed around your real operating process.",
+    "svg": "books"
   },
   {
-    "heading": "Agentic Workflows",
-    "content": "Deploy sophisticated, autonomous AI agents working in tandem. We create intelligent systems that handle complex, multi-step processes for your unique niche.",
-    "svg": "books"
+    "heading": "Custom App Development",
+    "content": "Build focused web applications for the specialized workflows that generic platforms do not support, sized to your budget and priorities.",
+    "svg": "frame"
   }
 ]

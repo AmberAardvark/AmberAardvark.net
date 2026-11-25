@@ -11,11 +11,11 @@ readTime: 5
 tags: ["safety", "governance", "automation"]
 contents:
   [
-    "When it comes to automating business operations, safety and reliability are non-negotiable. At Amber Aardvark, we're proud to design agentic workflows and data pipelines that prioritize both, ensuring your automations are built to last.",
-    "Our team brings precision and rigor to every engagement, from a single automated report to complex multi-step agentic pipelines. With careful testing and thoughtful guardrails, we guarantee the highest standards of reliability and control on every project.",
-    "But our commitment to excellence doesn't end there. We also provide thorough project oversight to keep your rollout on track and within budget. From workflow monitoring to stakeholder communication, Amber Aardvark handles the complexities so you can focus on your vision.",
-    "What sets Amber Aardvark apart is our dedication to ongoing support. We don't just ship a workflow and walk away—we're here for the long haul. Our monitoring and maintenance services ensure that your automations keep running correctly, providing peace of mind for years to come.",
-    "For larger enterprise clients, we offer custom governance frameworks tailored to your unique compliance and risk requirements. By understanding your specific needs, we engineer safeguards aimed at maximizing efficiency without sacrificing control.",
-    "With Amber Aardvark, you can trust that your data pipelines and agentic workflows are in good hands. Experience the difference today and see why so many clients choose Amber Aardvark for their automation needs.",
+    "When it comes to automating business operations, safety and reliability should be treated as core design requirements. Useful agentic workflows need clear boundaries, observable behavior, and a defined path for human review.",
+    "Start by describing the smallest task an agent can own safely. Define the inputs, permitted actions, success criteria, failure states, and the point at which a person must intervene.",
+    "Testing should include expected inputs, malformed data, unavailable integrations, and ambiguous decisions. Logs, evaluation checks, and traceable tool calls make failures easier to investigate and improve.",
+    "Rollouts can begin in a supervised mode before gaining autonomy. Rate limits, scoped credentials, approvals, and reversible actions reduce the impact of an unexpected result.",
+    "Governance requirements belong in the design rather than being added after implementation. Data access, retention, auditability, and escalation paths should match the risk of the process.",
+    "The goal is not maximum autonomy. It is a workflow that is dependable enough to operate, understandable enough to monitor, and bounded enough to correct when conditions change.",
   ]
 ---

@@ -1,4 +1,4 @@
-// Define data structures for services and success stories
+// Define data structures for services and future supplemental content
 export const servicesData = [
   {
     title: "Explore Advice and Explanations",
@@ -48,7 +48,7 @@ export const successStoriesData = [
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
     alt: "Image Description",
     description:
-      "See how Amber Aardvark has empowered businesses of all sizes to achieve outstanding results.",
+      "Project examples will be shared here after real work is available to publish.",
     learnMoreUrl: "#",
   },
 ];

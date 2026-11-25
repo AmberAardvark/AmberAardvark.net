@@ -1,0 +1,47 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+---
+
+<MainLayout
+  lang="es-419"
+  title={`Blog | ${SITE.title}`}
+  customDescription="Ideas, guías y análisis en español sobre automatización, datos, agentes de IA y desarrollo de aplicaciones."
+  customOgTitle="Blog | Amber Aardvark"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Blog | Amber Aardvark",
+    description:
+      "Artículos en español sobre soluciones empresariales prácticas.",
+    inLanguage: "es-419",
+    url: `${SITE.url}/es/blog`,
+  }}
+>
+  <section class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1
+        class="text-4xl font-bold tracking-tight text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
+      >
+        Ideas sobre automatización y aplicaciones
+      </h1>
+      <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+        Recursos prácticos sobre flujos con agentes, automatización de procesos,
+        datos y software empresarial a la medida.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div
+      class="rounded-xl border border-neutral-200 bg-neutral-100 p-8 text-center md:p-12 dark:border-neutral-700 dark:bg-neutral-800"
+    >
+      <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200">
+        Próximamente
+      </h2>
+      <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+        Estamos preparando artículos originales en español latinoamericano.
+      </p>
+    </div>
+  </section>
+</MainLayout>

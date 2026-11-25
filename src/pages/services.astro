@@ -4,17 +4,12 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import MainSection from "@components/ui/blocks/MainSection.astro";
 import LeftSection from "@components/ui/blocks/LeftSection.astro";
 import RightSection from "@components/ui/blocks/RightSection.astro";
-import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
 
 // Import necessary images
 import blueprints from "@images/dashboard-image.avif";
 import personWorking from "@images/amber-aardvark-features.png";
 import beforeAfter from "@images/amber-aardvark-map.png";
-import constructionWorkers from "@images/amber-aardvark-features.png";
 import aerialView from "@images/dashboard-image.avif";
-import usingTools from "@images/amber-aardvark-map.png";
-import progressBuilding from "@images/amber-aardvark-features.png";
-import underConstruction from "@images/dashboard-image.avif";
 import { SITE } from "@data/constants";
 import { getRelativeUrl } from "@utils/utils";
 
@@ -38,92 +33,52 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Data Strategy & Advisory",
+    title: "Data Analytics",
     subTitle:
-      "Navigating the complex landscape of modern data analytics requires a clear roadmap. We help you define your data strategy, assess your current maturity, and identify high-impact use cases. Our advisory services ensure your data initiatives align with your business goals and deliver measurable ROI.",
+      "Make your operational data useful without building an oversized platform. We assess what you already have, connect and clean the sources that matter, and create focused reporting for the decisions your team makes every day. From recurring reports to a streamlined data foundation, each solution is sized to the value it needs to deliver.",
     single: false,
     imgOne: blueprints,
-    imgOneAlt: "Strategic planning session",
+    imgOneAlt: "Business data analytics dashboard",
     imgTwo: personWorking,
-    imgTwoAlt: "Data architect designing solution",
-    id: "analytics-consulting",
-  },
-  {
-    isRightSection: false,
-    title: "Data Engineering & Architecture",
-    subTitle:
-      "Build a solid foundation for your analytics. We design and implement scalable, secure, and efficient data platforms on Azure. From data lakes to data warehouses, we engineer robust pipelines using Azure Data Factory, Synapse Analytics, and Databricks to ensure your data is accurate, timely, and accessible.",
-    img: beforeAfter,
-    imgAlt: "Data architecture diagram",
-    btnExists: true,
-    btnTitle: "Learn More",
-    btnURL: "#",
-    id: "data-engineering",
-  },
-  {
-    isRightSection: true,
-    title: "Power BI & Visualization",
-    subTitle:
-      "Turn data into insights with stunning, interactive dashboards. Our Power BI experts create intuitive visualizations that tell a compelling story. We follow best practices for data modeling (Star Schema) and DAX optimization to ensure your reports are fast, reliable, and easy to use.",
-    single: false,
-    imgOne: constructionWorkers,
-    imgOneAlt: "Team reviewing Power BI dashboard",
-    imgTwo: aerialView,
-    imgTwoAlt: "Data visualization on screen",
-    id: "power-bi",
+    imgTwoAlt: "Data analyst preparing connected reporting",
+    id: "data-analytics",
   },
   {
     isRightSection: false,
     title: "Process Automation",
     subTitle:
-      "Eliminate tedious manual tasks and streamline your operations. We examine your bottlenecks and deploy custom automated workflows that save your team hundreds of hours. Affordable and efficient, our solutions reduce operational costs without the exorbitant price tag of enterprise software.",
-    img: usingTools,
-    imgAlt: "Planning automation workflows",
+      "Remove the repetitive steps that slow work down. We map the process, connect the tools involved, and automate handoffs, approvals, notifications, and routine data movement. Human review stays where judgment matters, while dependable automation handles the predictable work.",
+    img: beforeAfter,
+    imgAlt: "Connected business process automation map",
     id: "process-automation",
   },
   {
     isRightSection: true,
-    title: "Custom App Development",
-    subTitle:
-      "Off-the-shelf software rarely fits specialized business needs perfectly. We develop tailored, budget-friendly web applications designed exactly for your niche use cases. Enjoy tools that look and work exactly how your team needs them.",
-    single: true,
-    imgOne: aerialView,
-    imgOneAlt: "Web application interface",
-    btnExists: true,
-    btnTitle: "Learn More",
-    btnURL: "#",
-    id: "custom-app-development",
-  },
-  {
-    isRightSection: false,
     title: "Agentic Workflows",
     subTitle:
-      "When basic automation isn't enough, we build intelligent AI agent systems. These advanced setups work autonomously, collaborating on multi-step tasks specific to your niche. Our custom agentic frameworks handle complexity so you don't have to.",
-    img: blueprints,
-    imgAlt: "AI agent workflow orchestration diagram",
+      "Use AI agents where they can safely advance a multi-step business process. We design bounded tasks, connect the right systems, add evaluation and human checkpoints, and make the workflow observable. The result is useful automation with clear controls, not an opaque experiment.",
+    single: false,
+    imgOne: personWorking,
+    imgOneAlt: "Team planning an agentic business workflow",
+    imgTwo: aerialView,
+    imgTwoAlt: "Orchestrated AI agent workflow",
     id: "agentic-workflows",
   },
   {
-    isRightSection: true,
-    title: "Managed Support & Improvements",
+    isRightSection: false,
+    title: "Custom App Development",
     subTitle:
-      "Focus on running your business while we monitor and maintain your automated workflows, data platforms, and custom apps. Our flexible retainer-based managed services provide continuous iterations, ensuring your digital tools scale seamlessly alongside your company's growth.",
-    single: false,
-    imgOne: progressBuilding,
-    imgOneAlt: "Monitoring dashboard",
-    imgTwo: underConstruction,
-    imgTwoAlt: "Team collaborating on enhancements",
-    btnExists: true,
-    btnTitle: "Read more",
-    btnURL: "#",
-    id: "managed-services",
+      "Build the focused application your process actually needs. We turn niche workflows, spreadsheets, and workarounds into secure, maintainable web tools with only the features that create value. Modular delivery keeps scope, cost, and future improvements under control.",
+    img: aerialView,
+    imgAlt: "Custom business application interface",
+    id: "custom-app-development",
   },
 ];
 
 const pageTitle: string = `Services | ${SITE.title}`;
 const metaDescription =
-  "Expert data analytics, data engineering, process automation, and custom application development services from Amber Aardvark.";
-const ogTitle = "Data Analytics & Automation Services | Amber Aardvark";
+  "Affordable data analytics, process automation, agentic workflows, and custom application development from Amber Aardvark.";
+const ogTitle = "Automation, Data & Custom App Services | Amber Aardvark";
 ---
 
 <MainLayout
@@ -135,15 +90,15 @@ const ogTitle = "Data Analytics & Automation Services | Amber Aardvark";
     "@type": "WebPage",
     "@id": `${SITE.url}/services`,
     url: `${SITE.url}/services`,
-    name: "Data Analytics & Automation Services | Amber Aardvark",
+    name: "Automation, Data & Custom App Services | Amber Aardvark",
     description:
-      "Expert data analytics, data engineering, process automation, and custom application development services from Amber Aardvark.",
+      "Affordable data analytics, process automation, agentic workflows, and custom application development from Amber Aardvark.",
     isPartOf: {
       "@type": "WebSite",
       url: SITE.url,
       name: "Amber Aardvark",
       description:
-        "Amber Aardvark offers expert data analytics, process automation, agentic workflows, and custom app development services to fit niche use cases.",
+        "Amber Aardvark builds affordable business solutions for specialized workflows and niche use cases.",
     },
     inLanguage: "en-US",
   }}
@@ -152,8 +107,8 @@ const ogTitle = "Data Analytics & Automation Services | Amber Aardvark";
     /* MainSection is the introductory section of the page, it also contains a CTA button */
   }
   <MainSection
-    title="Transforming Your Data into True Performance"
-    subTitle="As data analytics experts first, we take a comprehensive, big-picture approach to your business. By looking at your data ecosystems and internal bottlenecks as an interconnected whole, we ensure that modern data engineering, combined with new AI workflows and bespoke apps, cascades into massive operational efficiencies across your entire organization."
+    title="Four Services. One Practical Goal."
+    subTitle="Reduce operational friction with the right combination of data analytics, process automation, agentic workflows, and custom applications. Every engagement starts with your specific challenge and ends with a maintainable solution sized to its value."
     btnExists={true}
     btnTitle="Schedule a Consultation"
     btnURL={getRelativeUrl("contact")}
@@ -198,25 +153,4 @@ const ogTitle = "Data Analytics & Automation Services | Amber Aardvark";
       );
     })
   }
-  {/* FeaturesStats section showcases essential stats valuable to users */}
-  <FeaturesStats
-    title="By the Numbers"
-    subTitle="Our commitment to efficiency and affordability is evident in every project we undertake. At Amber Aardvark, we are dedicated to delivering high-quality automation and custom applications that help your business scale effortlessly."
-    mainStatTitle="96%"
-    mainStatSubTitle="of our clients rate their custom solutions and workflows as exceptional"
-    stats={[
-      {
-        stat: "10k+",
-        description: "hours saved for our clients annually",
-      },
-      {
-        stat: "50+",
-        description: "custom applications deployed",
-      },
-      {
-        stat: "100%",
-        description: "focus on affordability and niche requirements",
-      },
-    ]}
-  />
 </MainLayout>

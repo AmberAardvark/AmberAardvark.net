@@ -12,9 +12,9 @@ tags: ["data engineering", "azure", "trends"]
 contents:
   [
     "Data engineering is evolving rapidly. Gone are the days of monolithic ETL pipelines and siloed data warehouses. Today, we are seeing a shift towards decentralized architectures like Data Mesh and unified platforms like Microsoft Fabric.",
-    "One of the biggest trends is the convergence of data engineering and software engineering. Concepts like DataOps, CI/CD for data, and infrastructure-as-code are becoming standard. At Amber Aardvark, we help clients adopt these practices to build more resilient and scalable data platforms.",
+    "One of the biggest trends is the convergence of data engineering and software engineering. Concepts like DataOps, CI/CD for data, and infrastructure-as-code are becoming standard practices for teams that want more resilient and scalable data platforms.",
     "Another key development is the rise of AI-driven data engineering. Copilots and LLMs are helping engineers write code faster, document pipelines automatically, and even optimize query performance. This allows data teams to focus less on boilerplate code and more on high-value logic.",
     "Finally, governance is taking center stage. With data democratization comes the need for robust governance frameworks. Tools like Microsoft Purview are essential for discovering, classifying, and protecting sensitive data across the estate.",
-    "As we look ahead, the role of the data engineer will continue to evolve. It's an exciting time to be in the industry, and Amber Aardvark is here to help you navigate these changes.",
+    "As we look ahead, the role of the data engineer will continue to evolve. These themes provide a useful framework for evaluating the next generation of data platforms and engineering practices.",
   ]
 ---

@@ -3,15 +3,13 @@
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 
 // Define props from Astro
-const { title, subTitle, url } = Astro.props;
+const { title, subTitle, url, btnTitle = "Contact Us" } = Astro.props;
 
-const btnTitle = "Contact Us";
-
-// Define TypeScript interface for props
 interface Props {
   title: string;
   subTitle?: string;
   url?: string;
+  btnTitle?: string;
 }
 ---
 

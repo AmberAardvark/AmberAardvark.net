@@ -44,7 +44,7 @@ specificationsRight:
   - title: "Multi-Cloud"
     subTitle: "Support for AWS and Google Cloud Platform (optional add-on)."
   - title: "Savings Potential"
-    subTitle: "Typical customers see a 20-30% reduction in their monthly cloud bill."
+    subTitle: "Identify potential savings opportunities across your Azure environment."
   - title: "Implementation"
     subTitle: "Rapid deployment with no impact on your running services."
   - title: "Support"
